@@ -1,43 +1,136 @@
-/* ============================================================
-   VISION HUB
-   Gestion complète de la navigation et du quiz
-   ============================================================ */
-
-
-/* ==================== DONNÉES DU QUIZ ==================== */
-
-/*
- * Chaque thématique possède ses questions.
- * Pour l'instant, quelques questions sont présentes comme
- * exemple. Il suffira ensuite de compléter les tableaux.
- */
-
 const quizData = {
 
     maths: {
         name: "Maths",
         total: 25,
         questions: [
-            {
-                question: "Quel organe est principalement responsable de la filtration du sang ?",
-                answers: [
-                    "Le cœur",
-                    "Les reins",
-                    "Les poumons",
-                    "L'estomac"
-                ],
-                correct: 1
-            },
-            {
-                question: "Quelle est l'unité fondamentale du vivant ?",
-                answers: [
-                    "L'atome",
-                    "Le tissu",
-                    "La cellule",
-                    "L'organe"
-                ],
-                correct: 2
-            }
+            
+  {
+    "question": "Combien font 12 x 15 ?",
+    "answers": ["160", "170", "180", "190"],
+    "correct": 2
+  },
+  {
+    "question": "Quelle est la racine carree de 144 ?",
+    "answers": ["10", "11", "12", "14"],
+    "correct": 2
+  },
+  {
+    "question": "Combien font 25% de 200 ?",
+    "answers": ["25", "40", "50", "75"],
+    "correct": 2
+  },
+  {
+    "question": "Resoudre : 2x + 6 = 14. x = ?",
+    "answers": ["3", "4", "5", "6"],
+    "correct": 1
+  },
+  {
+    "question": "Combien de degres dans un triangle ?",
+    "answers": ["90 degres", "180 degres", "270 degres", "360 degres"],
+    "correct": 1
+  },
+  {
+    "question": "Quelle est l'aire d'un carre de cote 7 ?",
+    "answers": ["14", "28", "49", "56"],
+    "correct": 2
+  },
+  {
+    "question": "Combien font 3^4 ?",
+    "answers": ["12", "27", "64", "81"],
+    "correct": 3
+  },
+  {
+    "question": "Le PGCD de 12 et 18 est :",
+    "answers": ["2", "3", "6", "9"],
+    "correct": 2
+  },
+  {
+    "question": "Combien font 1/2 + 1/4 ?",
+    "answers": ["1/6", "2/6", "3/4", "1"],
+    "correct": 2
+  },
+  {
+    "question": "Quelle est la valeur de Pi arrondie a 2 decimales ?",
+    "answers": ["3.12", "3.14", "3.16", "3.18"],
+    "correct": 1
+  },
+  {
+    "question": "Un nombre pair + un nombre pair = ?",
+    "answers": ["Impair", "Pair", "0", "1"],
+    "correct": 1
+  },
+  {
+    "question": "Combien de cotes a un hexagone ?",
+    "answers": ["5", "6", "7", "8"],
+    "correct": 1
+  },
+  {
+    "question": "10% de 90 = ?",
+    "answers": ["8", "9", "10", "18"],
+    "correct": 1
+  },
+  {
+    "question": "Volume d'un cube de cote 3 ?",
+    "answers": ["9", "18", "27", "36"],
+    "correct": 2
+  },
+  {
+    "question": "Combien font 100 - 37 ?",
+    "answers": ["63", "67", "73", "77"],
+    "correct": 0
+  },
+  {
+    "question": "Le symbole π represente :",
+    "answers": ["Rayon", "Diametre", "Circonference / Diametre", "Aire"],
+    "correct": 2
+  },
+  {
+    "question": "5! = ?",
+    "answers": ["20", "60", "120", "240"],
+    "correct": 2
+  },
+  {
+    "question": "Combien de minutes dans 2.5 heures ?",
+    "answers": ["120", "140", "150", "180"],
+    "correct": 2
+  },
+  {
+    "question": "L'equation d'une droite est :",
+    "answers": ["y = ax + b", "x² + y² = r²", "a² + b² = c²", "A = πr²"],
+    "correct": 0
+  },
+  {
+    "question": "Combien font 9 x 9 ?",
+    "answers": ["72", "81", "90", "99"],
+    "correct": 1
+  },
+  {
+    "question": "Quelle fraction est egale a 0.75 ?",
+    "answers": ["1/2", "2/3", "3/4", "4/5"],
+    "correct": 2
+  },
+  {
+    "question": "Theoreme de Pythagore :",
+    "answers": ["a + b = c", "a² + b² = c²", "a x b = c", "a/b = c"],
+    "correct": 1
+  },
+  {
+    "question": "Combien font 2^10 ?",
+    "answers": ["512", "1024", "2048", "4096"],
+    "correct": 1
+  },
+  {
+    "question": "Le perimetre d'un cercle s'appelle :",
+    "answers": ["Aire", "Diametre", "Circonference", "Rayon"],
+    "correct": 2
+  },
+  {
+    "question": "7 - 3 x 2 = ?",
+    "answers": ["1", "8", "14", "4"],
+    "correct": 0
+  }
+
         ]
     },
 
@@ -118,7 +211,7 @@ const quizData = {
               "Tenis"
             ],
             correct: "Basket"
-        }
+        },
         {
           question: "Le marathon fait combien de kilometre ?",
             answers: [
@@ -128,7 +221,7 @@ const quizData = {
               "50"
             ],
             correct: "42,195"
-        }
+        },
         {
           question: "Combien de sets pour gagner a Roland Garros ?",
             answers: [
@@ -138,7 +231,7 @@ const quizData = {
               "5"
             ],
             correct: "3"
-        }
+        },
         {
           question: "Quel est le sport national du japon ?",
             answers: [
@@ -148,7 +241,7 @@ const quizData = {
               "Kendo"
             ],
             correct: "Sumo"
-        }
+        },
         {
           question: "Combien d'anneaux y a-t-il sur le logo des jeux olympiques ?",
             answers: [
@@ -158,7 +251,7 @@ const quizData = {
               "6"
             ],
             correct: "5"
-        }
+        },
         {
           question: "Dans la natation, le papillon est : ?",
             answers: [
@@ -168,7 +261,7 @@ const quizData = {
               "Un record"
             ],
             correct: "Une nage"
-        }
+        },
         {
           question: "Le ballon recompense le meilleur joueur ?",
             answers: [
@@ -178,7 +271,7 @@ const quizData = {
               "le meilleur but"
             ],
             correct: "le meilleur joueur"
-        }
+        },
         {
           question: "Combien de joueurs y a-t-il dans une equipe de volley ?",
             answers: [
@@ -188,7 +281,7 @@ const quizData = {
               "7"
             ],
             correct: "6"
-        }
+        },
         {
           question: "Le 100m est une epreuve de :  ?",
             answers: [
@@ -198,7 +291,7 @@ const quizData = {
               "Haies"
             ],
             correct: "Sprint"
-        }
+        },
         {
           question: "Au tennis, 40-4- s'appelle : ?",
             answers: [
@@ -208,7 +301,7 @@ const quizData = {
               "Set"
             ],
             correct: "Egalite"
-        }
+        },
         {
           question: "Quel est le pays avec le plus de coupe du monde ?",
             answers: [
@@ -218,7 +311,7 @@ const quizData = {
               "Italie"
             ],
             correct: "Bresil"
-        }
+        },
         {
           question: "La NBA est une ligue de :  ?",
             answers: [
@@ -228,7 +321,7 @@ const quizData = {
               "Hockey"
             ],
             correct: "Basket"
-        }
+        },
         {
           question: "Combien de tours fait un F1 a Monaco ?",
             answers: [
@@ -238,7 +331,7 @@ const quizData = {
               "90"
             ],
             correct: "78"
-        }
+        },
         {
           question: "Le criquet se joue en :  ?",
             answers: [
@@ -248,7 +341,7 @@ const quizData = {
               "Russie"
             ],
             correct: "Inde"
-        }
+        },
         {
           question: "Le KO vient de :  ?",
             answers: [
@@ -258,7 +351,7 @@ const quizData = {
               "Golf"
             ],
             correct: "Boxe"
-        }
+        },
         {
           question: "Combien de joueurs en ruby au XV ?",
             answers: [
@@ -268,7 +361,7 @@ const quizData = {
               "18"
             ],
             correct: "15"
-        }
+        },
         {
           question: "Le tour de France est : ?",
             answers: [
@@ -278,7 +371,7 @@ const quizData = {
               "Course auto"
             ],
             correct: "Course cycliste"
-        }
+        },
         {
           question: "Dans quel sport crie-t-on Strike ?",
             answers: [
@@ -288,7 +381,7 @@ const quizData = {
               "Tenis"
             ],
             correct: "Bowling"
-        }
+        },
         {
           question: "Les JO d'hiver 2026 auront lieu au : ?",
             answers: [
@@ -298,7 +391,7 @@ const quizData = {
               "Los Angeles"
             ],
             correct: "Mila Cortina"
-        }
+        },
         {
           question: "Le but au handball mesure: ?",
             answers: [
@@ -308,7 +401,7 @@ const quizData = {
               "4m x 4m"
             ],
             correct: "3m x 2m"
-        }
+        },
         {
           question: "Michael Jordan a joue en  ?",
             answers: [
@@ -318,7 +411,7 @@ const quizData = {
               "NFL"
             ],
             correct: "NBA"
-        }
+        },
         {
           question: "Le plus rapide sur 110m : Usain ?",
             answers: [
@@ -328,7 +421,7 @@ const quizData = {
               "James"
             ],
             correct: "Bolt"
-        }
+        },
         {
           question: "Au fait, un carton rouge = ?",
             answers: [
@@ -338,7 +431,7 @@ const quizData = {
               "Corner"
             ],
             correct: "Expulsion"
-        }
+        },
         {
           question: "Le sport avec le plus de medailles olympiques : ?",
             answers: [
