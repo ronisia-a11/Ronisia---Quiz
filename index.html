@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080d17">
+    <title>Ronisia - Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Conteneur principal de l'application -->
+    <main class="app">
+
+        <!-- ==================== ÉCRAN D'ACCUEIL ==================== -->
+        <section id="welcomeScreen" class="screen active">
+            <div class="card welcome-card">
+
+                <!-- Bouton permettant d'activer/désactiver le son -->
+                <button class="sound-button" id="welcomeSound" aria-label="Activer le son">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+
+                <!-- Logo de l'application -->
+                <div class="logo">
+                    <span class="logo-icon">🎓</span>
+                </div>
+
+                <!-- Nom de l'application -->
+                <h1>RONISIA</h1>
+
+                <!-- Slogan -->
+                <p class="slogan">
+                    APPRENDRE - PROGRESSER - RÉUSSIR 
+                </p>
+
+                <!-- Formulaire de saisie du nom -->
+                <div class="name-area">
+                    <label for="playerName">
+                        Entrez votre nom complet pour commencer :
+                    </label>
+
+                    <input
+                        type="text"
+                        id="playerName"
+                        placeholder="Ex: Dany Cameroun"
+                        autocomplete="name"
+                    >
+                </div>
+
+                <!-- Bouton de continuation -->
+                <button class="primary-button" id="continueButton">
+                    Continuer <span><i class="fas fa-arrow-right"></i></span>
+                </button>
+
+                <!-- Message d'erreur -->
+                <p class="error-message" id="nameError"></p>
+            </div>
+        </section>
+
+
+        <!-- ==================== ÉCRAN DES THÉMATIQUES ==================== -->
+        <section id="themeScreen" class="screen">
+            <div class="card theme-card">
+
+                <!-- Bouton son -->
+                <button class="sound-button" id="themeSound" aria-label="Activer le son">
+                    <i class="fas fa-microphone"></i>
+                </button>
+
+                <!-- Titre -->
+                <h2>Choisissez votre<br>thématique</h2>
+
+                <!-- Description -->
+                <p class="theme-description">
+                    Chaque bloc contient 25 questions de<br>
+                    niveau master.
+                </p>
+
+                <!-- Liste des thématiques -->
+                <div class="theme-grid">
+
+                    <!-- Biologie -->
+                    <button class="theme-button" data-theme="maths">
+                        <span class="theme-icon"><i class="fas fa-square-root-alt"></i></span>
+                        <span>Maths</span>
+                    </button>
+
+                    <!-- Géographie -->
+                    <button class="theme-button" data-theme="biology">
+                        <span class="theme-icon"><i class="fas fa-leaf"></i></span>
+                        <span>Biologie <br>vegetale</span>
+                    </button>
+
+                    <!-- Histoire -->
+                    <button class="theme-button" data-theme="medecine">
+                        <span class="theme-icon"><i class="fas fa-heartbeat"></i></span>
+                        <span>Medecine</span>
+                    </button>
+
+                    <!-- Espace -->
+                    <button class="theme-button" data-theme="sport">
+                        <span class="theme-icon"><i class="fas fa-dumbbell"></i></span>
+                        <span>Sport</span>
+                    </button>
+
+                </div>
+
+                <!-- Grand marathon -->
+                <button class="marathon-button" data-theme="marathon">
+                    <span class="marathon-icon"><i class="fas fa-star"></i></span>
+                    <span>Le Grand Marathon (101 Questions)</span>
+                </button>
+
+                <!-- Retour -->
+                <button class="secondary-button" id="backToWelcome">
+                    Retour
+                </button>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== ÉCRAN DU QUIZ ==================== -->
+        <section id="quizScreen" class="screen">
+            <div class="card quiz-card">
+
+                <!-- En-tête du quiz -->
+                <div class="quiz-header">
+
+                    <!-- Nom de la thématique -->
+                    <span class="quiz-category" id="quizCategory">
+                        ESPACE
+                    </span>
+
+                    <!-- Numéro de question -->
+                    <span class="question-counter" id="questionCounter">
+                        Question 1/25
+                    </span>
+
+                    <!-- Bouton son -->
+                    <button class="sound-button quiz-sound" id="quizSound" aria-label="Activer le son">
+                       <i class="fas fa-volume-up"></i>
+                    </button>
+                </div>
+
+                <!-- Barre de progression -->
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+
+                <!-- Question -->
+                <div class="question-container">
+                    <h2 id="questionText">
+                        Qui fut le premier être humain à voyager dans l'espace en 1961 ?
+                    </h2>
+                </div>
+
+                <!-- Réponses -->
+                <div class="answers" id="answersContainer">
+
+                    <button class="answer-button">
+                        <span>Neil Armstrong</span>
+                    </button>
+
+                    <button class="answer-button">
+                        <span>Yuri Gagarine</span>
+                    </button>
+
+                    <button class="answer-button">
+                        <span>Buzz Aldrin</span>
+                    </button>
+
+                    <button class="answer-button">
+                        <span>John Glenn</span>
+                    </button>
+
+                </div>
+
+                <!-- Zone de résultat -->
+                <div class="answer-feedback" id="answerFeedback"></div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================== ÉCRAN DES RÉSULTATS ==================== -->
+        <section id="resultScreen" class="screen">
+            <div class="card result-card">
+
+                <div class="result-icon"><i class="fas fa-trophy trophe-or" style="color: #FFD700; font-size: 60px; text-shadow: 0 0 20px #FFD700, 0 0 40px #FFA500; /* Effet lumine*/;"></i></div>
+
+                <h2>Quiz terminé !</h2>
+
+                <p class="player-result" id="playerResult">
+                    Bravo !
+                </p>
+
+                <div class="score-box">
+                    <span class="score-label">Votre score</span>
+                    <strong id="finalScore">0 / 25</strong>
+                </div>
+
+                <button class="primary-button" id="restartButton">
+                    Recommencer <span><i class="fas fa-redo-alt"></i></span>
+                </button>
+
+                <button class="secondary-button" id="resultBackButton">
+                    Choisir une autre thématique
+                </button>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

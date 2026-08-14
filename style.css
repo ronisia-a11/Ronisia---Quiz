@@ -1,0 +1,863 @@
+/* ==================== RÉINITIALISATION ==================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: #070c15;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+
+/* ==================== APPLICATION ==================== */
+
+.app {
+    width: 100%;
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(0, 173, 255, 0.04),
+            transparent 45%
+        ),
+        #070c15;
+}
+
+.screen {
+    width: 100%;
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+
+/* ==================== CARTE PRINCIPALE ==================== */
+
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    background: #101827;
+    border: 1px solid rgba(0, 190, 255, 0.25);
+    border-radius: 38px;
+    box-shadow:
+        0 0 30px rgba(0, 120, 255, 0.04),
+        inset 0 0 30px rgba(0, 120, 255, 0.02);
+}
+
+
+/* ==================== BOUTON SON ==================== */
+
+.sound-button {
+    position: absolute;
+    top: 40px;
+    right: 42px;
+    width: 66px;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(40, 51, 72, 0.65);
+    border: 1px solid rgba(130, 145, 170, 0.18);
+    font-size: 28px;
+    transition: 0.25s ease;
+    z-index: 5;
+}
+
+.sound-button:hover {
+    transform: scale(1.06);
+    background: rgba(50, 65, 90, 0.9);
+}
+
+
+/* ==================== ÉCRAN D'ACCUEIL ==================== */
+
+.welcome-card {
+    min-height: 910px;
+    padding: 140px 38px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    width: 145px;
+    height: 145px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 38px;
+    background: linear-gradient(
+        145deg,
+        #0dc9ff,
+        #0876f5
+    );
+    box-shadow:
+        0 0 30px rgba(0, 184, 255, 0.35),
+        0 15px 35px rgba(0, 100, 255, 0.12);
+    margin-bottom: 36px;
+}
+
+.logo-icon {
+    font-size: 72px;
+    filter: grayscale(1) brightness(0) invert(1);
+}
+
+.welcome-card h1 {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.slogan {
+    color: #00ef9a;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    line-height: 1.35;
+    text-align: center;
+    margin-bottom: 72px;
+}
+
+.name-area {
+    width: 100%;
+    max-width: 530px;
+    margin-bottom: 45px;
+}
+
+.name-area label {
+    display: block;
+    color: #a8b0c0;
+    font-size: 22px;
+    line-height: 1.25;
+    margin-bottom: 17px;
+}
+
+.name-area input {
+    width: 100%;
+    height: 88px;
+    padding: 0 32px;
+    color: #ffffff;
+    background: #1c2637;
+    border: 2px solid #344156;
+    border-radius: 25px;
+    outline: none;
+    font-size: 23px;
+    transition: 0.25s ease;
+}
+
+.name-area input::placeholder {
+    color: #717b8d;
+}
+
+.name-area input:focus {
+    border-color: #00bfff;
+    box-shadow: 0 0 18px rgba(0, 191, 255, 0.1);
+}
+
+.primary-button {
+    width: 100%;
+    max-width: 530px;
+    height: 90px;
+    border-radius: 25px;
+    color: white;
+    background: linear-gradient(
+        100deg,
+        #0cc7f5,
+        #0878f5
+    );
+    font-size: 25px;
+    font-weight: 700;
+    box-shadow:
+        0 10px 30px rgba(0, 110, 255, 0.16);
+    transition: 0.25s ease;
+}
+
+.primary-button span {
+    margin-left: 5px;
+    font-size: 30px;
+}
+
+.primary-button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 14px 35px rgba(0, 130, 255, 0.25);
+}
+
+.error-message {
+    min-height: 25px;
+    color: #ff5570;
+    font-size: 15px;
+    margin-top: 14px;
+}
+
+
+/* ==================== ÉCRAN THÉMATIQUES ==================== */
+
+.theme-card {
+    min-height: 900px;
+    padding: 85px 38px 30px;
+}
+
+.theme-card h2 {
+    font-size: 34px;
+    line-height: 1.45;
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.theme-description {
+    color: #aeb6c6;
+    text-align: center;
+    font-size: 21px;
+    line-height: 1.25;
+    margin-bottom: 38px;
+}
+
+.theme-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.theme-button {
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: white;
+    background: #192234;
+    border: 1px solid rgba(120, 140, 175, 0.17);
+    border-radius: 30px;
+    transition: 0.25s ease;
+}
+
+.theme-button:hover {
+    transform: translateY(-3px);
+    border-color: #00c9ff;
+    background: #1d2a3f;
+}
+
+.theme-icon {
+    color: #00caff;
+    font-size: 45px;
+    line-height: 1;
+}
+
+.theme-button span:last-child {
+    font-size: 21px;
+    line-height: 1.2;
+    font-weight: 700;
+    text-align: center;
+}
+
+.marathon-button {
+    width: 100%;
+    min-height: 125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 20px;
+    color: white;
+    background: #10263a;
+    border: 1px solid rgba(0, 198, 255, 0.45);
+    border-radius: 30px;
+    font-size: 21px;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.marathon-button:hover {
+    background: #15334b;
+    transform: translateY(-2px);
+}
+
+.marathon-icon {
+    color: #00f59d;
+    font-size: 48px;
+    line-height: 1;
+}
+
+.secondary-button {
+    width: 100%;
+    min-height: 90px;
+    margin-top: 5px;
+    color: #aeb6c6;
+    background: transparent;
+    border: 2px solid #303b4f;
+    border-radius: 25px;
+    font-size: 23px;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.secondary-button:hover {
+    color: white;
+    border-color: #00aeea;
+}
+
+
+/* ==================== ÉCRAN DU QUIZ ==================== */
+
+.quiz-card {
+    min-height: 900px;
+    padding: 60px 48px 50px;
+}
+
+.quiz-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 82px;
+}
+
+.quiz-category {
+    color: #00caff;
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.question-counter {
+    color: #b0b8c9;
+    font-size: 23px;
+}
+
+.quiz-sound {
+    top: -20px;
+    right: 0;
+}
+
+.progress-container {
+    width: 100%;
+    height: 12px;
+    margin-top: 40px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #2a3445;
+}
+
+.progress-bar {
+    width: 4%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(
+        90deg,
+        #08c9ff,
+        #00f49a
+    );
+    transition: width 0.35s ease;
+}
+
+.question-container {
+    padding: 60px 0 65px;
+}
+
+.question-container h2 {
+    font-size: 38px;
+    line-height: 1.4;
+    font-weight: 800;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+}
+
+.answer-button {
+    width: 100%;
+    min-height: 105px;
+    display: flex;
+    align-items: center;
+    padding: 20px 40px;
+    color: #e7ebf2;
+    text-align: left;
+    background: #1b2536;
+    border: 2px solid #313c50;
+    border-radius: 28px;
+    font-size: 24px;
+    transition: 0.2s ease;
+}
+
+.answer-button:hover {
+    border-color: #00caff;
+    background: #202d41;
+    transform: translateX(3px);
+}
+
+.answer-button.correct {
+    border-color: #00ef9a;
+    background: rgba(0, 239, 154, 0.12);
+}
+
+.answer-button.incorrect {
+    border-color: #ff4e67;
+    background: rgba(255, 78, 103, 0.12);
+}
+
+.answer-button.disabled {
+    pointer-events: none;
+}
+
+.answer-feedback {
+    min-height: 40px;
+    padding-top: 22px;
+    text-align: center;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.answer-feedback.correct {
+    color: #00ef9a;
+}
+
+.answer-feedback.incorrect {
+    color: #ff6178;
+}
+
+
+/* ==================== ÉCRAN RÉSULTAT ==================== */
+
+.result-card {
+    min-height: 650px;
+    padding: 70px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.result-icon {
+    font-size: 80px;
+    margin-bottom: 25px;
+}
+
+.result-card h2 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.player-result {
+    color: #aeb6c6;
+    font-size: 22px;
+    margin-bottom: 35px;
+}
+
+.score-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    text-align: center;
+    background: #192234;
+    border: 1px solid #303c50;
+    border-radius: 25px;
+    margin-bottom: 35px;
+}
+
+.score-label {
+    display: block;
+    color: #aeb6c6;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.score-box strong {
+    display: block;
+    color: #00d8ff;
+    font-size: 42px;
+}
+
+
+/* ==================== TABLETTES ==================== */
+
+@media (max-width: 700px) {
+
+    .screen {
+        padding: 20px 12px;
+        align-items: center;
+    }
+
+    .card {
+        border-radius: 30px;
+    }
+
+    .sound-button {
+        top: 30px;
+        right: 28px;
+        width: 58px;
+        height: 58px;
+        font-size: 24px;
+    }
+
+    .welcome-card {
+        min-height: 780px;
+        padding: 105px 30px 35px;
+    }
+
+    .logo {
+        width: 125px;
+        height: 125px;
+        border-radius: 32px;
+        margin-bottom: 30px;
+    }
+
+    .logo-icon {
+        font-size: 60px;
+    }
+
+    .welcome-card h1 {
+        font-size: 34px;
+    }
+
+    .slogan {
+        font-size: 17px;
+        letter-spacing: 2.5px;
+        margin-bottom: 55px;
+    }
+
+    .name-area label {
+        font-size: 19px;
+    }
+
+    .name-area input {
+        height: 80px;
+        font-size: 20px;
+        border-radius: 22px;
+    }
+
+    .primary-button {
+        height: 80px;
+        font-size: 22px;
+        border-radius: 22px;
+    }
+
+    .theme-card {
+        min-height: auto;
+        padding: 80px 25px 25px;
+    }
+
+    .theme-card h2 {
+        font-size: 30px;
+    }
+
+    .theme-description {
+        font-size: 18px;
+    }
+
+    .theme-grid {
+        gap: 15px;
+    }
+
+    .theme-button {
+        min-height: 160px;
+        border-radius: 25px;
+    }
+
+    .theme-icon {
+        font-size: 38px;
+    }
+
+    .theme-button span:last-child {
+        font-size: 18px;
+    }
+
+    .marathon-button {
+        min-height: 105px;
+        border-radius: 25px;
+        font-size: 18px;
+    }
+
+    .marathon-icon {
+        font-size: 40px;
+    }
+
+    .secondary-button {
+        min-height: 75px;
+        font-size: 20px;
+        border-radius: 22px;
+    }
+
+    .quiz-card {
+        min-height: 820px;
+        padding: 50px 25px 35px;
+    }
+
+    .quiz-header {
+        padding-right: 70px;
+    }
+
+    .quiz-category,
+    .question-counter {
+        font-size: 18px;
+    }
+
+    .quiz-sound {
+        top: -12px;
+    }
+
+    .progress-container {
+        margin-top: 35px;
+    }
+
+    .question-container {
+        padding: 50px 0 50px;
+    }
+
+    .question-container h2 {
+        font-size: 30px;
+        line-height: 1.35;
+    }
+
+    .answers {
+        gap: 18px;
+    }
+
+    .answer-button {
+        min-height: 80px;
+        padding: 18px 25px;
+        border-radius: 22px;
+        font-size: 20px;
+    }
+}
+
+
+/* ==================== TÉLÉPHONES ==================== */
+
+@media (max-width: 480px) {
+
+    .screen {
+        padding: 12px 8px;
+    }
+
+    .card {
+        border-radius: 28px;
+    }
+
+    .sound-button {
+        width: 56px;
+        height: 56px;
+        top: 28px;
+        right: 24px;
+    }
+
+    .welcome-card {
+        min-height: 750px;
+        padding: 95px 28px 28px;
+    }
+
+    .logo {
+        width: 115px;
+        height: 115px;
+        border-radius: 30px;
+    }
+
+    .logo-icon {
+        font-size: 55px;
+    }
+
+    .welcome-card h1 {
+        font-size: 32px;
+    }
+
+    .slogan {
+        font-size: 16px;
+        margin-bottom: 50px;
+    }
+
+    .name-area {
+        margin-bottom: 38px;
+    }
+
+    .name-area label {
+        font-size: 18px;
+    }
+
+    .name-area input {
+        height: 78px;
+        padding: 0 25px;
+        font-size: 18px;
+    }
+
+    .primary-button {
+        height: 78px;
+        font-size: 20px;
+    }
+
+    .theme-card {
+        padding: 82px 20px 20px;
+    }
+
+    .theme-card h2 {
+        font-size: 28px;
+        line-height: 1.35;
+    }
+
+    .theme-description {
+        font-size: 17px;
+        margin-bottom: 30px;
+    }
+
+    .theme-grid {
+        gap: 12px;
+    }
+
+    .theme-button {
+        min-height: 150px;
+        border-radius: 23px;
+        gap: 15px;
+    }
+
+    .theme-icon {
+        font-size: 35px;
+    }
+
+    .theme-button span:last-child {
+        font-size: 17px;
+    }
+
+    .marathon-button {
+        min-height: 100px;
+        padding: 15px;
+        gap: 12px;
+        font-size: 16px;
+    }
+
+    .marathon-icon {
+        font-size: 35px;
+    }
+
+    .secondary-button {
+        min-height: 70px;
+        font-size: 19px;
+    }
+
+    .quiz-card {
+        min-height: 800px;
+        padding: 48px 20px 30px;
+    }
+
+    .quiz-header {
+        padding-right: 65px;
+    }
+
+    .quiz-category,
+    .question-counter {
+        font-size: 16px;
+    }
+
+    .quiz-sound {
+        width: 55px;
+        height: 55px;
+        right: -2px;
+    }
+
+    .progress-container {
+        height: 11px;
+        margin-top: 32px;
+    }
+
+    .question-container {
+        padding: 48px 0 42px;
+    }
+
+    .question-container h2 {
+        font-size: 27px;
+    }
+
+    .answers {
+        gap: 16px;
+    }
+
+    .answer-button {
+        min-height: 76px;
+        padding: 16px 22px;
+        font-size: 18px;
+        border-radius: 20px;
+    }
+}
+
+
+/* ==================== PETITS ÉCRANS ==================== */
+
+@media (max-height: 700px) and (max-width: 480px) {
+
+    .screen {
+        align-items: flex-start;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .welcome-card {
+        min-height: auto;
+        padding-top: 85px;
+    }
+
+    .logo {
+        width: 95px;
+        height: 95px;
+        margin-bottom: 20px;
+    }
+
+    .logo-icon {
+        font-size: 45px;
+    }
+
+    .welcome-card h1 {
+        font-size: 28px;
+    }
+
+    .slogan {
+        margin-bottom: 30px;
+    }
+
+    .name-area {
+        margin-bottom: 25px;
+    }
+
+    .name-area input {
+        height: 65px;
+    }
+
+    .primary-button {
+        height: 65px;
+    }
+}
