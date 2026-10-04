@@ -405,14 +405,14 @@ const quizData = {
       total: 25,
       questions: [
         {
-          question: "Combien de jours peut-il y avoir sur un terrain de football ?",
+          question: "Combien de joueurs peut-il y avoir sur un terrain de football dans une equipe?",
             answers: [
               "9",
               "10",
               "11",
               "12"
             ],
-            correct: "11"
+            correct: 3
         },
         {
           question: "Dans quel sport utilise-t-on un panier ?",
