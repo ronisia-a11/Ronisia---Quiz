@@ -1165,56 +1165,6 @@ const quizData = {
     "question": "Le Tour de France est une course :",
     "answers": ["A pied", "Cycliste", "Auto", "Bateau"],
     "correct": 1
-  },
-  {
-    "question": "Translate 'Vert' in English :",
-    "answers": ["Red", "Green", "Blue", "Yellow"],
-    "correct": 1
-  },
-  {
-    "question": "Quelle fraction est egale a 0.75 ?",
-    "answers": ["1/2", "2/3", "3/4", "4/5"],
-    "correct": 2
-  },
-  {
-    "question": "Manque de fer = ?",
-    "answers": ["Diabete", "Anemie", "Cancer", "Asthme"],
-    "correct": 1
-  },
-  {
-    "question": "On crie 'Strike' dans quel sport ?",
-    "answers": ["Bowling", "Golf", "Billard", "Flechettes"],
-    "correct": 0
-  },
-  {
-    "question": "Le Theoreme de Pythagore :",
-    "answers": ["a + b = c", "a² + b² = c²", "a x b = c", "a/b = c"],
-    "correct": 1
-  },
-  {
-    "question": "Se laver les mains evite :",
-    "answers": ["Le froid", "Les infections", "La faim", "Le sommeil"],
-    "correct": 1
-  },
-  {
-    "question": "Translate 'France' in English :",
-    "answers": ["France", "French", "Paris", "Europe"],
-    "correct": 0
-  },
-  {
-    "question": "Combien font 2^10 ?",
-    "answers": ["512", "1024", "2048", "4096"],
-    "correct": 1
-  },
-  {
-    "question": "Le perimetre d'un cercle s'appelle :",
-    "answers": ["Aire", "Diametre", "Circonference", "Rayon"],
-    "correct": 2
-  },
-  {
-    "question": "Les JO d'hiver 2026 auront lieu a :",
-    "answers": ["Paris", "Milan-Cortina", "Tokyo", "Los Angeles"],
-    "correct": 1
   }
 ]
     }
