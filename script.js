@@ -1215,26 +1215,6 @@ const quizData = {
     "question": "Les JO d'hiver 2026 auront lieu a :",
     "answers": ["Paris", "Milan-Cortina", "Tokyo", "Los Angeles"],
     "correct": 1
-  },
-  {
-    "question": "7 - 3 x 2 = ?",
-    "answers": ["1", "8", "14", "4"],
-    "correct": 0
-  },
-  {
-    "question": "Qui a ecrit Le Comte de Monte-Cristo ?",
-    "answers": ["Victor Hugo", "Alexandre Dumas", "Emile Zola", "Balzac"],
-    "correct": 1
-  },
-  {
-    "question": "Translate 'Docteur' in English :",
-    "answers": ["Teacher", "Doctor", "Lawyer", "Engineer"],
-    "correct": 1
-  },
-  {
-    "question": "Le sport avec le plus de medailles aux JO :",
-    "answers": ["Athletisme", "Natation", "Gymnastique", "Cyclisme"],
-    "correct": 1
   }
 ]
     }
