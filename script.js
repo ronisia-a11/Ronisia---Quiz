@@ -21,12 +21,12 @@ const quizData = {
     "correct": 2
   },
   {
-    "question": "Resoudre : 2x + 6 = 14. x = ?",
-    "answers": ["3", "4", "5", "6"],
+    "question": "Resoudre et donner la valeur de x : 2x + 6 = 14 + x",
+    "answers": ["3", "8", "5", "6"],
     "correct": 1
   },
   {
-    "question": "Combien de degres dans un triangle ?",
+    "question": "Combien de degres au total y a-t-il dans un triangle ?",
     "answers": ["90 degres", "180 degres", "270 degres", "360 degres"],
     "correct": 1
   },
@@ -422,7 +422,7 @@ const quizData = {
               "Handball",
               "Tenis"
             ],
-            correct: "Basket"
+            correct: 1
         },
         {
           question: "Le marathon fait combien de kilometre ?",
@@ -432,7 +432,7 @@ const quizData = {
               "42,195",
               "50"
             ],
-            correct: "42,195"
+            correct: 2
         },
         {
           question: "Combien de sets pour gagner a Roland Garros ?",
@@ -442,7 +442,7 @@ const quizData = {
               "4",
               "5"
             ],
-            correct: "3"
+            correct: 1
         },
         {
           question: "Quel est le sport national du japon ?",
@@ -452,7 +452,7 @@ const quizData = {
               "Sumo",
               "Kendo"
             ],
-            correct: "Sumo"
+            correct: 2
         },
         {
           question: "Combien d'anneaux y a-t-il sur le logo des jeux olympiques ?",
@@ -462,7 +462,7 @@ const quizData = {
               "5",
               "6"
             ],
-            correct: "5"
+            correct: 2
         },
         {
           question: "Dans la natation, le papillon est : ?",
@@ -472,7 +472,7 @@ const quizData = {
               "Une faute",
               "Un record"
             ],
-            correct: "Une nage"
+            correct: 0
         },
         {
           question: "Le ballon recompense le meilleur joueur ?",
@@ -482,7 +482,7 @@ const quizData = {
               "le meilleur equipe",
               "le meilleur but"
             ],
-            correct: "le meilleur joueur"
+            correct: 1
         },
         {
           question: "Combien de joueurs y a-t-il dans une equipe de volley ?",
@@ -492,7 +492,7 @@ const quizData = {
               "6",
               "7"
             ],
-            correct: "6"
+            correct: 2
         },
         {
           question: "Le 100m est une epreuve de :  ?",
@@ -502,7 +502,7 @@ const quizData = {
               "Sprint",
               "Haies"
             ],
-            correct: "Sprint"
+            correct: 2
         },
         {
           question: "Au tennis, 40-4- s'appelle : ?",
@@ -512,7 +512,7 @@ const quizData = {
               "Jeu",
               "Set"
             ],
-            correct: "Egalite"
+            correct: 1
         },
         {
           question: "Quel est le pays avec le plus de coupe du monde ?",
@@ -522,7 +522,7 @@ const quizData = {
               "France",
               "Italie"
             ],
-            correct: "Bresil"
+            correct: 1
         },
         {
           question: "La NBA est une ligue de :  ?",
@@ -532,7 +532,7 @@ const quizData = {
               "Basket",
               "Hockey"
             ],
-            correct: "Basket"
+            correct: 2
         },
         {
           question: "Combien de tours fait un F1 a Monaco ?",
