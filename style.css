@@ -861,3 +861,565 @@ button {
         height: 65px;
     }
 }
+
+/* =====================================================================
+   AJOUTS (même thème visuel) : salutation, navigation, classement,
+   profil, fenêtre de confirmation
+   ===================================================================== */
+
+/* ---------- Salutation (écran d'accueil) ---------- */
+
+.slogan.has-greeting {
+    margin-bottom: 22px;
+}
+
+.greeting {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.35;
+    text-align: center;
+    margin-bottom: 34px;
+}
+
+/* ---------- Écran principal (thèmes / classement / profil) ---------- */
+
+.home-card {
+    min-height: 900px;
+    padding: 36px 38px 30px;
+}
+
+.home-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.home-hello {
+    min-width: 0;
+    font-size: 22px;
+    font-weight: 800;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.points-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    color: #00f59d;
+    background: #10263a;
+    border: 1px solid rgba(0, 198, 255, 0.45);
+    border-radius: 999px;
+    font-size: 18px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.tab-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.tab-button {
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #aeb6c6;
+    background: #192234;
+    border: 1px solid rgba(120, 140, 175, 0.17);
+    border-radius: 22px;
+    font-size: 17px;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.tab-button i {
+    color: #00caff;
+    font-size: 22px;
+}
+
+.tab-button:hover {
+    border-color: #00c9ff;
+}
+
+.tab-button.active {
+    color: #ffffff;
+    background: #1d2a3f;
+    border-color: #00c9ff;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.theme-best {
+    display: block;
+    margin-top: 6px;
+    color: #7f8aa0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.theme-best.has-points {
+    color: #00f59d;
+}
+
+/* ---------- Classement ---------- */
+
+.chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.chip {
+    padding: 10px 18px;
+    color: #aeb6c6;
+    background: #192234;
+    border: 1px solid rgba(120, 140, 175, 0.17);
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.chip:hover {
+    border-color: #00c9ff;
+}
+
+.chip.active {
+    color: #ffffff;
+    background: #1d2a3f;
+    border-color: #00c9ff;
+}
+
+.my-rank {
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    color: #aeb6c6;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.4;
+    background: #10263a;
+    border: 1px solid rgba(0, 198, 255, 0.45);
+    border-radius: 22px;
+}
+
+.my-rank strong {
+    color: #00f59d;
+}
+
+.rank-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rank-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: #192234;
+    border: 1px solid #303c50;
+    border-radius: 22px;
+}
+
+.rank-item.me {
+    background: rgba(0, 239, 154, 0.08);
+    border-color: #00ef9a;
+}
+
+.rank-pos {
+    width: 48px;
+    flex-shrink: 0;
+    color: #aeb6c6;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.rank-item.top1 .rank-pos { color: #ffd700; }
+.rank-item.top2 .rank-pos { color: #cfd6e4; }
+.rank-item.top3 .rank-pos { color: #e0955a; }
+
+.rank-name {
+    flex: 1;
+    min-width: 0;
+    font-size: 20px;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.rank-points {
+    color: #00d8ff;
+    font-size: 20px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.rank-gap {
+    color: #717b8d;
+    text-align: center;
+    font-size: 22px;
+    letter-spacing: 4px;
+}
+
+.empty-state {
+    padding: 30px 10px;
+    color: #aeb6c6;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+/* ---------- Profil ---------- */
+
+.profile-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 26px;
+}
+
+.avatar {
+    width: 96px;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    border-radius: 30px;
+    background: linear-gradient(145deg, #0dc9ff, #0876f5);
+    box-shadow: 0 0 30px rgba(0, 184, 255, 0.35);
+    font-size: 38px;
+    font-weight: 800;
+}
+
+.profile-name {
+    max-width: 100%;
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.profile-since {
+    margin-top: 4px;
+    color: #7f8aa0;
+    font-size: 15px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-bottom: 26px;
+}
+
+.stat-box {
+    padding: 18px 8px;
+    text-align: center;
+    background: #192234;
+    border: 1px solid #303c50;
+    border-radius: 22px;
+}
+
+.stat-value {
+    display: block;
+    color: #00d8ff;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.stat-label {
+    display: block;
+    margin-top: 6px;
+    color: #aeb6c6;
+    font-size: 14px;
+}
+
+.section-title {
+    margin-bottom: 14px;
+    color: #aeb6c6;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.profile-themes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 26px;
+}
+
+.profile-row {
+    padding: 16px 20px;
+    background: #192234;
+    border: 1px solid #303c50;
+    border-radius: 22px;
+}
+
+.profile-row-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.profile-row-top span:last-child {
+    color: #00d8ff;
+    text-align: right;
+}
+
+.mini-bar {
+    height: 8px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #2a3445;
+}
+
+.mini-bar div {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #08c9ff, #00f49a);
+}
+
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    background: #192234;
+    border: 1px solid #303c50;
+    border-radius: 22px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.toggle {
+    padding: 10px 18px;
+    color: #aeb6c6;
+    background: transparent;
+    border: 2px solid #303b4f;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.toggle.on {
+    color: #00ef9a;
+    border-color: #00ef9a;
+}
+
+/* ---------- Écran du quiz : plus d'icône de volume ---------- */
+
+.quiz-header {
+    padding-right: 0;
+}
+
+/* ---------- Écran résultat ---------- */
+
+.result-points {
+    margin: -15px 0 25px;
+    color: #00ef9a;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.result-rank {
+    margin: -15px 0 25px;
+    color: #aeb6c6;
+    text-align: center;
+    font-size: 18px;
+}
+
+.result-card .secondary-button {
+    max-width: 530px;
+}
+
+/* ---------- Fenêtre de confirmation ---------- */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(3, 6, 12, 0.78);
+}
+
+.modal-overlay.open {
+    display: flex;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 440px;
+    padding: 34px 28px 28px;
+    text-align: center;
+    background: #101827;
+    border: 1px solid rgba(0, 190, 255, 0.25);
+    border-radius: 30px;
+    box-shadow: 0 0 40px rgba(0, 120, 255, 0.12);
+}
+
+.modal-icon {
+    margin-bottom: 14px;
+    color: #00caff;
+    font-size: 46px;
+    line-height: 1;
+}
+
+.modal-box h3 {
+    margin-bottom: 12px;
+    font-size: 26px;
+    font-weight: 800;
+}
+
+.modal-box p {
+    margin-bottom: 10px;
+    color: #aeb6c6;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.modal-box .primary-button {
+    height: 68px;
+    margin-top: 16px;
+    font-size: 20px;
+}
+
+.modal-box .secondary-button {
+    min-height: 60px;
+    margin-top: 12px;
+    font-size: 18px;
+}
+
+
+/* ---------- Adaptation tablettes ---------- */
+
+@media (max-width: 700px) {
+
+    .home-card {
+        padding: 28px 22px 22px;
+    }
+
+    .greeting {
+        font-size: 21px;
+        margin-bottom: 30px;
+    }
+
+    .home-hello {
+        font-size: 19px;
+    }
+
+    .points-pill {
+        padding: 8px 14px;
+        font-size: 16px;
+    }
+
+    .tab-button {
+        min-height: 72px;
+        font-size: 15px;
+    }
+
+    .rank-name,
+    .rank-points {
+        font-size: 18px;
+    }
+}
+
+
+/* ---------- Adaptation téléphones ---------- */
+
+@media (max-width: 480px) {
+
+    .home-card {
+        padding: 24px 16px 18px;
+    }
+
+    .greeting {
+        font-size: 19px;
+        margin-bottom: 26px;
+    }
+
+    .tab-nav {
+        gap: 8px;
+    }
+
+    .tab-button {
+        min-height: 66px;
+        border-radius: 18px;
+        font-size: 14px;
+    }
+
+    .tab-button i {
+        font-size: 19px;
+    }
+
+    .theme-best {
+        font-size: 12px;
+    }
+
+    .chip {
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+
+    .rank-item {
+        gap: 10px;
+        padding: 14px 14px;
+    }
+
+    .rank-pos {
+        width: 38px;
+        font-size: 18px;
+    }
+
+    .rank-name,
+    .rank-points {
+        font-size: 16px;
+    }
+
+    .stat-value {
+        font-size: 24px;
+    }
+
+    .profile-name {
+        font-size: 24px;
+    }
+
+    .modal-box {
+        padding: 28px 20px 22px;
+    }
+}

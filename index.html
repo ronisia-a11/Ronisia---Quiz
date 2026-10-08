@@ -13,12 +13,12 @@
     <!-- Conteneur principal de l'application -->
     <main class="app">
 
-        <!-- ==================== ÉCRAN D'ACCUEIL ==================== -->
+        <!-- ==================== ÉCRAN D'ACCUEIL / INSCRIPTION ==================== -->
         <section id="welcomeScreen" class="screen active">
             <div class="card welcome-card">
 
-                <!-- Bouton permettant d'activer/désactiver le son -->
-                <button class="sound-button" id="welcomeSound" aria-label="Activer le son">
+                <!-- Bouton permettant d'activer/désactiver la voix -->
+                <button class="sound-button" id="welcomeSound" aria-label="Désactiver la voix">
                     <i class="fas fa-volume-up"></i>
                 </button>
 
@@ -31,8 +31,13 @@
                 <h1>RONISIA</h1>
 
                 <!-- Slogan -->
-                <p class="slogan">
-                    APPRENDRE - MAITRISER - PERFECTIONNER 
+                <p class="slogan has-greeting">
+                    APPRENDRE - MAITRISER - PERFECTIONNER
+                </p>
+
+                <!-- Salutation (texte rempli par script.js selon l'heure) -->
+                <p class="greeting" id="welcomeGreeting">
+                    Bonjour et bienvenue sur Ronisia ! 👋
                 </p>
 
                 <!-- Formulaire de saisie du nom -->
@@ -46,6 +51,7 @@
                         id="playerName"
                         placeholder="Ex: Dany Cameroun"
                         autocomplete="name"
+                        maxlength="40"
                     >
                 </div>
 
@@ -60,63 +66,135 @@
         </section>
 
 
-        <!-- ==================== ÉCRAN DES THÉMATIQUES ==================== -->
-        <section id="themeScreen" class="screen">
-            <div class="card theme-card">
+        <!-- ==================== ÉCRAN PRINCIPAL (Thèmes / Classement / Profil) ==================== -->
+        <section id="homeScreen" class="screen">
+            <div class="card theme-card home-card">
 
-                <!-- Bouton son -->
-                <button class="sound-button" id="themeSound" aria-label="Activer le son">
-                    <i class="fas fa-microphone"></i>
-                </button>
+                <!-- Bandeau : salutation + points -->
+                <div class="home-top">
+                    <span class="home-hello" id="homeHello">Bienvenue !</span>
+                    <span class="points-pill">
+                        <i class="fas fa-star"></i>
+                        <span id="homePoints">0 pts</span>
+                    </span>
+                </div>
 
-                <!-- Titre -->
-                <h2>Choisissez votre<br>thématique</h2>
-
-                <!-- Description -->
-                <p class="theme-description">
-                    Chaque bloc contient 25 questions de<br>
-                    niveau 4e.
-                </p>
-
-                <!-- Liste des thématiques -->
-                <div class="theme-grid">
-
-                    <!-- Maths -->
-                    <button class="theme-button" data-theme="maths">
-                        <span class="theme-icon"><i class="fas fa-square-root-alt"></i></span>
-                        <span>Maths</span>
+                <!-- Navigation -->
+                <nav class="tab-nav" aria-label="Navigation principale">
+                    <button class="tab-button active" data-tab="themes">
+                        <i class="fas fa-layer-group"></i>
+                        <span>Thèmes</span>
                     </button>
-
-                    <!-- Biologie Vegetale -->
-                    <button class="theme-button" data-theme="biology">
-                        <span class="theme-icon"><i class="fas fa-leaf"></i></span>
-                        <span>Biologie <br>vegetale</span>
+                    <button class="tab-button" data-tab="ranking">
+                        <i class="fas fa-trophy"></i>
+                        <span>Classement</span>
                     </button>
-
-                    <!-- Medecine -->
-                    <button class="theme-button" data-theme="medecine">
-                        <span class="theme-icon"><i class="fas fa-heartbeat"></i></span>
-                        <span>Medecine</span>
+                    <button class="tab-button" data-tab="profile">
+                        <i class="fas fa-user"></i>
+                        <span>Profil</span>
                     </button>
+                </nav>
 
-                    <!-- Sport -->
-                    <button class="theme-button" data-theme="sport">
-                        <span class="theme-icon"><i class="fas fa-dumbbell"></i></span>
-                        <span>Sport</span>
+
+                <!-- ----- Onglet : Thèmes ----- -->
+                <div class="tab-panel active" id="panelThemes">
+
+                    <h2>Choisissez votre<br>thématique</h2>
+
+                    <p class="theme-description">
+                        Chaque bloc contient 25 questions de<br>
+                        niveau 4e.
+                    </p>
+
+                    <div class="theme-grid">
+
+                        <button class="theme-button" data-theme="maths">
+                            <span class="theme-icon"><i class="fas fa-square-root-alt"></i></span>
+                            <span><b>Maths</b><small class="theme-best"></small></span>
+                        </button>
+
+                        <button class="theme-button" data-theme="biology">
+                            <span class="theme-icon"><i class="fas fa-leaf"></i></span>
+                            <span><b>Biologie <br>végétale</b><small class="theme-best"></small></span>
+                        </button>
+
+                        <button class="theme-button" data-theme="medecine">
+                            <span class="theme-icon"><i class="fas fa-heartbeat"></i></span>
+                            <span><b>Médecine</b><small class="theme-best"></small></span>
+                        </button>
+
+                        <button class="theme-button" data-theme="sport">
+                            <span class="theme-icon"><i class="fas fa-dumbbell"></i></span>
+                            <span><b>Sport</b><small class="theme-best"></small></span>
+                        </button>
+
+                    </div>
+
+                    <button class="marathon-button" data-theme="marathon">
+                        <span class="marathon-icon"><i class="fas fa-star"></i></span>
+                        <span>Le Grand Marathon (101 Questions)<small class="theme-best"></small></span>
                     </button>
 
                 </div>
 
-                <!-- Grand marathon -->
-                <button class="marathon-button" data-theme="marathon">
-                    <span class="marathon-icon"><i class="fas fa-star"></i></span>
-                    <span>Le Grand Marathon (101 Questions)</span>
-                </button>
 
-                <!-- Retour -->
-                <button class="secondary-button" id="backToWelcome">
-                    Retour
-                </button>
+                <!-- ----- Onglet : Classement ----- -->
+                <div class="tab-panel" id="panelRanking">
+
+                    <h2>Classement</h2>
+
+                    <p class="theme-description" id="rankDescription"></p>
+
+                    <div class="chip-row" id="rankFilters"></div>
+
+                    <div class="my-rank" id="myRank"></div>
+
+                    <ol class="rank-list" id="rankList"></ol>
+
+                </div>
+
+
+                <!-- ----- Onglet : Profil ----- -->
+                <div class="tab-panel" id="panelProfile">
+
+                    <div class="profile-head">
+                        <div class="avatar" id="profileAvatar">?</div>
+                        <div class="profile-name" id="profileName"></div>
+                        <div class="profile-since" id="profileSince"></div>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-value" id="statPoints">0</span>
+                            <span class="stat-label">Points</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-value" id="statRank">-</span>
+                            <span class="stat-label">Classement général</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-value" id="statGames">0</span>
+                            <span class="stat-label">Parties jouées</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-value" id="statAccuracy">-</span>
+                            <span class="stat-label">Réussite</span>
+                        </div>
+                    </div>
+
+                    <p class="section-title">Points par thème</p>
+                    <ul class="profile-themes" id="profileThemes"></ul>
+
+                    <div class="setting-row">
+                        <span>Lecture vocale</span>
+                        <button class="toggle on" id="voiceToggle">Activée</button>
+                    </div>
+
+                    <button class="secondary-button" id="logoutButton">
+                        Changer de joueur
+                    </button>
+
+                </div>
 
             </div>
         </section>
@@ -138,11 +216,6 @@
                     <span class="question-counter" id="questionCounter">
                         Question 1/25
                     </span>
-
-                    <!-- Bouton son -->
-                    <button class="sound-button quiz-sound" id="quizSound" aria-label="Activer le son">
-                       <i class="fas fa-volume-up"></i>
-                    </button>
                 </div>
 
                 <!-- Barre de progression -->
@@ -152,31 +225,11 @@
 
                 <!-- Question -->
                 <div class="question-container">
-                    <h2 id="questionText">
-                        Qui fut le premier être humain à voyager dans l'espace en 1961 ?
-                    </h2>
+                    <h2 id="questionText"></h2>
                 </div>
 
-                <!-- Réponses -->
-                <div class="answers" id="answersContainer">
-
-                    <button class="answer-button">
-                        <span>Neil Armstrong</span>
-                    </button>
-
-                    <button class="answer-button">
-                        <span>Yuri Gagarine</span>
-                    </button>
-
-                    <button class="answer-button">
-                        <span>Buzz Aldrin</span>
-                    </button>
-
-                    <button class="answer-button">
-                        <span>John Glenn</span>
-                    </button>
-
-                </div>
+                <!-- Réponses (créées par script.js) -->
+                <div class="answers" id="answersContainer"></div>
 
                 <!-- Zone de résultat -->
                 <div class="answer-feedback" id="answerFeedback"></div>
@@ -189,7 +242,7 @@
         <section id="resultScreen" class="screen">
             <div class="card result-card">
 
-                <div class="result-icon"><i class="fas fa-trophy trophe-or" style="color: #FFD700; font-size: 60px; text-shadow: 0 0 20px #FFD700, 0 0 40px #FFA500; /* Effet lumine*/;"></i></div>
+                <div class="result-icon"><i class="fas fa-trophy trophe-or" style="color: #FFD700; font-size: 60px; text-shadow: 0 0 20px #FFD700, 0 0 40px #FFA500;"></i></div>
 
                 <h2>Quiz terminé !</h2>
 
@@ -202,8 +255,15 @@
                     <strong id="finalScore">0 / 25</strong>
                 </div>
 
+                <p class="result-points" id="resultPoints"></p>
+                <p class="result-rank" id="resultRank"></p>
+
                 <button class="primary-button" id="restartButton">
                     Recommencer <span><i class="fas fa-redo-alt"></i></span>
+                </button>
+
+                <button class="secondary-button" id="resultRankingButton">
+                    Voir le classement
                 </button>
 
                 <button class="secondary-button" id="resultBackButton">
@@ -215,6 +275,22 @@
 
     </main>
 
+
+    <!-- ==================== FENÊTRE : PRÊT À COMMENCER ? ==================== -->
+    <div class="modal-overlay" id="startModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-box">
+            <div class="modal-icon"><i class="fas fa-play-circle"></i></div>
+            <h3 id="modalTitle">Prêt à commencer ?</h3>
+            <p id="modalText"></p>
+            <p id="modalVoice"></p>
+
+            <button class="primary-button" id="modalConfirm">Oui, c'est parti !</button>
+            <button class="secondary-button" id="modalCancel">Pas encore</button>
+        </div>
+    </div>
+
+    <!-- Les questions sont dans questions.js, la logique dans script.js -->
+    <script src="questions.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
