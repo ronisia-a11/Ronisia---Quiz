@@ -1,138 +1,266 @@
-/* ==================== DONNÉES DES QUESTIONS ==================== */
+/* ==================== DONNÉES DES QUESTIONS ====================
+   Chaque thème contient 250 questions ; une partie en tire 25 au hasard
+   (voir buildGame dans script.js). Le Grand Marathon pioche dans TOUTES les
+   questions de l'application (voir la fin de ce fichier).
+   Pour ajouter une question : copier une ligne et modifier le texte, les 4
+   réponses et "correct" (position de la bonne réponse : 0, 1, 2 ou 3).
+   ============================================================== */
 
 const quizData = {
-
     maths: {
         name: "Maths",
         total: 25,
         questions: [
-            
-  {
-    "question": "Combien font 12 x 15 ?",
-    "answers": ["160", "170", "180", "190"],
-    "correct": 2
-  },
-  {
-    "question": "Quelle est la racine carree de 144 ?",
-    "answers": ["10", "11", "12", "14"],
-    "correct": 2
-  },
-  {
-    "question": "Combien font 25% de 200 ?",
-    "answers": ["25", "40", "50", "75"],
-    "correct": 2
-  },
-  {
-    "question": "Resoudre et donner la valeur de x : 2x + 6 = 14 + x",
-    "answers": ["3", "8", "5", "6"],
-    "correct": 1
-  },
-  {
-    "question": "Combien de degres au total y a-t-il dans un triangle ?",
-    "answers": ["90 degres", "180 degres", "270 degres", "360 degres"],
-    "correct": 1
-  },
-  {
-    "question": "Quelle est l'aire d'un carre de cote 7 ?",
-    "answers": ["14", "28", "49", "56"],
-    "correct": 2
-  },
-  {
-    "question": "Combien font 3^4 ?",
-    "answers": ["12", "27", "64", "81"],
-    "correct": 3
-  },
-  {
-    "question": "Le PGCD de 12 et 18 est :",
-    "answers": ["2", "3", "6", "9"],
-    "correct": 2
-  },
-  {
-    "question": "Combien font 1/2 + 1/4 ?",
-    "answers": ["1/6", "2/6", "3/4", "1"],
-    "correct": 2
-  },
-  {
-    "question": "Quelle est la valeur de Pi arrondie a 2 decimales ?",
-    "answers": ["3.12", "3.14", "3.16", "3.18"],
-    "correct": 1
-  },
-  {
-    "question": "Un nombre pair + un nombre pair = ?",
-    "answers": ["Impair", "Pair", "0", "1"],
-    "correct": 1
-  },
-  {
-    "question": "Combien de cotes a un hexagone ?",
-    "answers": ["5", "6", "7", "8"],
-    "correct": 1
-  },
-  {
-    "question": "10% de 90 = ?",
-    "answers": ["8", "9", "10", "18"],
-    "correct": 1
-  },
-  {
-    "question": "Volume d'un cube de cote 3 ?",
-    "answers": ["9", "18", "27", "36"],
-    "correct": 2
-  },
-  {
-    "question": "Combien font 100 - 37 ?",
-    "answers": ["63", "67", "73", "77"],
-    "correct": 0
-  },
-  {
-    "question": "Le symbole π represente :",
-    "answers": ["Rayon", "Diametre", "Circonference / Diametre", "Aire"],
-    "correct": 2
-  },
-  {
-    "question": "5! = ?",
-    "answers": ["20", "60", "120", "240"],
-    "correct": 2
-  },
-  {
-    "question": "Combien de minutes dans 2.5 heures ?",
-    "answers": ["120", "140", "150", "180"],
-    "correct": 2
-  },
-  {
-    "question": "L'equation d'une droite est :",
-    "answers": ["y = ax + b", "x² + y² = r²", "a² + b² = c²", "A = πr²"],
-    "correct": 0
-  },
-  {
-    "question": "Combien font 9 x 9 ?",
-    "answers": ["72", "81", "90", "99"],
-    "correct": 1
-  },
-  {
-    "question": "Quelle fraction est egale a 0.75 ?",
-    "answers": ["1/2", "2/3", "3/4", "4/5"],
-    "correct": 2
-  },
-  {
-    "question": "Theoreme de Pythagore :",
-    "answers": ["a + b = c", "a² + b² = c²", "a x b = c", "a/b = c"],
-    "correct": 1
-  },
-  {
-    "question": "Combien font 2^10 ?",
-    "answers": ["512", "1024", "2048", "4096"],
-    "correct": 1
-  },
-  {
-    "question": "Le perimetre d'un cercle s'appelle :",
-    "answers": ["Aire", "Diametre", "Circonference", "Rayon"],
-    "correct": 2
-  },
-  {
-    "question": "7 - 3 x 2 = ?",
-    "answers": ["1", "8", "14", "4"],
-    "correct": 0
-  }
-
+            {"question":"Combien font 12 x 15 ?","answers":["160","170","180","190"],"correct":2},
+            {"question":"Quelle est la racine carree de 144 ?","answers":["10","11","12","14"],"correct":2},
+            {"question":"Combien font 25% de 200 ?","answers":["25","40","50","75"],"correct":2},
+            {"question":"Resoudre et donner la valeur de x : 2x + 6 = 14 + x","answers":["3","8","5","6"],"correct":1},
+            {"question":"Combien de degres au total y a-t-il dans un triangle ?","answers":["90 degres","180 degres","270 degres","360 degres"],"correct":1},
+            {"question":"Quelle est l'aire d'un carre de cote 7 ?","answers":["14","28","49","56"],"correct":2},
+            {"question":"Combien font 3^4 ?","answers":["12","27","64","81"],"correct":3},
+            {"question":"Le PGCD de 12 et 18 est :","answers":["2","3","6","9"],"correct":2},
+            {"question":"Combien font 1/2 + 1/4 ?","answers":["1/6","2/6","3/4","1"],"correct":2},
+            {"question":"Quelle est la valeur de Pi arrondie a 2 decimales ?","answers":["3.12","3.14","3.16","3.18"],"correct":1},
+            {"question":"Un nombre pair + un nombre pair = ?","answers":["Impair","Pair","0","1"],"correct":1},
+            {"question":"Combien de cotes a un hexagone ?","answers":["5","6","7","8"],"correct":1},
+            {"question":"10% de 90 = ?","answers":["8","9","10","18"],"correct":1},
+            {"question":"Volume d'un cube de cote 3 ?","answers":["9","18","27","36"],"correct":2},
+            {"question":"Combien font 100 - 37 ?","answers":["63","67","73","77"],"correct":0},
+            {"question":"Le symbole π represente :","answers":["Rayon","Diametre","Circonference / Diametre","Aire"],"correct":2},
+            {"question":"5! = ?","answers":["20","60","120","240"],"correct":2},
+            {"question":"Combien de minutes dans 2.5 heures ?","answers":["120","140","150","180"],"correct":2},
+            {"question":"L'equation d'une droite est :","answers":["y = ax + b","x² + y² = r²","a² + b² = c²","A = πr²"],"correct":0},
+            {"question":"Combien font 9 x 9 ?","answers":["72","81","90","99"],"correct":1},
+            {"question":"Quelle fraction est egale a 0.75 ?","answers":["1/2","2/3","3/4","4/5"],"correct":2},
+            {"question":"Theoreme de Pythagore :","answers":["a + b = c","a² + b² = c²","a x b = c","a/b = c"],"correct":1},
+            {"question":"Combien font 2^10 ?","answers":["512","1024","2048","4096"],"correct":1},
+            {"question":"Le perimetre d'un cercle s'appelle :","answers":["Aire","Diametre","Circonference","Rayon"],"correct":2},
+            {"question":"7 - 3 x 2 = ?","answers":["1","8","14","4"],"correct":0},
+            {"question":"Calculer : 48 × 19","answers":["912","902","931","922"],"correct":0},
+            {"question":"Combien font 20 % de 380 ?","answers":["86","66","76","152"],"correct":2},
+            {"question":"Un pavé droit mesure 6 cm, 5 cm et 6 cm. Quel est son volume ?","answers":["17 cm³","180 cm³","186 cm³","192 cm³"],"correct":1},
+            {"question":"Un pavé droit mesure 5 cm, 9 cm et 4 cm. Quel est son volume ?","answers":["180 cm³","18 cm³","202 cm³","185 cm³"],"correct":0},
+            {"question":"Calculer : 0,7 × 0,5","answers":["35","3,5","0,035","0,35"],"correct":3},
+            {"question":"Combien font 3/6 de 18 ?","answers":["15","3","54","9"],"correct":3},
+            {"question":"Développer : 7(x + 7)","answers":["8x + 49","x + 49","7x + 49","7x + 7"],"correct":2},
+            {"question":"Calculer : 35 × 4","answers":["140","144","130","150"],"correct":0},
+            {"question":"Quelle est la moyenne de ces notes : 17, 16, 12, 9, 11 ?","answers":["13","12","15","14"],"correct":0},
+            {"question":"Résoudre : 6x + 8 = 68","answers":["x = 10","x = 11","x = 9","x = 12"],"correct":0},
+            {"question":"Deux angles sont supplémentaires. L'un mesure 131°. Combien mesure l'autre ?","answers":["131°","141°","229°","49°"],"correct":3},
+            {"question":"Convertir : 3 km = ... m","answers":["3000 m","300000 m","300 m","30000 m"],"correct":0},
+            {"question":"Quel est le PGCD de 14 et 4 ?","answers":["28","2","3","7"],"correct":1},
+            {"question":"Un rectangle mesure 16 cm sur 10 cm. Quel est son périmètre ?","answers":["160 cm","52 cm","54 cm","26 cm"],"correct":1},
+            {"question":"Lequel de ces nombres est divisible par 4 ?","answers":["230","126","74","152"],"correct":3},
+            {"question":"Quel est le PPCM de 24 et 56 ?","answers":["80","168","8","1344"],"correct":1},
+            {"question":"Quel est le volume d'un cube d'arête 6 cm ?","answers":["36 cm³","222 cm³","216 cm³","18 cm³"],"correct":2},
+            {"question":"Calculer : 11 + 12","answers":["-1","-23","1","23"],"correct":3},
+            {"question":"Développer : 6(x - 9)","answers":["6x - 54","6x + 54","6x - 9","x - 54"],"correct":0},
+            {"question":"Un pavé droit mesure 7 cm, 5 cm et 2 cm. Quel est son volume ?","answers":["77 cm³","14 cm³","118 cm³","70 cm³"],"correct":3},
+            {"question":"Simplifier la fraction 6/15","answers":["2/5","1/5","2/6","3/5"],"correct":0},
+            {"question":"Quelle est la moyenne de ces notes : 14, 13, 10, 7, 1 ?","answers":["11","8","10","9"],"correct":3},
+            {"question":"Quel est le PGCD de 45 et 54 ?","answers":["5","6","9","10"],"correct":2},
+            {"question":"Un rectangle mesure 24 cm sur 19 cm. Quelle est son aire ?","answers":["43 cm²","86 cm²","456 cm²","480 cm²"],"correct":2},
+            {"question":"Quel est le volume d'un cube d'arête 9 cm ?","answers":["27 cm³","729 cm³","486 cm³","81 cm³"],"correct":1},
+            {"question":"Calculer : 18 × 3","answers":["57","54","44","64"],"correct":1},
+            {"question":"Calculer : 5/9 + 1/9","answers":["6/9","7/9","5/9","6/18"],"correct":0},
+            {"question":"Développer : 9(x - 8)","answers":["9x - 8","9x + 72","9x - 72","x - 72"],"correct":2},
+            {"question":"Un article coûte 18000 FCFA. Avec une remise de 25 %, quel est son nouveau prix en FCFA ?","answers":["15750","4500","13500","22500"],"correct":2},
+            {"question":"Combien font 45 ÷ 3 ?","answers":["15","14","18","16"],"correct":0},
+            {"question":"Développer : 8(x + 6)","answers":["x + 48","8x + 48","9x + 48","8x + 6"],"correct":1},
+            {"question":"Un rectangle mesure 12 cm sur 11 cm. Quelle est son aire ?","answers":["144 cm²","23 cm²","132 cm²","46 cm²"],"correct":2},
+            {"question":"Calculer : -7 - (-14)","answers":["-21","7","21","-7"],"correct":1},
+            {"question":"Résoudre : 5x - 6 = 44","answers":["x = 9","x = 16","x = 11","x = 10"],"correct":3},
+            {"question":"Convertir : 3 kg = ... g","answers":["300 g","300000 g","3000 g","30000 g"],"correct":2},
+            {"question":"Calculer : 8 × (9 + 6)","answers":["432","78","120","62"],"correct":2},
+            {"question":"Un article coûte 25000 FCFA. Avec une remise de 75 %, quel est son nouveau prix en FCFA ?","answers":["43750","15625","6250","18750"],"correct":2},
+            {"question":"Quelle est la moyenne de ces notes : 17, 8, 8, 15, 22 ?","answers":["16","15","14","13"],"correct":2},
+            {"question":"Développer : 7(x - 3)","answers":["7x - 3","7x - 21","7x + 21","x - 21"],"correct":1},
+            {"question":"Combien font 377 ÷ 13 ?","answers":["30","29","28","42"],"correct":1},
+            {"question":"Calculer : 28 × 9","answers":["262","242","252","261"],"correct":2},
+            {"question":"Un rectangle mesure 24 cm sur 12 cm. Quel est son périmètre ?","answers":["288 cm","36 cm","72 cm","74 cm"],"correct":2},
+            {"question":"Développer : 5(x - 8)","answers":["5x - 8","5x - 40","5x + 40","x - 40"],"correct":1},
+            {"question":"Calculer : (-6) + (-10)","answers":["-4","4","-16","16"],"correct":2},
+            {"question":"Un sac contient 1 boule rouge et 3 boules bleues. Quelle est la probabilité de tirer une boule rouge ?","answers":["1/3","1/4","3/4","2/4"],"correct":1},
+            {"question":"Calculer : 1/5 + 3/5","answers":["3/5","4/5","4/10","5/5"],"correct":1},
+            {"question":"Calculer : 12 × (4 + 4)","answers":["52","192","28","96"],"correct":3},
+            {"question":"Dans un triangle rectangle, l'hypoténuse mesure 26 cm et un côté mesure 10 cm. Combien mesure l'autre côté ?","answers":["16 cm","24 cm","25 cm","23 cm"],"correct":1},
+            {"question":"Calculer : (-15) + (-6)","answers":["21","9","-21","-9"],"correct":2},
+            {"question":"Calculer : (-8) + (-5)","answers":["-3","-13","13","3"],"correct":1},
+            {"question":"Écrire en notation décimale : 6,1 × 10^5","answers":["61000","610005","610000","6100000"],"correct":2},
+            {"question":"Calculer : 2 - (-8)","answers":["-6","10","6","-10"],"correct":1},
+            {"question":"Quelle est la somme des angles intérieurs d'un octogone ?","answers":["1440°","1080°","1260°","1170°"],"correct":1},
+            {"question":"Combien font 273 ÷ 7 ?","answers":["40","46","39","38"],"correct":2},
+            {"question":"Convertir : 1,5 km = ... m","answers":["15000 m","150 m","1500 m","150000 m"],"correct":2},
+            {"question":"Quel est le périmètre d'un carré de côté 13 cm ?","answers":["169 cm","56 cm","26 cm","52 cm"],"correct":3},
+            {"question":"Réduire : 5x + 8x","answers":["13x","13","13x²","40x"],"correct":0},
+            {"question":"Développer : 3(x + 2)","answers":["3x + 6","x + 6","4x + 6","3x + 2"],"correct":0},
+            {"question":"Résoudre : 5x - 3 = 32","answers":["x = 8","x = 7","x = 10","x = 6"],"correct":1},
+            {"question":"Calculer : 20 - 5 × 5","answers":["20","-5","75","45"],"correct":1},
+            {"question":"Convertir : 5 kg = ... g","answers":["500 g","5000 g","50000 g","500000 g"],"correct":1},
+            {"question":"Quelle est l'aire d'un disque de rayon 6 cm ?","answers":["72π cm²","6π cm²","36π cm²","12π cm²"],"correct":2},
+            {"question":"Écrire en notation décimale : 2,5 × 10^3","answers":["2500","2503","25000","250"],"correct":0},
+            {"question":"Développer : 7(x + 8)","answers":["x + 56","7x + 8","7x + 56","8x + 56"],"correct":2},
+            {"question":"Combien font 60 % de 340 ?","answers":["194","214","204","408"],"correct":2},
+            {"question":"3 cahiers coûtent 2250 FCFA. Combien coûtent 5 cahiers ?","answers":["2255 FCFA","3750 FCFA","4500 FCFA","11250 FCFA"],"correct":1},
+            {"question":"Quelle est l'aire d'un disque de rayon 3 cm ?","answers":["18π cm²","6π cm²","9π cm²","3π cm²"],"correct":2},
+            {"question":"Calculer : 8,31 + 8,72","answers":["17,13","17,03","18,03","16,93"],"correct":1},
+            {"question":"Quelle est la moyenne de ces notes : 22, 21, 13, 13, 11 ?","answers":["16","17","15","18"],"correct":0},
+            {"question":"Un triangle isocèle a un angle au sommet de 56°. Combien mesure chacun de ses angles à la base ?","answers":["62°","72°","124°","28°"],"correct":0},
+            {"question":"Calculer : 7 - (-4)","answers":["-3","-11","11","3"],"correct":2},
+            {"question":"Combien font 600 ÷ 15 ?","answers":["40","55","41","39"],"correct":0},
+            {"question":"Calculer : 2/3 + 2/6","answers":["4/18","1","4/9","19/18"],"correct":1},
+            {"question":"Calculer : 15 × 16","answers":["230","240","256","250"],"correct":1},
+            {"question":"Calculer : 1/2 + 1/4","answers":["2/6","3/4","1/8","7/8"],"correct":1},
+            {"question":"Un triangle a une base de 4 cm et une hauteur de 6 cm. Quelle est son aire ?","answers":["24 cm²","12 cm²","16 cm²","10 cm²"],"correct":1},
+            {"question":"Quelle est la somme des angles intérieurs d'un heptagone ?","answers":["1260°","1080°","990°","900°"],"correct":3},
+            {"question":"Combien font 150 ÷ 6 ?","answers":["25","24","31","26"],"correct":0},
+            {"question":"Combien font 3/5 de 15 ?","answers":["14","3","9","45"],"correct":2},
+            {"question":"Calculer : 49 × 17","answers":["833","850","823","843"],"correct":0},
+            {"question":"Deux angles sont complémentaires. L'un mesure 76°. Combien mesure l'autre ?","answers":["14°","76°","166°","104°"],"correct":0},
+            {"question":"Un véhicule roule à 25 km/h pendant 2 h. Quelle distance parcourt-il ?","answers":["75 km","50 km","12.5 km","27 km"],"correct":1},
+            {"question":"Calculer : -1 - 1","answers":["2","-2","0","-4"],"correct":1},
+            {"question":"Un article coûte 4000 FCFA. Avec une remise de 60 %, quel est son nouveau prix en FCFA ?","answers":["6400","2800","1600","2400"],"correct":2},
+            {"question":"Simplifier la fraction 2/12","answers":["1/6","6/1","1/7","2/6"],"correct":0},
+            {"question":"Quel est le volume d'un cube d'arête 2 cm ?","answers":["4 cm³","6 cm³","8 cm³","24 cm³"],"correct":2},
+            {"question":"Deux angles sont complémentaires. L'un mesure 55°. Combien mesure l'autre ?","answers":["145°","55°","35°","125°"],"correct":2},
+            {"question":"Calculer : 7^3","answers":["2401","49","21","343"],"correct":3},
+            {"question":"Quel est le PPCM de 40 et 64 ?","answers":["104","320","8","2560"],"correct":1},
+            {"question":"Les côtés de l'angle droit d'un triangle rectangle mesurent 10 cm et 24 cm. Combien mesure l'hypoténuse ?","answers":["25 cm","27 cm","26 cm","34 cm"],"correct":2},
+            {"question":"Convertir : 2 L = ... mL","answers":["200000 mL","200 mL","2000 mL","20000 mL"],"correct":2},
+            {"question":"Un sac contient 3 boules rouges et 8 boules bleues. Quelle est la probabilité de tirer une boule rouge ?","answers":["3/11","3/8","8/11","1/11"],"correct":0},
+            {"question":"Calculer : 28 × 7","answers":["186","206","196","203"],"correct":2},
+            {"question":"Calculer : 9^3","answers":["729","81","6561","27"],"correct":0},
+            {"question":"6 cahiers coûtent 5400 FCFA. Combien coûtent 12 cahiers ?","answers":["10800 FCFA","11700 FCFA","64800 FCFA","5412 FCFA"],"correct":0},
+            {"question":"Les côtés de l'angle droit d'un triangle rectangle mesurent 15 cm et 36 cm. Combien mesure l'hypoténuse ?","answers":["38 cm","40 cm","39 cm","51 cm"],"correct":2},
+            {"question":"Calculer : 22 - 2 × 6","answers":["10","34","120","26"],"correct":0},
+            {"question":"Combien font 75 % de 400 ?","answers":["600","310","300","290"],"correct":2},
+            {"question":"Les côtés de l'angle droit d'un triangle rectangle mesurent 5 cm et 12 cm. Combien mesure l'hypoténuse ?","answers":["13 cm","17 cm","14 cm","12 cm"],"correct":0},
+            {"question":"Calculer : (-5) + (-6)","answers":["11","-1","-11","1"],"correct":2},
+            {"question":"Calculer : -6 - 3","answers":["-9","3","9","-3"],"correct":0},
+            {"question":"Combien font 407 ÷ 11 ?","answers":["48","36","38","37"],"correct":3},
+            {"question":"Combien font 20 % de 600 ?","answers":["130","120","240","110"],"correct":1},
+            {"question":"Calculer : 1/5 + 3/4","answers":["19/20","4/9","1","3/20"],"correct":0},
+            {"question":"Calculer : 6 + 6 × 7","answers":["48","43","19","84"],"correct":0},
+            {"question":"2 cahiers coûtent 1500 FCFA. Combien coûtent 8 cahiers ?","answers":["6000 FCFA","12000 FCFA","6750 FCFA","1508 FCFA"],"correct":0},
+            {"question":"Calculer : 0,8 × 0,8","answers":["64","6,4","0,064","0,64"],"correct":3},
+            {"question":"Convertir : 2,5 kg = ... g","answers":["25000 g","250 g","2500 g","250000 g"],"correct":2},
+            {"question":"Calculer : 5^2","answers":["25","10","5","125"],"correct":0},
+            {"question":"Calculer : 1/2 + 1/3","answers":["2/5","1/6","1","5/6"],"correct":3},
+            {"question":"Résoudre : 5x + 4 = 54","answers":["x = 10","x = 12","x = 11","x = 9"],"correct":0},
+            {"question":"Quelle est la racine carrée de 400 ?","answers":["22","21","20","19"],"correct":2},
+            {"question":"Combien font 110 ÷ 11 ?","answers":["21","10","11","9"],"correct":1},
+            {"question":"Résoudre : 7x - 16 = 61","answers":["x = 11","x = 12","x = 10","x = 27"],"correct":0},
+            {"question":"Les côtés de l'angle droit d'un triangle rectangle mesurent 8 cm et 15 cm. Combien mesure l'hypoténuse ?","answers":["16 cm","23 cm","18 cm","17 cm"],"correct":3},
+            {"question":"Quelle est la moyenne de ces notes : 11, 11, 20, 19, 19 ?","answers":["15","17","16","18"],"correct":2},
+            {"question":"Résoudre : 2x + 18 = 22","answers":["x = 4","x = 1","x = 3","x = 2"],"correct":3},
+            {"question":"Résoudre : 9x + 3 = 102","answers":["x = 10","x = 11","x = 13","x = 12"],"correct":1},
+            {"question":"Les côtés de l'angle droit d'un triangle rectangle mesurent 16 cm et 30 cm. Combien mesure l'hypoténuse ?","answers":["46 cm","34 cm","33 cm","35 cm"],"correct":1},
+            {"question":"Quelle est la racine carrée de 196 ?","answers":["16","14","15","13"],"correct":1},
+            {"question":"Convertir : 5 h = ... min","answers":["3000 min","30 min","300 min","30000 min"],"correct":2},
+            {"question":"Résoudre : 3x + 10 = 46","answers":["x = 12","x = 13","x = 14","x = 11"],"correct":0},
+            {"question":"Deux angles sont complémentaires. L'un mesure 71°. Combien mesure l'autre ?","answers":["109°","19°","161°","71°"],"correct":1},
+            {"question":"Deux angles sont supplémentaires. L'un mesure 77°. Combien mesure l'autre ?","answers":["77°","283°","13°","103°"],"correct":3},
+            {"question":"Un triangle isocèle a un angle au sommet de 42°. Combien mesure chacun de ses angles à la base ?","answers":["21°","69°","138°","79°"],"correct":1},
+            {"question":"Un triangle a deux angles de 80° et 56°. Combien mesure le troisième ?","answers":["44°","224°","136°","10°"],"correct":0},
+            {"question":"Résoudre : 3x - 11 = 1","answers":["x = 3","x = 15","x = 5","x = 4"],"correct":3},
+            {"question":"Quelle est l'aire d'un disque de rayon 4 cm ?","answers":["16π cm²","4π cm²","32π cm²","8π cm²"],"correct":0},
+            {"question":"Quelle est la racine carrée de 324 ?","answers":["17","18","19","20"],"correct":1},
+            {"question":"Calculer : 4 × (-15)","answers":["-60","-56","-11","60"],"correct":0},
+            {"question":"Écrire en notation décimale : 2,5 × 10^2","answers":["250","2500","252","25"],"correct":0},
+            {"question":"Dans un triangle rectangle, l'hypoténuse mesure 25 cm et un côté mesure 7 cm. Combien mesure l'autre côté ?","answers":["24 cm","23 cm","18 cm","25 cm"],"correct":0},
+            {"question":"Calculer : 0,9 × 0,6","answers":["54","0,54","5,4","0,054"],"correct":1},
+            {"question":"Combien font 20 % de 420 ?","answers":["74","84","94","168"],"correct":1},
+            {"question":"Quelle est la racine carrée de 25 ?","answers":["6","5","7","4"],"correct":1},
+            {"question":"Quelle est la moyenne de ces notes : 14, 9, 13, 8, 6 ?","answers":["11","12","10","9"],"correct":2},
+            {"question":"Quelle est la moyenne de ces notes : 13, 3, 13, 7, 9 ?","answers":["11","10","8","9"],"correct":3},
+            {"question":"Simplifier la fraction 6/72","answers":["1/12","2/12","12/1","1/13"],"correct":0},
+            {"question":"Un sac contient 4 boules rouges et 5 boules bleues. Quelle est la probabilité de tirer une boule rouge ?","answers":["4/9","5/9","4/5","1/9"],"correct":0},
+            {"question":"Combien vaut 10^4 ?","answers":["1000","40","10000","100000"],"correct":2},
+            {"question":"Un sac contient 5 boules rouges et 6 boules bleues. Quelle est la probabilité de tirer une boule rouge ?","answers":["5/6","5/11","1/11","6/11"],"correct":1},
+            {"question":"Calculer : 14 - 2 × 4","answers":["22","16","48","6"],"correct":3},
+            {"question":"Simplifier la fraction 16/22","answers":["9/11","7/11","8/11","8/12"],"correct":2},
+            {"question":"Convertir : 1,5 kg = ... g","answers":["1500 g","150 g","150000 g","15000 g"],"correct":0},
+            {"question":"Résoudre : 3x - 11 = 10","answers":["x = 8","x = 7","x = 6","x = 18"],"correct":1},
+            {"question":"Convertir : 2,5 km = ... m","answers":["25000 m","250 m","2500 m","250000 m"],"correct":2},
+            {"question":"Combien font 100 ÷ 5 ?","answers":["21","20","25","19"],"correct":1},
+            {"question":"Un véhicule roule à 50 km/h pendant 4 h. Quelle distance parcourt-il ?","answers":["250 km","200 km","12.5 km","54 km"],"correct":1},
+            {"question":"Calculer : 3,34 + 6,79","answers":["10,03","10,23","10,13","11,13"],"correct":2},
+            {"question":"Convertir : 2,5 min = ... s","answers":["150 s","15 s","15000 s","1500 s"],"correct":0},
+            {"question":"Un article coûte 27000 FCFA. Avec une remise de 60 %, quel est son nouveau prix en FCFA ?","answers":["43200","16200","18900","10800"],"correct":3},
+            {"question":"Calculer : 2^2","answers":["2","4","6","8"],"correct":1},
+            {"question":"Un rectangle mesure 12 cm sur 6 cm. Quel est son périmètre ?","answers":["72 cm","38 cm","18 cm","36 cm"],"correct":3},
+            {"question":"Calculer : 21 × 10","answers":["200","220","189","210"],"correct":3},
+            {"question":"Quelle est l'aire d'un disque de rayon 7 cm ?","answers":["7π cm²","98π cm²","49π cm²","14π cm²"],"correct":2},
+            {"question":"Calculer : 4^4","answers":["256","1024","64","16"],"correct":0},
+            {"question":"Un triangle a deux angles de 53° et 30°. Combien mesure le troisième ?","answers":["37°","83°","97°","277°"],"correct":2},
+            {"question":"Un triangle a une base de 12 cm et une hauteur de 3 cm. Quelle est son aire ?","answers":["18 cm²","36 cm²","15 cm²","30 cm²"],"correct":0},
+            {"question":"3 cahiers coûtent 1200 FCFA. Combien coûtent 5 cahiers ?","answers":["2000 FCFA","2400 FCFA","1205 FCFA","6000 FCFA"],"correct":0},
+            {"question":"Écrire en notation décimale : 8,4 × 10^5","answers":["8400000","84000","840000","840005"],"correct":2},
+            {"question":"6 cahiers coûtent 600 FCFA. Combien coûtent 7 cahiers ?","answers":["607 FCFA","700 FCFA","800 FCFA","4200 FCFA"],"correct":1},
+            {"question":"Calculer : 4^2","answers":["8","4","16","64"],"correct":2},
+            {"question":"Quelle est la racine carrée de 225 ?","answers":["16","17","14","15"],"correct":3},
+            {"question":"Quel est le périmètre d'un carré de côté 11 cm ?","answers":["121 cm","22 cm","44 cm","48 cm"],"correct":2},
+            {"question":"Simplifier la fraction 4/32","answers":["8/1","1/9","1/8","2/8"],"correct":2},
+            {"question":"Lequel de ces nombres est premier ?","answers":["79","159","133","187"],"correct":0},
+            {"question":"Calculer : 0,9 × 0,5","answers":["45","0,45","0,045","4,5"],"correct":1},
+            {"question":"Quelle est la somme des angles intérieurs d'un hexagone ?","answers":["900°","1080°","720°","810°"],"correct":2},
+            {"question":"Convertir : 3 L = ... mL","answers":["3000 mL","300 mL","300000 mL","30000 mL"],"correct":0},
+            {"question":"Convertir : 4 h = ... min","answers":["2400 min","24000 min","24 min","240 min"],"correct":3},
+            {"question":"Lequel de ces nombres est divisible par 9 ?","answers":["120","48","504","237"],"correct":2},
+            {"question":"Écrire en notation décimale : 9 × 10^4","answers":["90004","900000","90000","9000"],"correct":2},
+            {"question":"Calculer : 0,2 × 0,6","answers":["1,2","0,12","0,012","12"],"correct":1},
+            {"question":"Calculer : 39 × 6","answers":["240","234","244","224"],"correct":1},
+            {"question":"Quelle est la racine carrée de 256 ?","answers":["18","17","16","15"],"correct":2},
+            {"question":"Un rectangle mesure 11 cm sur 7 cm. Quelle est son aire ?","answers":["18 cm²","77 cm²","88 cm²","36 cm²"],"correct":1},
+            {"question":"Combien font 3/9 de 63 ?","answers":["30","21","7","189"],"correct":1},
+            {"question":"Un véhicule roule à 70 km/h pendant 4 h. Quelle distance parcourt-il ?","answers":["17.5 km","280 km","74 km","350 km"],"correct":1},
+            {"question":"Calculer : 8/10 + 1/10","answers":["10/10","8/10","9/10","9/20"],"correct":2},
+            {"question":"Un article coûte 9000 FCFA. Avec une remise de 75 %, quel est son nouveau prix en FCFA ?","answers":["15750","6750","2250","5625"],"correct":2},
+            {"question":"5 cahiers coûtent 1750 FCFA. Combien coûtent 7 cahiers ?","answers":["1757 FCFA","2800 FCFA","12250 FCFA","2450 FCFA"],"correct":3},
+            {"question":"Résoudre : 6x + 4 = 34","answers":["x = 6","x = 5","x = 4","x = 7"],"correct":1},
+            {"question":"Quel est le PPCM de 48 et 40 ?","answers":["240","8","88","1920"],"correct":0},
+            {"question":"Combien font 10 % de 560 ?","answers":["46","66","112","56"],"correct":3},
+            {"question":"Résoudre : 5x - 9 = 11","answers":["x = 4","x = 3","x = 5","x = 13"],"correct":0},
+            {"question":"Calculer : 20 × 4","answers":["90","80","84","70"],"correct":1},
+            {"question":"Calculer : 0,3 × 0,5","answers":["0,015","15","1,5","0,15"],"correct":3},
+            {"question":"Développer : 4(x - 5)","answers":["4x - 5","x - 20","4x + 20","4x - 20"],"correct":3},
+            {"question":"Un pavé droit mesure 10 cm, 4 cm et 3 cm. Quel est son volume ?","answers":["164 cm³","130 cm³","120 cm³","17 cm³"],"correct":2},
+            {"question":"Résoudre : 6x - 15 = 39","answers":["x = 24","x = 8","x = 9","x = 10"],"correct":2},
+            {"question":"Un article coûte 11000 FCFA. Avec une remise de 60 %, quel est son nouveau prix en FCFA ?","answers":["7700","6600","4400","17600"],"correct":2},
+            {"question":"Calculer : (-11) + (-4)","answers":["-15","7","15","-7"],"correct":0},
+            {"question":"Quel est le volume d'un cube d'arête 8 cm ?","answers":["512 cm³","64 cm³","384 cm³","24 cm³"],"correct":0},
+            {"question":"Quelle est la racine carrée de 64 ?","answers":["10","8","9","7"],"correct":1},
+            {"question":"Les côtés de l'angle droit d'un triangle rectangle mesurent 40 cm et 42 cm. Combien mesure l'hypoténuse ?","answers":["59 cm","58 cm","57 cm","82 cm"],"correct":1},
+            {"question":"Calculer : 2 + 4 × 8","answers":["14","48","16","34"],"correct":3},
+            {"question":"Quel est le PGCD de 81 et 36 ?","answers":["9","324","4","10"],"correct":0},
+            {"question":"Simplifier la fraction 30/35","answers":["6/8","7/7","5/7","6/7"],"correct":3},
+            {"question":"Calculer : 5/10 + 3/10","answers":["8/10","15/10","8/20","9/10"],"correct":0},
+            {"question":"Quelle est la somme des angles intérieurs d'un décagone ?","answers":["1530°","1440°","1800°","1620°"],"correct":1},
+            {"question":"Calculer : 3^2","answers":["3","6","27","9"],"correct":3},
+            {"question":"Quel est le périmètre d'un carré de côté 21 cm ?","answers":["42 cm","84 cm","88 cm","441 cm"],"correct":1},
+            {"question":"Les côtés de l'angle droit d'un triangle rectangle mesurent 20 cm et 21 cm. Combien mesure l'hypoténuse ?","answers":["41 cm","29 cm","30 cm","28 cm"],"correct":1},
+            {"question":"Deux angles sont complémentaires. L'un mesure 38°. Combien mesure l'autre ?","answers":["128°","142°","38°","52°"],"correct":3},
+            {"question":"Calculer : 3 × 4","answers":["15","-12","7","12"],"correct":3},
+            {"question":"Écrire en notation décimale : 1,5 × 10^5","answers":["150000","15000","150005","1500000"],"correct":0},
+            {"question":"Calculer : 2/6 + 3/6","answers":["4/6","6/6","5/12","5/6"],"correct":3},
+            {"question":"Calculer : 9 + 4 × 6","answers":["19","42","33","78"],"correct":2},
+            {"question":"Quel est le PPCM de 6 et 8 ?","answers":["24","48","2","14"],"correct":0},
+            {"question":"Quelle est la racine carrée de 49 ?","answers":["8","9","7","6"],"correct":2},
+            {"question":"Calculer : 2/3 + 4/5","answers":["22/15","8/15","23/15","6/8"],"correct":0},
+            {"question":"Combien vaut 10^5 ?","answers":["1000000","50","100000","10000"],"correct":2},
+            {"question":"Combien vaut 10^7 ?","answers":["70","1000000","100000000","10000000"],"correct":3},
+            {"question":"Un article coûte 26000 FCFA. Avec une remise de 20 %, quel est son nouveau prix en FCFA ?","answers":["31200","20800","23400","5200"],"correct":1},
+            {"question":"Un sac contient 2 boules rouges et 7 boules bleues. Quelle est la probabilité de tirer une boule rouge ?","answers":["1/9","2/7","7/9","2/9"],"correct":3},
+            {"question":"Calculer : 13 + (-2)","answers":["11","-11","15","-15"],"correct":0},
+            {"question":"Calculer : 48 × 5","answers":["245","250","240","230"],"correct":2},
+            {"question":"Un article coûte 30000 FCFA. Avec une remise de 50 %, quel est son nouveau prix en FCFA ?","answers":["15000","45000","27500","22500"],"correct":0},
+            {"question":"Dans un triangle rectangle, l'hypoténuse mesure 29 cm et un côté mesure 20 cm. Combien mesure l'autre côté ?","answers":["22 cm","9 cm","21 cm","20 cm"],"correct":2},
+            {"question":"Quelle est la moyenne de ces notes : 2, 6, 10, 8, 14 ?","answers":["10","9","7","8"],"correct":3},
+            {"question":"Quel est le périmètre d'un carré de côté 18 cm ?","answers":["72 cm","76 cm","36 cm","324 cm"],"correct":0},
+            {"question":"Calculer : 4/6 + 2/3","answers":["25/18","6/9","8/18","4/3"],"correct":3},
+            {"question":"Calculer : 3/7 + 2/7","answers":["5/14","6/7","5/7","4/7"],"correct":2},
+            {"question":"Calculer : 3/5 + 1/5","answers":["4/5","5/5","4/10","3/5"],"correct":0},
+            {"question":"Résoudre : 5x + 11 = 21","answers":["x = 3","x = 4","x = 1","x = 2"],"correct":3}
         ]
     },
 
@@ -140,132 +268,256 @@ const quizData = {
         name: "Biologie",
         total: 25,
         questions: [
-  {
-    "question": "Quel organe absorbe l'eau et les sels mineraux chez la plante ?",
-    "answers": ["Tige", "Feuille", "Fleur", "Racine"],
-    "correct": 3
-  },
-  {
-    "question": "La photosynthese se fait dans quel organite ?",
-    "answers": ["Mitochondrie", "Chloroplaste", "Noyau", "Vacuole"],
-    "correct": 1
-  },
-  {
-    "question": "Quel gaz les plantes absorbent-elles pour la photosynthese ?",
-    "answers": ["Oxygene", "Dioxyde de carbone", "Azote", "Hydrogene"],
-    "correct": 1
-  },
-  {
-    "question": "La partie coloree et parfumee de la plante qui attire les pollinisateurs :",
-    "answers": ["Fruit", "Tige", "Fleur", "Graine"],
-    "correct": 2
-  },
-  {
-    "question": "Quel pigment donne la couleur verte aux feuilles ?",
-    "answers": ["Carotene", "Chlorophylle", "Anthocyane", "Xanthophylle"],
-    "correct": 1
-  },
-  {
-    "question": "A quoi sert principalement la tige ?",
-    "answers": ["Faire la photosynthese", "Transporter la seve", "Se reproduire", "Stocker l'eau"],
-    "correct": 1
-  },
-  {
-    "question": "Le fruit provient de quelle partie de la fleur ?",
-    "answers": ["Etamine", "Ovaire", "Petale", "Sepale"],
-    "correct": 1
-  },
-  {
-    "question": "Les plantes qui fabriquent leur propre nourriture sont dites :",
-    "answers": ["Heterotrophes", "Autotrophes", "Carnivores", "Parasites"],
-    "correct": 1
-  },
-  {
-    "question": "Les stomates se trouvent principalement sur :",
-    "answers": ["La racine", "La tige", "La feuille", "La fleur"],
-    "correct": 2
-  },
-  {
-    "question": "Que contient une graine ?",
-    "answers": ["L'embryon", "La seve", "La chlorophylle", "Le pollen"],
-    "correct": 0
-  },
-  {
-    "question": "Quel element est essentiel pour la croissance des feuilles ?",
-    "answers": ["Or", "Azote", "Plomb", "Mercure"],
-    "correct": 1
-  },
-  {
-    "question": "La transpiration des plantes se fait par :",
-    "answers": ["La racine", "Les stomates", "La tige", "Le fruit"],
-    "correct": 1
-  },
-  {
-    "question": "Le mais est une plante :",
-    "answers": ["Dicotyledone", "Monocotyledone", "Gymnosperme", "Bryophyte"],
-    "correct": 1
-  },
-  {
-    "question": "Le pollen est produit par :",
-    "answers": ["Pistil", "Etamine", "Petale", "Sepale"],
-    "correct": 1
-  },
-  {
-    "question": "Quelle plante est carnivore ?",
-    "answers": ["Rose", "Drosera", "Baobab", "Ble"],
-    "correct": 1
-  },
-  {
-    "question": "Le bois d'un arbre vient principalement de :",
-    "answers": ["L'ecorce", "Le xyleme", "Le phloeme", "La moelle"],
-    "correct": 1
-  },
-  {
-    "question": "Pourquoi les plantes transpirent ?",
-    "answers": ["Pour mourir", "Pour refroidir et transporter les sels", "Pour devenir rouge", "Pour faire des fruits"],
-    "correct": 1
-  },
-  {
-    "question": "La banane est botaniquement :",
-    "answers": ["Un legume", "Une baie", "Un tubercule", "Une graine"],
-    "correct": 1
-  },
-  {
-    "question": "La reproduction par bouturage est :",
-    "answers": ["Sexuee", "Asexuee", "Impossible", "Hybride"],
-    "correct": 1
-  },
-  {
-    "question": "Quel type de sol retient le mieux l'eau ?",
-    "answers": ["Sableux", "Argileux", "Rocheux", "Calcaire"],
-    "correct": 1
-  },
-  {
-    "question": "La germination a besoin de :",
-    "answers": ["Feu", "Eau, air, chaleur", "Glace", "Sel"],
-    "correct": 1
-  },
-  {
-    "question": "Les algues font partie des :",
-    "answers": ["Bryophytes", "Pteridophytes", "Thallophytes", "Spermaphytes"],
-    "correct": 2
-  },
-  {
-    "question": "Le riz est riche surtout en :",
-    "answers": ["Proteines", "Lipides", "Glucides", "Vitamines"],
-    "correct": 2
-  },
-  {
-    "question": "L'arbre le plus haut du monde est :",
-    "answers": ["Baobab", "Sequoia", "Chene", "Eucalyptus"],
-    "correct": 1
-  },
-  {
-    "question": "Les racines du haricot sont :",
-    "answers": ["Pivotantes", "Fasciculees", "Tubereuses", "Aeriennes"],
-    "correct": 0
-  }
-
+            {"question":"Quel organe absorbe l'eau et les sels mineraux chez la plante ?","answers":["Tige","Feuille","Fleur","Racine"],"correct":3},
+            {"question":"La photosynthese se fait dans quel organite ?","answers":["Mitochondrie","Chloroplaste","Noyau","Vacuole"],"correct":1},
+            {"question":"Quel gaz les plantes absorbent-elles pour la photosynthese ?","answers":["Oxygene","Dioxyde de carbone","Azote","Hydrogene"],"correct":1},
+            {"question":"La partie coloree et parfumee de la plante qui attire les pollinisateurs :","answers":["Fruit","Tige","Fleur","Graine"],"correct":2},
+            {"question":"Quel pigment donne la couleur verte aux feuilles ?","answers":["Carotene","Chlorophylle","Anthocyane","Xanthophylle"],"correct":1},
+            {"question":"A quoi sert principalement la tige ?","answers":["Faire la photosynthese","Transporter la seve","Se reproduire","Stocker l'eau"],"correct":1},
+            {"question":"Le fruit provient de quelle partie de la fleur ?","answers":["Etamine","Ovaire","Petale","Sepale"],"correct":1},
+            {"question":"Les plantes qui fabriquent leur propre nourriture sont dites :","answers":["Heterotrophes","Autotrophes","Carnivores","Parasites"],"correct":1},
+            {"question":"Les stomates se trouvent principalement sur :","answers":["La racine","La tige","La feuille","La fleur"],"correct":2},
+            {"question":"Que contient une graine ?","answers":["L'embryon","La seve","La chlorophylle","Le pollen"],"correct":0},
+            {"question":"Quel element est essentiel pour la croissance des feuilles ?","answers":["Or","Azote","Plomb","Mercure"],"correct":1},
+            {"question":"La transpiration des plantes se fait par :","answers":["La racine","Les stomates","La tige","Le fruit"],"correct":1},
+            {"question":"Le mais est une plante :","answers":["Dicotyledone","Monocotyledone","Gymnosperme","Bryophyte"],"correct":1},
+            {"question":"Le pollen est produit par :","answers":["Pistil","Etamine","Petale","Sepale"],"correct":1},
+            {"question":"Quelle plante est carnivore ?","answers":["Rose","Drosera","Baobab","Ble"],"correct":1},
+            {"question":"Le bois d'un arbre vient principalement de :","answers":["L'ecorce","Le xyleme","Le phloeme","La moelle"],"correct":1},
+            {"question":"Pourquoi les plantes transpirent ?","answers":["Pour mourir","Pour refroidir et transporter les sels","Pour devenir rouge","Pour faire des fruits"],"correct":1},
+            {"question":"La banane est botaniquement :","answers":["Un legume","Une baie","Un tubercule","Une graine"],"correct":1},
+            {"question":"La reproduction par bouturage est :","answers":["Sexuee","Asexuee","Impossible","Hybride"],"correct":1},
+            {"question":"Quel type de sol retient le mieux l'eau ?","answers":["Sableux","Argileux","Rocheux","Calcaire"],"correct":1},
+            {"question":"La germination a besoin de :","answers":["Feu","Eau, air, chaleur","Glace","Sel"],"correct":1},
+            {"question":"Les algues font partie des :","answers":["Bryophytes","Pteridophytes","Thallophytes","Spermaphytes"],"correct":2},
+            {"question":"Le riz est riche surtout en :","answers":["Proteines","Lipides","Glucides","Vitamines"],"correct":2},
+            {"question":"L'arbre le plus haut du monde est :","answers":["Baobab","Sequoia","Chene","Eucalyptus"],"correct":1},
+            {"question":"Les racines du haricot sont :","answers":["Pivotantes","Fasciculees","Tubereuses","Aeriennes"],"correct":0},
+            {"question":"Quel gaz les plantes rejettent-elles lors de la photosynthèse ?","answers":["L'azote","Le dioxyde de carbone","L'hydrogène","Le dioxygène"],"correct":3},
+            {"question":"Quel sucre est produit par la photosynthèse ?","answers":["Le calcaire","Le lactose","Le sel marin","Le glucose"],"correct":3},
+            {"question":"Quelle énergie la plante utilise-t-elle pour la photosynthèse ?","answers":["L'énergie du vent","L'énergie lumineuse","L'énergie sonore","L'énergie nucléaire"],"correct":1},
+            {"question":"Comment appelle-t-on la sève qui monte des racines vers les feuilles ?","answers":["La sève élaborée","Le latex","La résine","La sève brute"],"correct":3},
+            {"question":"Comment appelle-t-on la sève riche en sucres qui circule dans la plante ?","answers":["L'eau de pluie","Le nectar","La sève élaborée","La sève brute"],"correct":2},
+            {"question":"Quels vaisseaux transportent la sève brute ?","answers":["Les vaisseaux du phloème","Les poils absorbants","Les stomates","Les vaisseaux du xylème"],"correct":3},
+            {"question":"Quels vaisseaux transportent la sève élaborée ?","answers":["Les vaisseaux du phloème","Les stomates","Les vaisseaux du xylème","Les poils absorbants"],"correct":0},
+            {"question":"Quelle partie de la racine absorbe l'eau ?","answers":["La coiffe","Le bourgeon","Les poils absorbants","Le tronc"],"correct":2},
+            {"question":"Quel est le rôle de la coiffe de la racine ?","answers":["Protéger l'extrémité de la racine","Produire des fleurs","Faire la photosynthèse","Transpirer"],"correct":0},
+            {"question":"Quel organe de la plante assure l'ancrage dans le sol ?","answers":["Le fruit","La fleur","La racine","La feuille"],"correct":2},
+            {"question":"Le manioc est une plante dont on consomme surtout :","answers":["Les fruits","Les épines","Les fleurs","Les racines tubérisées"],"correct":3},
+            {"question":"La pomme de terre est :","answers":["Une tige souterraine renflée (tubercule)","Une graine","Une racine","Un fruit"],"correct":0},
+            {"question":"L'igname est :","answers":["Une graine","Un tubercule","Un fruit sec","Une fleur"],"correct":1},
+            {"question":"La carotte est :","answers":["Une racine","Un fruit","Une tige","Une feuille"],"correct":0},
+            {"question":"L'oignon est :","answers":["Un bulbe","Un fruit","Une racine pivotante","Une graine"],"correct":0},
+            {"question":"Le gingembre est un :","answers":["Pétale","Bulbe","Rhizome","Fruit"],"correct":2},
+            {"question":"La tomate est botaniquement :","answers":["Une feuille","Une tige","Un fruit","Une racine"],"correct":2},
+            {"question":"L'arachide est une plante de la famille des :","answers":["Graminées","Fougères","Légumineuses","Conifères"],"correct":2},
+            {"question":"Quelle bactérie vit sur les racines des légumineuses et fixe l'azote ?","answers":["Rhizobium","Vibrio","Plasmodium","Staphylocoque"],"correct":0},
+            {"question":"Quel élément chimique les légumineuses enrichissent-elles dans le sol ?","answers":["Le plomb","L'or","Le mercure","L'azote"],"correct":3},
+            {"question":"Le maïs, le riz et le blé font partie des :","answers":["Fougères","Céréales","Légumineuses","Conifères"],"correct":1},
+            {"question":"Le sorgho et le mil sont des :","answers":["Tubercules","Fruits charnus","Légumes-feuilles","Céréales"],"correct":3},
+            {"question":"Quelle plante produit le cacao ?","answers":["L'hévéa","Le cacaoyer","Le palmier","Le caféier"],"correct":1},
+            {"question":"Quelle plante produit le café ?","answers":["Le cacaoyer","Le théier","Le caféier","Le bananier"],"correct":2},
+            {"question":"Quelle plante produit le caoutchouc naturel ?","answers":["Le palmier à huile","L'hévéa","Le cotonnier","Le cacaoyer"],"correct":1},
+            {"question":"Quelle plante produit la fibre de coton ?","answers":["Le manguier","Le papayer","L'avocatier","Le cotonnier"],"correct":3},
+            {"question":"L'huile de palme est extraite du fruit du :","answers":["Cocotier","Palmier à huile","Baobab","Tournesol"],"correct":1},
+            {"question":"Le sucre de canne vient de :","answers":["La betterave","Le palmier","La canne à sucre","Le maïs"],"correct":2},
+            {"question":"Quelle plante fournit du sucre en Europe, à côté de la canne ?","answers":["La betterave sucrière","L'igname","Le plantain","Le manioc"],"correct":0},
+            {"question":"Le thé est fabriqué à partir des feuilles du :","answers":["Bananier","Théier","Caféier","Cacaoyer"],"correct":1},
+            {"question":"Dans une fleur, quelle partie est la partie femelle ?","answers":["L'étamine","Le sépale","Le pistil","Le pétale"],"correct":2},
+            {"question":"Dans une fleur, quelle partie produit le pollen ?","answers":["Le stigmate","L'anthère","Le style","L'ovule"],"correct":1},
+            {"question":"Où se trouvent les ovules dans la fleur ?","answers":["Dans l'anthère","Dans l'ovaire","Dans le pétale","Dans le sépale"],"correct":1},
+            {"question":"Que devient l'ovule après la fécondation ?","answers":["Un fruit","Une racine","Une feuille","Une graine"],"correct":3},
+            {"question":"Que devient l'ovaire après la fécondation ?","answers":["Un fruit","Du pollen","Un sépale","Une racine"],"correct":0},
+            {"question":"Comment s'appelle le transport du pollen vers le pistil ?","answers":["La germination","La photosynthèse","La pollinisation","La transpiration"],"correct":2},
+            {"question":"Quel animal est un pollinisateur très important ?","answers":["La tortue","L'abeille","Le poisson","Le ver de terre"],"correct":1},
+            {"question":"Le maïs est surtout pollinisé par :","answers":["Les serpents","Le vent","Les poissons","Les escargots"],"correct":1},
+            {"question":"Comment s'appelle l'ensemble des sépales d'une fleur ?","answers":["Le calice","Le pistil","La corolle","L'étamine"],"correct":0},
+            {"question":"Comment s'appelle l'ensemble des pétales ?","answers":["Le calice","Le pistil","La corolle","Le style"],"correct":2},
+            {"question":"À quoi servent les couleurs vives des pétales ?","answers":["À faire la photosynthèse","À absorber l'eau","À attirer les insectes","À stocker le sel"],"correct":2},
+            {"question":"Que produit une fleur pour attirer les insectes en plus de sa couleur ?","answers":["De la cellulose","De l'amidon","De la chlorophylle","Du nectar"],"correct":3},
+            {"question":"Comment appelle-t-on les plantes dont les graines sont enfermées dans un fruit ?","answers":["Les angiospermes","Les gymnospermes","Les bryophytes","Les algues"],"correct":0},
+            {"question":"Les conifères comme le pin sont des :","answers":["Fougères","Gymnospermes","Angiospermes","Mousses"],"correct":1},
+            {"question":"Les fougères se reproduisent grâce à :","answers":["Des fleurs colorées","Des tubercules","Des spores","Des fruits charnus"],"correct":2},
+            {"question":"Les mousses font partie des :","answers":["Bryophytes","Conifères","Céréales","Légumineuses"],"correct":0},
+            {"question":"Que manque-t-il aux mousses ?","answers":["La chlorophylle","Les cellules","Les vraies racines","Le noyau"],"correct":2},
+            {"question":"Les champignons font-ils partie du règne végétal ?","answers":["Oui, ce sont des plantes","Non, ils forment un règne à part","Oui, ce sont des algues","Oui, ce sont des fleurs"],"correct":1},
+            {"question":"Un champignon se nourrit :","answers":["D'air seulement","De matière organique déjà produite","De lumière","De sel"],"correct":1},
+            {"question":"Que forme l'association d'une algue et d'un champignon ?","answers":["Un fruit","Un lichen","Un tubercule","Une mousse"],"correct":1},
+            {"question":"Quelle paroi entoure les cellules végétales ?","answers":["La peau","La coquille calcaire","La paroi cellulosique","Le cartilage"],"correct":2},
+            {"question":"Quel organite de la cellule végétale stocke l'eau et diverses substances ?","answers":["La paroi","Le noyau","La vacuole","Le chloroplaste"],"correct":2},
+            {"question":"Quelle substance les plantes utilisent-elles pour stocker l'énergie ?","answers":["Le calcaire","L'amidon","Le sel","Le plomb"],"correct":1},
+            {"question":"Quel réactif colore l'amidon en bleu-noir ?","answers":["L'eau salée","Le vinaigre","L'eau iodée","L'eau de chaux"],"correct":2},
+            {"question":"L'eau de chaux se trouble en présence de :","answers":["Dioxyde de carbone","Hélium","Dioxygène","Azote"],"correct":0},
+            {"question":"Les plantes respirent :","answers":["Jour et nuit","Seulement le jour","Seulement la nuit","Jamais"],"correct":0},
+            {"question":"La photosynthèse n'a lieu :","answers":["Que dans les racines","Que dans les fruits","Qu'à la lumière","Que dans le noir"],"correct":2},
+            {"question":"Quelles lumières la chlorophylle absorbe-t-elle surtout ?","answers":["Le jaune","L'orange","Le rouge et le bleu","Le vert"],"correct":2},
+            {"question":"Pourquoi les feuilles paraissent-elles vertes ?","answers":["Elles absorbent le vert","Elles produisent du vert","Elles contiennent de l'eau verte","Elles réfléchissent la lumière verte"],"correct":3},
+            {"question":"Comment s'appelle la tendance d'une tige à pousser vers la lumière ?","answers":["L'hydrotropisme","Le thermotropisme","Le phototropisme","Le géotropisme"],"correct":2},
+            {"question":"Les racines poussent vers le bas à cause de :","answers":["La pesanteur","Le bruit","Le froid","Le vent"],"correct":0},
+            {"question":"Quelle hormone végétale favorise la croissance des cellules de la tige ?","answers":["L'adrénaline","La thyroxine","L'insuline","L'auxine"],"correct":3},
+            {"question":"Quel gaz favorise le mûrissement des fruits ?","answers":["L'argon","Le néon","L'éthylène","L'hélium"],"correct":2},
+            {"question":"Pourquoi met-on une banane verte avec une banane mûre ?","answers":["Pour lui donner de l'eau","L'éthylène émis accélère le mûrissement","Pour la rendre plus dure","Pour la protéger du soleil"],"correct":1},
+            {"question":"Comment appelle-t-on un arbre qui perd ses feuilles en saison ?","answers":["Épiphyte","À feuilles persistantes","Aquatique","À feuilles caduques"],"correct":3},
+            {"question":"Comment s'appelle la partie plate d'une feuille ?","answers":["La tige","Le pétiole","Le bourgeon","Le limbe"],"correct":3},
+            {"question":"Comment s'appelle la tige qui attache la feuille au rameau ?","answers":["Le pétiole","Le limbe","Le pistil","L'anthère"],"correct":0},
+            {"question":"À quoi servent les nervures de la feuille ?","answers":["À stocker des graines","À capter les sons","À produire des fleurs","À transporter les sèves"],"correct":3},
+            {"question":"Les feuilles du maïs ont des nervures :","answers":["Ramifiées","En étoile","Absentes","Parallèles"],"correct":3},
+            {"question":"Les plantes à feuilles à nervures ramifiées sont des :","answers":["Dicotylédones","Mousses","Monocotylédones","Fougères"],"correct":0},
+            {"question":"Combien de cotylédons possède une graine de monocotylédone ?","answers":["Deux","Un","Trois","Quatre"],"correct":1},
+            {"question":"Combien de cotylédons a une graine de haricot ?","answers":["Trois","Un","Aucun","Deux"],"correct":3},
+            {"question":"À quoi servent les cotylédons ?","answers":["À absorber le pollen","À produire du nectar","À faire des fleurs","À nourrir la jeune plante"],"correct":3},
+            {"question":"Quelle partie de la graine donne la première racine ?","answers":["Le cotylédon","La gemmule","Le tégument","La radicule"],"correct":3},
+            {"question":"Quelle partie de la graine donne la première tige et les premières feuilles ?","answers":["L'ovaire","Le tégument","La gemmule","La radicule"],"correct":2},
+            {"question":"Quel est le rôle du tégument de la graine ?","answers":["Absorber le pollen","Protéger la graine","Faire la photosynthèse","Produire du nectar"],"correct":1},
+            {"question":"Que faut-il pour qu'une graine germe ?","answers":["Un manque d'air","Un froid extrême","Un milieu humide et tiède","Un sol totalement sec"],"correct":2},
+            {"question":"La graine de pissenlit est dispersée par :","answers":["Le vent","L'eau","Le feu","Les fourmis"],"correct":0},
+            {"question":"La noix de coco se disperse souvent par :","answers":["Le feu","Les éclairs","L'eau de mer","Le vent"],"correct":2},
+            {"question":"Certaines graines s'accrochent à la fourrure des animaux : c'est la dispersion par :","answers":["L'eau","La gravité seule","Le vent","Les animaux"],"correct":3},
+            {"question":"Pourquoi les fruits charnus sont-ils souvent sucrés et colorés ?","answers":["Pour protéger du soleil","Pour absorber l'eau","Pour faire du bruit","Pour être mangés et disperser les graines"],"correct":3},
+            {"question":"La mangue est un fruit de type :","answers":["Akène","Capsule","Drupe","Gousse"],"correct":2},
+            {"question":"Le haricot vert est un fruit appelé :","answers":["Un akène","Une drupe","Une baie","Une gousse"],"correct":3},
+            {"question":"La prune est un fruit à noyau appelé :","answers":["Une gousse","Une drupe","Une baie","Un akène"],"correct":1},
+            {"question":"Le fraisier se multiplie grâce à ses :","answers":["Cônes","Spores","Épines","Stolons"],"correct":3},
+            {"question":"Qu'appelle-t-on le greffage ?","answers":["Unir une partie d'une plante à une autre plante","Semer une graine","Arroser abondamment","Couper les racines"],"correct":0},
+            {"question":"Qu'est-ce que le marcottage ?","answers":["Déterrer un tubercule","Semer un grain","Brûler une souche","Faire raciner une branche encore attachée à la plante"],"correct":3},
+            {"question":"Le plantain se multiplie surtout par :","answers":["Des rejets","Des akènes","Des cônes","Des spores"],"correct":0},
+            {"question":"Quelle plante produit la vanille ?","answers":["Un palmier","Une fougère","Une orchidée","Un cactus"],"correct":2},
+            {"question":"Le poivre de Penja est cultivé dans quel pays ?","answers":["Le Chili","La Chine","Le Cameroun","Le Brésil"],"correct":2},
+            {"question":"Le ndolé est :","answers":["Un légume-feuille","Un tubercule","Un fruit","Une céréale"],"correct":0},
+            {"question":"Le macabo est :","answers":["Un tubercule consommé cuit","Une céréale","Une fleur","Un fruit sec"],"correct":0},
+            {"question":"Pourquoi doit-on transformer le manioc amer avant de le manger ?","answers":["Pour le colorer","Pour le rendre plus lourd","Pour le rendre plus froid","Pour éliminer ses substances toxiques"],"correct":3},
+            {"question":"Quelle plante médicinale a donné la quinine contre le paludisme ?","answers":["Le baobab","Le palmier","Le manguier","Le quinquina"],"correct":3},
+            {"question":"Quelle plante fournit l'artémisinine utilisée contre le paludisme ?","answers":["Le maïs","Le manioc","Le café","L'armoise annuelle (Artemisia)"],"correct":3},
+            {"question":"De quel arbre provient la molécule à l'origine de l'aspirine ?","answers":["Le saule","Le cocotier","Le palmier","Le chêne"],"correct":0},
+            {"question":"L'aloe vera est utilisé surtout pour :","answers":["Faire du pain","Fabriquer du papier","Apaiser la peau","Éclairer"],"correct":2},
+            {"question":"Le baobab stocke dans son tronc :","answers":["Du fer","De l'eau","Du sucre pur","Du pétrole"],"correct":1},
+            {"question":"Les épines du cactus sont des :","answers":["Racines","Fleurs","Feuilles transformées","Fruits"],"correct":2},
+            {"question":"Comment appelle-t-on une plante qui vit aux dépens d'un arbre, comme le gui ?","answers":["Une plante aquatique","Une céréale","Une fougère","Une plante parasite"],"correct":3},
+            {"question":"La dionée attrape-mouches est une plante :","answers":["Grimpante","Aquatique","Carnivore","Parasite"],"correct":2},
+            {"question":"Le mimosa sensitif se caractérise par :","answers":["Des fleurs géantes","Des feuilles qui se replient au toucher","Des fruits rouges","Des racines aériennes"],"correct":1},
+            {"question":"Quelle plante a la plus grande fleur du monde ?","answers":["Le Rafflesia","Le tournesol","La rose","La marguerite"],"correct":0},
+            {"question":"Quelle plante est connue pour sa croissance très rapide ?","answers":["Le cactus","Le baobab","Le bambou","Le chêne"],"correct":2},
+            {"question":"Les palétuviers de la mangrove ont des racines :","answers":["En forme de bulbe","Uniquement souterraines","Absentes","Aériennes qui sortent de la vase"],"correct":3},
+            {"question":"Dans quel milieu pousse la mangrove ?","answers":["Les côtes tropicales (eau salée)","Le désert","La haute montagne","La banquise"],"correct":0},
+            {"question":"Comment appelle-t-on l'étage supérieur et dense de la forêt tropicale ?","answers":["La canopée","Le sous-bois","La litière","L'humus"],"correct":0},
+            {"question":"Comment s'appelle la couche de feuilles mortes qui se décompose au sol ?","answers":["La litière","La canopée","La mousse","Le tronc"],"correct":0},
+            {"question":"La matière organique décomposée du sol s'appelle :","answers":["Le sable pur","Le verre","Le granite","L'humus"],"correct":3},
+            {"question":"Que signifie NPK sur un engrais ?","answers":["Néon, platine, kaolin","Nitrate, pétrole, calcium","Nickel, plomb, krypton","Azote, phosphore, potassium"],"correct":3},
+            {"question":"Qu'est-ce que le compost ?","answers":["Une graine","Un engrais naturel issu de déchets organiques","Un pesticide chimique","Une maladie"],"correct":1},
+            {"question":"Pourquoi pratique-t-on la rotation des cultures ?","answers":["Pour changer la couleur des fruits","Pour faire pleuvoir","Pour faire grandir les plantes plus haut","Pour préserver la fertilité du sol"],"correct":3},
+            {"question":"Quel risque la déforestation augmente-t-elle ?","answers":["Aucun risque","La croissance des feuilles","L'érosion du sol","Le froid"],"correct":2},
+            {"question":"Que stockent les arbres en grande quantité ?","answers":["De l'uranium","Du mercure","Du carbone","Du plomb"],"correct":2},
+            {"question":"Quel est le plus grand bassin forestier d'Afrique ?","answers":["Le Sahara","Le Sahel","Le bassin du Congo","Le Kalahari"],"correct":2},
+            {"question":"Qui a inventé la classification binomiale des êtres vivants ?","answers":["Carl von Linné","Gregor Mendel","Louis Pasteur","Charles Darwin"],"correct":0},
+            {"question":"Dans le nom Zea mays, \"Zea\" désigne :","answers":["L'espèce","La famille","Le genre","Le règne"],"correct":2},
+            {"question":"Quel scientifique a étudié l'hérédité avec des petits pois ?","answers":["Louis Pasteur","Gregor Mendel","Marie Curie","Isaac Newton"],"correct":1},
+            {"question":"Qui a découvert les cellules en observant du liège ?","answers":["Louis Pasteur","Robert Hooke","Alexander Fleming","Charles Darwin"],"correct":1},
+            {"question":"Quel instrument permet d'observer les cellules végétales ?","answers":["Le baromètre","Le thermomètre","Le télescope","Le microscope"],"correct":3},
+            {"question":"Quels éléments les cellules végétales possèdent-elles en plus des cellules animales ?","answers":["Un noyau","Du cytoplasme","Une membrane","Des chloroplastes et une paroi"],"correct":3},
+            {"question":"Quel est le rôle du noyau de la cellule ?","answers":["Faire la photosynthèse","Protéger la cellule","Contrôler la cellule et porter l'ADN","Stocker l'eau"],"correct":2},
+            {"question":"Quelle molécule porte l'information génétique ?","answers":["La cellulose","Le glucose","L'amidon","L'ADN"],"correct":3},
+            {"question":"Qu'est-ce que la cellulose ?","answers":["Le constituant principal de la paroi végétale","Une hormone","Un pigment","Un gaz"],"correct":0},
+            {"question":"Le papier est fabriqué surtout à partir de :","answers":["Métal","Pierre","Fibres de bois","Sable"],"correct":2},
+            {"question":"Le liège provient de l'écorce du :","answers":["Chêne-liège","Palmier","Pin","Baobab"],"correct":0},
+            {"question":"Comment récolte-t-on le latex de l'hévéa ?","answers":["En coupant les racines","En pressant les graines","En cueillant les fruits","En entaillant l'écorce"],"correct":3},
+            {"question":"Comment peut-on estimer l'âge d'un arbre coupé ?","answers":["En goûtant son fruit","En comptant les cernes du tronc","En mesurant ses feuilles","En pesant ses racines"],"correct":1},
+            {"question":"Un cerne de croissance correspond généralement à :","answers":["Un mois","Un siècle","Un jour","Une année"],"correct":3},
+            {"question":"L'écorce protège :","answers":["Les fleurs","Uniquement les racines","Le tronc","Les nuages"],"correct":2},
+            {"question":"Que sont les bourgeons ?","answers":["Des spores","Des racines","Des fruits secs","De jeunes pousses qui donneront tiges, feuilles ou fleurs"],"correct":3},
+            {"question":"Qu'est-ce qu'une plante annuelle ?","answers":["Une plante marine","Une plante qui vit 100 ans","Une plante sans fleurs","Une plante qui accomplit son cycle en un an"],"correct":3},
+            {"question":"Qu'est-ce qu'une plante vivace ?","answers":["Une plante sans racines","Une plante qui vit plusieurs années","Une plante qui meurt chaque semaine","Une plante carnivore"],"correct":1},
+            {"question":"Où vivent les plantes aquatiques comme le nénuphar ?","answers":["Dans l'eau ou à sa surface","Dans le sol sec","Dans le désert","Dans la roche"],"correct":0},
+            {"question":"Que sont les plantes épiphytes ?","answers":["Des plantes sans chlorophylle","Des plantes qui poussent sur d'autres plantes sans les parasiter","Des plantes souterraines","Des plantes qui mangent des insectes"],"correct":1},
+            {"question":"Pourquoi une plante gardée dans le noir devient-elle pâle et chétive ?","answers":["Faute de lumière, elle ne fabrique plus de chlorophylle","Elle a trop d'oxygène","Elle manque de sel","Elle a trop chaud"],"correct":0},
+            {"question":"Quel est l'avantage d'une feuille large et plate ?","answers":["Capter beaucoup de lumière","Stocker du sable","Produire des fruits","Retenir des insectes"],"correct":0},
+            {"question":"Les feuilles en aiguilles des pins aident à :","answers":["Limiter la perte d'eau","Faire plus de fleurs","Attirer les insectes","Produire du sucre"],"correct":0},
+            {"question":"Que signifie \"culture hydroponique\" ?","answers":["Cultiver sans eau","Cultiver sous terre","Cultiver des plantes sans sol, dans l'eau enrichie","Cultiver dans le sable chaud"],"correct":2},
+            {"question":"Quel est le rôle de l'irrigation ?","answers":["Ajouter du sel","Apporter de l'eau aux cultures","Couper les plantes","Éliminer les insectes"],"correct":1},
+            {"question":"À quoi sert le paillage ?","answers":["Faire pousser des champignons","Garder l'humidité du sol","Attirer des oiseaux","Produire de l'électricité"],"correct":1},
+            {"question":"Pourquoi laboure-t-on la terre ?","answers":["Pour la colorer","Pour la durcir","Pour l'aérer et l'ameublir","Pour la mouiller"],"correct":2},
+            {"question":"Quelle plante est souvent cultivée comme fourrage pour les animaux ?","answers":["Le poivrier","La luzerne","Le baobab","L'hévéa"],"correct":1},
+            {"question":"Une monoculture est :","answers":["La pêche","Un type d'engrais","La culture d'une seule espèce sur un champ","La culture de nombreuses espèces"],"correct":2},
+            {"question":"Une culture vivrière sert surtout à :","answers":["Fabriquer du carburant","Exporter uniquement","Nourrir les populations locales","Décorer"],"correct":2},
+            {"question":"Une culture de rente est cultivée surtout pour :","answers":["La vente et l'exportation","L'autoconsommation uniquement","La décoration","La médecine seulement"],"correct":0},
+            {"question":"Quelle culture de rente est importante au Cameroun ?","answers":["Le cacao","Le macabo","Le plantain","Le manioc"],"correct":0},
+            {"question":"Quelle culture est typique du nord du Cameroun ?","answers":["L'hévéa","Le bananier","Le cacao","Le coton"],"correct":3},
+            {"question":"Quelle culture est répandue dans l'Ouest du Cameroun ?","answers":["Le dattier","Le cocotier","La mangrove","Le café"],"correct":3},
+            {"question":"Quelle variété de café est cultivée surtout en altitude ?","answers":["Le robusta","Le cacao","L'arabica","Le cola"],"correct":2},
+            {"question":"Comment appelle-t-on le fruit du caféier ?","answers":["La cerise de café","La gousse","La noix de cola","Le raisin"],"correct":0},
+            {"question":"De quel arbre provient la noix de kola ?","answers":["Le papayer","Le kolatier","Le manguier","Le cocotier"],"correct":1},
+            {"question":"La papaye est le fruit du :","answers":["Bananier","Palmier","Manguier","Papayer"],"correct":3},
+            {"question":"Le bananier est :","answers":["Un arbre à bois dur","Un arbuste épineux","Une grande herbe","Un conifère"],"correct":2},
+            {"question":"Le \"tronc\" du bananier est en réalité :","answers":["Une racine","Un fruit","Un tronc de bois","Un faux tronc formé de gaines de feuilles"],"correct":3},
+            {"question":"L'ananas est :","answers":["Un fruit composé","Un tubercule","Une racine","Une graine seule"],"correct":0},
+            {"question":"L'avocat est un fruit riche en :","answers":["Calcaire","Sel","Gaz","Lipides (matières grasses)"],"correct":3},
+            {"question":"Les agrumes sont riches en :","answers":["Plomb","Fluor","Iode","Vitamine C"],"correct":3},
+            {"question":"Quels fruits sont des agrumes ?","answers":["Arachide, soja","Mangue, ananas, papaye","Orange, citron, mandarine","Tomate, aubergine"],"correct":2},
+            {"question":"L'aubergine est :","answers":["Un tubercule","Un fruit utilisé comme légume","Une racine","Une fleur"],"correct":1},
+            {"question":"Le haricot, le pois et le soja sont :","answers":["Des légumineuses","Des céréales","Des conifères","Des fougères"],"correct":0},
+            {"question":"Quelle graine donne de l'huile et est très cultivée dans le monde ?","answers":["Le sorgho","Le soja","Le mil","Le riz"],"correct":1},
+            {"question":"L'huile d'arachide est extraite :","answers":["Des feuilles","Des racines","Des graines d'arachide","Des fleurs"],"correct":2},
+            {"question":"Le karité donne :","answers":["Un beurre végétal","Du sel","Du lait animal","Du sucre"],"correct":0},
+            {"question":"Le moringa est connu pour :","answers":["Ses épines mortelles","Ses fruits toxiques","Ses feuilles riches en nutriments","Ses racines flottantes"],"correct":2},
+            {"question":"Le raphia est utilisé pour :","answers":["Fabriquer des fibres, des nattes et une boisson","Fabriquer du fer","Produire du sucre","Fabriquer du verre"],"correct":0},
+            {"question":"Le vin de palme est tiré :","answers":["Du raisin","Du maïs","De l'orge","De la sève du palmier"],"correct":3},
+            {"question":"Le rotin vient d'une :","answers":["Feuille de bananier","Fleur de cactus","Liane de palmier","Racine de baobab"],"correct":2},
+            {"question":"Les bambous appartiennent à la famille des :","answers":["Fougères","Orchidées","Conifères","Graminées"],"correct":3},
+            {"question":"Quelle plante constitue le principal aliment du panda géant ?","answers":["Le bambou","Le coton","Le maïs","Le manioc"],"correct":0},
+            {"question":"Comment les lianes atteignent-elles la lumière ?","answers":["En s'enroulant autour d'autres plantes","En volant","En creusant","En nageant"],"correct":0},
+            {"question":"Qu'est-ce qu'une vrille chez une plante ?","answers":["Un fruit","Un pétale","Une racine","Un organe qui s'enroule pour s'accrocher"],"correct":3},
+            {"question":"Quel est le rôle des poils sur certaines feuilles ?","answers":["Faire du bruit","Produire des fruits","Absorber le sel","Limiter l'évaporation et se défendre"],"correct":3},
+            {"question":"Les stomates s'ouvrent et se ferment grâce aux :","answers":["Poils absorbants","Pétales","Cellules de garde","Cernes"],"correct":2},
+            {"question":"Quelle fonction les stomates assurent-ils ?","answers":["La dispersion des graines","La floraison","La fixation au sol","Les échanges gazeux"],"correct":3},
+            {"question":"Où la pomme de terre stocke-t-elle l'amidon ?","answers":["Dans le fruit","Dans le tubercule","Dans la feuille","Dans la fleur"],"correct":1},
+            {"question":"Les graines de céréales sont riches en :","answers":["Gaz","Mercure","Amidon","Calcaire pur"],"correct":2},
+            {"question":"Les graines de légumineuses sont riches en :","answers":["Plomb","Fluor","Protéines","Sable"],"correct":2},
+            {"question":"Les huiles végétales sont des :","answers":["Vitamines","Glucides","Minéraux","Lipides"],"correct":3},
+            {"question":"Les fibres végétales aident :","answers":["L'audition","La vue seulement","Le transit intestinal","Le sommeil"],"correct":2},
+            {"question":"Quel pigment donne sa couleur orange à la carotte ?","answers":["L'anthocyane","La mélanine","Le carotène","La chlorophylle"],"correct":2},
+            {"question":"L'anthocyane donne surtout les teintes :","answers":["Vertes","Rouges, violettes et bleues","Noires","Blanches"],"correct":1},
+            {"question":"Pourquoi les feuilles changent-elles de couleur à l'automne en zone tempérée ?","answers":["La chlorophylle se dégrade","Elles se remplissent de sable","Elles grossissent","Elles absorbent trop d'eau"],"correct":0},
+            {"question":"Quel arbre donne le sirop ?","answers":["Le bananier","Le baobab","Le palmier","L'érable"],"correct":3},
+            {"question":"Le chocolat est fabriqué à partir :","answers":["Des feuilles","Des racines","Des fleurs","Des fèves du cacaoyer"],"correct":3},
+            {"question":"La cabosse est :","answers":["Une racine","Une fleur","Une feuille","Le fruit du cacaoyer"],"correct":3},
+            {"question":"Quel est le plus grand producteur mondial de cacao ?","answers":["La Norvège","L'Allemagne","Le Cameroun","La Côte d'Ivoire"],"correct":3},
+            {"question":"Quel continent produit la majorité du cacao mondial ?","answers":["L'Antarctique","L'Afrique","L'Europe","L'Océanie"],"correct":1},
+            {"question":"Quel pays est le premier producteur mondial de café ?","answers":["L'Islande","Le Brésil","La Suisse","Le Canada"],"correct":1},
+            {"question":"Où pousse souvent le riz ?","answers":["Sur les rochers","Dans la neige","Dans le désert","Dans des rizières inondées"],"correct":3},
+            {"question":"L'orge sert à fabriquer :","answers":["Du coton","Du tabac","Du malt","Du caoutchouc"],"correct":2},
+            {"question":"La vigne produit :","answers":["La datte","L'olive","Le raisin","La figue"],"correct":2},
+            {"question":"L'olivier produit :","answers":["La prune","La noix","L'olive","La cerise"],"correct":2},
+            {"question":"Le palmier dattier est typique :","answers":["Des pôles","Des oasis du désert","Des forêts de conifères","Des glaciers"],"correct":1},
+            {"question":"Qu'est-ce qu'une plante xérophyte ?","answers":["Une plante adaptée à la sécheresse","Une plante aquatique","Une plante adaptée à l'eau salée","Une plante polaire"],"correct":0},
+            {"question":"Qu'est-ce qu'une plante halophyte ?","answers":["Une plante carnivore","Une plante qui supporte le sel","Une plante épineuse","Une plante géante"],"correct":1},
+            {"question":"Quel organite est le site de la respiration cellulaire ?","answers":["La mitochondrie","La vacuole","Le chloroplaste","La paroi"],"correct":0},
+            {"question":"La respiration d'une plante consomme :","answers":["Du dioxygène","De l'azote seul","Du plomb","De l'hélium"],"correct":0},
+            {"question":"Pourquoi plante-t-on des haies d'arbres autour des champs ?","answers":["Pour couper le vent et limiter l'érosion","Pour changer le climat de la planète","Pour faire du bruit","Pour attirer les requins"],"correct":0},
+            {"question":"Qu'est-ce que l'agroforesterie ?","answers":["Cultiver sans eau","Élever des poissons","Associer arbres et cultures","Brûler les forêts"],"correct":2},
+            {"question":"Que signifie \"reboisement\" ?","answers":["Couper des arbres","Brûler des plantes","Arroser les cultures","Replanter des arbres"],"correct":3},
+            {"question":"Quel est le but de la jachère ?","answers":["Laisser le sol se reposer","Produire plus vite","Brûler les herbes","Ajouter des insectes"],"correct":0},
+            {"question":"La culture sur brûlis consiste à :","answers":["Irriguer","Composter","Planter sous l'eau","Brûler la végétation avant de cultiver"],"correct":3},
+            {"question":"Qu'est-ce qu'un herbicide ?","answers":["Un insecte","Un produit qui détruit les mauvaises herbes","Une graine","Un engrais"],"correct":1},
+            {"question":"Qu'est-ce qu'un fongicide ?","answers":["Un produit contre les champignons","Un engrais","Un produit contre les insectes","Un arrosoir"],"correct":0},
+            {"question":"Le charançon du bananier est :","answers":["Un champignon utile","Un insecte ravageur","Un engrais","Une racine"],"correct":1},
+            {"question":"Quelle maladie du cacaoyer est due à un champignon ?","answers":["La pourriture brune des cabosses","La varicelle","La rougeole","Le choléra"],"correct":0},
+            {"question":"Quel insecte est un auxiliaire utile aux cultures ?","answers":["La chenille légionnaire","Le criquet pèlerin","La coccinelle","Le puceron"],"correct":2},
+            {"question":"Quel insecte ravage les cultures en essaims ?","answers":["L'abeille","Le criquet pèlerin","La coccinelle","La luciole"],"correct":1},
+            {"question":"Le ver de terre améliore le sol en :","answers":["L'aérant et l'enrichissant","Le salant","Le gelant","Le brûlant"],"correct":0},
+            {"question":"Quel est le rôle des décomposeurs (bactéries, champignons) ?","answers":["Produire du pollen","Polliniser","Transformer la matière morte en sels minéraux","Faire de la photosynthèse"],"correct":2},
+            {"question":"Dans une chaîne alimentaire, les plantes sont :","answers":["Des prédateurs","Des producteurs","Des décomposeurs","Des consommateurs"],"correct":1},
+            {"question":"Dans une chaîne alimentaire, un herbivore est :","answers":["Un décomposeur","Un producteur","Un consommateur primaire","Un super-prédateur"],"correct":2},
+            {"question":"Une symbiose est :","answers":["Une association bénéfique aux deux partenaires","Une maladie","Une compétition","Un parasitisme"],"correct":0},
+            {"question":"Les mycorhizes sont des associations entre :","answers":["Une algue et une mousse","Une abeille et une fleur","Un champignon et des racines","Un ver et une feuille"],"correct":2},
+            {"question":"Quel avantage les mycorhizes apportent-elles à la plante ?","answers":["Moins de feuilles","Moins de lumière","Plus de sel","Une meilleure absorption d'eau et de minéraux"],"correct":3},
+            {"question":"L'osmose est :","answers":["Une hormone","Un tubercule","Le passage de l'eau à travers une membrane","Un gaz"],"correct":2},
+            {"question":"Pourquoi un légume flétri redevient-il ferme dans l'eau ?","answers":["Il brûle","Il perd du sel","Ses cellules absorbent de l'eau","Il devient plus léger"],"correct":2},
+            {"question":"Que veut dire \"flétrir\" pour une plante ?","answers":["Germer","Fleurir","Fructifier","Perdre sa fermeté faute d'eau"],"correct":3},
+            {"question":"Qu'est-ce que la floraison ?","answers":["La récolte","La chute des feuilles","La germination","L'apparition des fleurs"],"correct":3},
+            {"question":"Dans la pollinisation croisée, le pollen vient :","answers":["De la même fleur","D'une autre plante de la même espèce","D'un fruit","D'un animal marin"],"correct":1},
+            {"question":"L'autopollinisation, c'est quand le pollen vient :","answers":["Du vent seul","D'une autre espèce","De la mer","De la même fleur ou de la même plante"],"correct":3},
+            {"question":"Quel est le rôle du stigmate ?","answers":["Faire de l'ombre","Recevoir le pollen","Produire le pollen","Protéger la fleur"],"correct":1},
+            {"question":"Que forme le grain de pollen après la pollinisation ?","answers":["Une feuille","Un fruit","Un tube pollinique","Une racine"],"correct":2},
+            {"question":"Où a lieu la fécondation chez les plantes à fleurs ?","answers":["Dans la racine","Dans la feuille","Dans la tige","Dans l'ovule"],"correct":3}
         ]
     },
 
@@ -273,901 +525,640 @@ const quizData = {
         name: "Médecine",
         total: 25,
         questions: [
-  {
-    "question": "Quel organe pompe le sang dans tout le corps ?",
-    "answers": ["Poumon", "Cerveau", "Coeur", "Foie"],
-    "correct": 2
-  },
-  {
-    "question": "Combien de litres de sang a environ un adulte ?",
-    "answers": ["3L", "4L", "5L", "7L"],
-    "correct": 2
-  },
-  {
-    "question": "Les globules rouges transportent principalement :",
-    "answers": ["Les anticorps", "L'oxygene", "La graisse", "Le sucre"],
-    "correct": 1
-  },
-  {
-    "question": "La vitamine C previent quelle maladie ?",
-    "answers": ["Rachitisme", "Scorbut", "Anemie", "Cecite"],
-    "correct": 1
-  },
-  {
-    "question": "Quel est le plus grand organe du corps humain ?",
-    "answers": ["Foie", "Cerveau", "Peau", "Intestin"],
-    "correct": 2
-  },
-  {
-    "question": "Combien d'os a un corps d'adulte ?",
-    "answers": ["186", "206", "226", "256"],
-    "correct": 1
-  },
-  {
-    "question": "L'insuline est produite par quel organe ?",
-    "answers": ["Foie", "Pancreas", "Rein", "Rate"],
-    "correct": 1
-  },
-  {
-    "question": "Quelle est la tension arterielle normale ?",
-    "answers": ["8/5", "12/8", "16/10", "20/12"],
-    "correct": 1
-  },
-  {
-    "question": "A quoi servent principalement les poumons ?",
-    "answers": ["Digerer", "Respirer", "Filtrer le sang", "Penser"],
-    "correct": 1
-  },
-  {
-    "question": "Quel est le groupe sanguin donneur universel ?",
-    "answers": ["A+", "B-", "AB+", "O-"],
-    "correct": 3
-  },
-  {
-    "question": "De quoi le cerveau a-t-il besoin comme energie principale ?",
-    "answers": ["Glucose", "Proteines", "Lipides", "Eau salee"],
-    "correct": 0
-  },
-  {
-    "question": "A quoi sert un vaccin ?",
-    "answers": ["Guerir", "Prevenir", "Operer", "Soulager"],
-    "correct": 1
-  },
-  {
-    "question": "La fievre est generalement un signe de :",
-    "answers": ["Bonne sante", "Infection", "Faim", "Sommeil"],
-    "correct": 1
-  },
-  {
-    "question": "Combien de reins avons-nous ?",
-    "answers": ["1", "2", "3", "4"],
-    "correct": 1
-  },
-  {
-    "question": "La carie dentaire touche :",
-    "answers": ["Les yeux", "Les dents", "Les oreilles", "Le nez"],
-    "correct": 1
-  },
-  {
-    "question": "Le paludisme est transmis par :",
-    "answers": ["Mouche", "Moustique", "Puce", "Tique"],
-    "correct": 1
-  },
-  {
-    "question": "La deshydratation cause surtout :",
-    "answers": ["Sommeil", "Fatigue et soif", "Faim", "Joie"],
-    "correct": 1
-  },
-  {
-    "question": "Le SIDA est cause par quel virus ?",
-    "answers": ["Bacterie", "Virus VIH", "Champignon", "Parasite"],
-    "correct": 1
-  },
-  {
-    "question": "Avec quel appareil mesure-t-on la temperature ?",
-    "answers": ["Barometre", "Thermometre", "Tensiometre", "Stethoscope"],
-    "correct": 1
-  },
-  {
-    "question": "A quoi servent principalement les proteines ?",
-    "answers": ["Energie rapide", "Construire les muscles", "Hydrater", "Dormir"],
-    "correct": 1
-  },
-  {
-    "question": "Le diabete concerne un probleme avec :",
-    "answers": ["Le sel", "Le sucre dans le sang", "La graisse", "L'eau"],
-    "correct": 1
-  },
-  {
-    "question": "Le coeur bat en moyenne combien de fois par minute au repos ?",
-    "answers": ["40 fois", "70 fois", "120 fois", "200 fois"],
-    "correct": 1
-  },
-  {
-    "question": "La radiographie sert a voir :",
-    "answers": ["Le sang", "Les os", "La peau", "Le cerveau"],
-    "correct": 1
-  },
-  {
-    "question": "Le manque de fer dans le sang cause :",
-    "answers": ["Diabete", "Anemie", "Cancer", "Asthme"],
-    "correct": 1
-  },
-  {
-    "question": "Se laver les mains regulierement permet d'eviter :",
-    "answers": ["Le froid", "Les infections", "La faim", "Le sommeil"],
-    "correct": 1
-  }
-
+            {"question":"Quel organe pompe le sang dans tout le corps ?","answers":["Poumon","Cerveau","Coeur","Foie"],"correct":2},
+            {"question":"Combien de litres de sang a environ un adulte ?","answers":["3L","4L","5L","7L"],"correct":2},
+            {"question":"Les globules rouges transportent principalement :","answers":["Les anticorps","L'oxygene","La graisse","Le sucre"],"correct":1},
+            {"question":"La vitamine C previent quelle maladie ?","answers":["Rachitisme","Scorbut","Anemie","Cecite"],"correct":1},
+            {"question":"Quel est le plus grand organe du corps humain ?","answers":["Foie","Cerveau","Peau","Intestin"],"correct":2},
+            {"question":"Combien d'os a un corps d'adulte ?","answers":["186","206","226","256"],"correct":1},
+            {"question":"L'insuline est produite par quel organe ?","answers":["Foie","Pancreas","Rein","Rate"],"correct":1},
+            {"question":"Quelle est la tension arterielle normale ?","answers":["8/5","12/8","16/10","20/12"],"correct":1},
+            {"question":"A quoi servent principalement les poumons ?","answers":["Digerer","Respirer","Filtrer le sang","Penser"],"correct":1},
+            {"question":"Quel est le groupe sanguin donneur universel ?","answers":["A+","B-","AB+","O-"],"correct":3},
+            {"question":"De quoi le cerveau a-t-il besoin comme energie principale ?","answers":["Glucose","Proteines","Lipides","Eau salee"],"correct":0},
+            {"question":"A quoi sert un vaccin ?","answers":["Guerir","Prevenir","Operer","Soulager"],"correct":1},
+            {"question":"La fievre est generalement un signe de :","answers":["Bonne sante","Infection","Faim","Sommeil"],"correct":1},
+            {"question":"Combien de reins avons-nous ?","answers":["1","2","3","4"],"correct":1},
+            {"question":"La carie dentaire touche :","answers":["Les yeux","Les dents","Les oreilles","Le nez"],"correct":1},
+            {"question":"Le paludisme est transmis par :","answers":["Mouche","Moustique","Puce","Tique"],"correct":1},
+            {"question":"La deshydratation cause surtout :","answers":["Sommeil","Fatigue et soif","Faim","Joie"],"correct":1},
+            {"question":"Le SIDA est cause par quel virus ?","answers":["Bacterie","Virus VIH","Champignon","Parasite"],"correct":1},
+            {"question":"Avec quel appareil mesure-t-on la temperature ?","answers":["Barometre","Thermometre","Tensiometre","Stethoscope"],"correct":1},
+            {"question":"A quoi servent principalement les proteines ?","answers":["Energie rapide","Construire les muscles","Hydrater","Dormir"],"correct":1},
+            {"question":"Le diabete concerne un probleme avec :","answers":["Le sel","Le sucre dans le sang","La graisse","L'eau"],"correct":1},
+            {"question":"Le coeur bat en moyenne combien de fois par minute au repos ?","answers":["40 fois","70 fois","120 fois","200 fois"],"correct":1},
+            {"question":"La radiographie sert a voir :","answers":["Le sang","Les os","La peau","Le cerveau"],"correct":1},
+            {"question":"Le manque de fer dans le sang cause :","answers":["Diabete","Anemie","Cancer","Asthme"],"correct":1},
+            {"question":"Se laver les mains regulierement permet d'eviter :","answers":["Le froid","Les infections","La faim","Le sommeil"],"correct":1},
+            {"question":"Quel organe filtre le sang et produit l'urine ?","answers":["Le rein","Le foie","La rate","Le poumon"],"correct":0},
+            {"question":"Combien de reins possède un humain en général ?","answers":["Un","Trois","Quatre","Deux"],"correct":3},
+            {"question":"Quel organe produit la bile ?","answers":["Le rein","L'estomac","Le foie","Le pancréas"],"correct":2},
+            {"question":"Où est stockée la bile ?","answers":["Dans le cœur","Dans la vésicule biliaire","Dans le poumon","Dans la rate"],"correct":1},
+            {"question":"Quel est le plus grand os du corps ?","answers":["Le crâne","Le fémur","L'humérus","Le tibia"],"correct":1},
+            {"question":"Quel est le plus petit os du corps ?","answers":["Le radius","Le fémur","La rotule","L'étrier"],"correct":3},
+            {"question":"Où se trouve l'étrier ?","answers":["Dans la main","Dans le nez","Dans l'oreille moyenne","Dans le genou"],"correct":2},
+            {"question":"Combien de dents a un adulte (dents de sagesse comprises) ?","answers":["32","36","20","28"],"correct":0},
+            {"question":"Combien de dents de lait a un enfant ?","answers":["20","28","32","24"],"correct":0},
+            {"question":"Quel liquide commence déjà à digérer les aliments dans la bouche ?","answers":["La salive","La bile","L'urine","Le sang"],"correct":0},
+            {"question":"Quelle enzyme de la salive commence à digérer l'amidon ?","answers":["L'amylase","La pepsine","L'insuline","L'adrénaline"],"correct":0},
+            {"question":"Quel acide est présent dans l'estomac ?","answers":["L'acide acétique","L'acide chlorhydrique","L'acide citrique","L'acide sulfurique"],"correct":1},
+            {"question":"Où se fait surtout l'absorption des nutriments ?","answers":["L'estomac","Le gros intestin","L'intestin grêle","L'œsophage"],"correct":2},
+            {"question":"Que fait surtout le gros intestin ?","answers":["Produire la bile","Filtrer le sang","Digérer les protéines","Absorber l'eau"],"correct":3},
+            {"question":"Quelle maladie est liée à un défaut d'action de l'insuline ?","answers":["La malaria","La tuberculose","Le diabète","La rougeole"],"correct":2},
+            {"question":"Quel gaz le sang apporte-t-il aux cellules ?","answers":["L'hydrogène","L'azote","Le dioxygène","Le dioxyde de carbone"],"correct":2},
+            {"question":"Quel gaz l'air expiré contient-il en plus grande quantité que l'air inspiré ?","answers":["Le dioxygène","L'hélium","Le dioxyde de carbone","L'argon"],"correct":2},
+            {"question":"Comment s'appellent les petits sacs d'échange gazeux des poumons ?","answers":["Les alvéoles","Les neurones","Les artères","Les tendons"],"correct":0},
+            {"question":"Quel muscle principal permet la respiration ?","answers":["Le soléaire","Le deltoïde","Le biceps","Le diaphragme"],"correct":3},
+            {"question":"Combien de cavités possède le cœur ?","answers":["Six","Deux","Trois","Quatre"],"correct":3},
+            {"question":"Quels vaisseaux ramènent le sang vers le cœur ?","answers":["Les nerfs","Les artères","Les tendons","Les veines"],"correct":3},
+            {"question":"Quels vaisseaux emportent le sang du cœur vers les organes ?","answers":["Les nerfs","Les artères","Les muscles","Les veines"],"correct":1},
+            {"question":"Quels sont les plus petits vaisseaux sanguins ?","answers":["Les veines caves","L'aorte","Les capillaires","Les artères"],"correct":2},
+            {"question":"Comment s'appelle la plus grosse artère du corps ?","answers":["La jugulaire","La fémorale","La carotide","L'aorte"],"correct":3},
+            {"question":"Quelle est la fréquence cardiaque normale d'un adulte au repos ?","answers":["150 à 200","60 à 100 battements par minute","300 à 400","10 à 20"],"correct":1},
+            {"question":"Quelle est la température normale du corps humain ?","answers":["30 °C","42 °C","25 °C","37 °C"],"correct":3},
+            {"question":"À partir de quelle température parle-t-on de fièvre ?","answers":["Environ 30 °C","Environ 38 °C","Environ 35 °C","Environ 36 °C"],"correct":1},
+            {"question":"Avec quel instrument mesure-t-on la température ?","answers":["Le stéthoscope","Le thermomètre","Le scalpel","Le tensiomètre"],"correct":1},
+            {"question":"Avec quel instrument écoute-t-on le cœur et les poumons ?","answers":["Le stéthoscope","Le microscope","La seringue","Le thermomètre"],"correct":0},
+            {"question":"Qui a inventé le stéthoscope ?","answers":["Robert Koch","René Laennec","Alexander Fleming","Louis Pasteur"],"correct":1},
+            {"question":"Quel appareil mesure la pression artérielle ?","answers":["Le baromètre","Le thermomètre","L'oscilloscope","Le tensiomètre"],"correct":3},
+            {"question":"Quel rayonnement permet les radiographies ?","answers":["Les ultrasons","Les rayons X","Les micro-ondes","Les rayons verts"],"correct":1},
+            {"question":"Qui a découvert les rayons X ?","answers":["Marie Curie","Wilhelm Röntgen","Louis Pasteur","Isaac Newton"],"correct":1},
+            {"question":"Quelle technique utilise les ultrasons pour voir un bébé dans le ventre de sa mère ?","answers":["L'IRM","L'échographie","La radiographie","Le scanner"],"correct":1},
+            {"question":"Que signifie IRM ?","answers":["Investigation radio-mécanique","Instrument de rayons médicaux","Imagerie par résonance magnétique","Image rapide musculaire"],"correct":2},
+            {"question":"Qui a découvert la pénicilline ?","answers":["Robert Koch","Louis Pasteur","Edward Jenner","Alexander Fleming"],"correct":3},
+            {"question":"Qui a mis au point le premier vaccin contre la variole ?","answers":["Marie Curie","Edward Jenner","Robert Koch","Louis Pasteur"],"correct":1},
+            {"question":"Qui a mis au point le vaccin contre la rage ?","answers":["Galien","Edward Jenner","Alexander Fleming","Louis Pasteur"],"correct":3},
+            {"question":"Qui a découvert le bacille de la tuberculose ?","answers":["Robert Koch","Edward Jenner","Louis Pasteur","Alexander Fleming"],"correct":0},
+            {"question":"Contre quels micro-organismes les antibiotiques sont-ils efficaces ?","answers":["Les bactéries","Les allergènes","Les rayons","Les virus"],"correct":0},
+            {"question":"Quel moustique transmet le paludisme ?","answers":["L'anophèle femelle","Le moustique mâle","La puce","La mouche tsé-tsé"],"correct":0},
+            {"question":"Quel parasite cause le paludisme ?","answers":["Escherichia","Salmonella","Candida","Plasmodium"],"correct":3},
+            {"question":"Quelle mouche transmet la maladie du sommeil ?","answers":["La mouche tsé-tsé","Le taon","L'anophèle","La mouche domestique"],"correct":0},
+            {"question":"Quelle maladie, transmise par l'eau contaminée, provoque de fortes diarrhées ?","answers":["Le choléra","Le tétanos","La tuberculose","La rage"],"correct":0},
+            {"question":"Quelle solution aide contre la déshydratation due à la diarrhée ?","answers":["La solution de réhydratation orale","Le sirop contre la toux","Le vinaigre pur","Le café"],"correct":0},
+            {"question":"Quel virus provoque le SIDA ?","answers":["Le virus d'Ebola","Le SARS-CoV-2","Le VIH","Le virus de la grippe"],"correct":2},
+            {"question":"Quelles cellules le VIH attaque-t-il ?","answers":["Les lymphocytes CD4","Les cellules osseuses","Les globules rouges","Les neurones"],"correct":0},
+            {"question":"Quelle maladie est causée par le virus SARS-CoV-2 ?","answers":["La COVID-19","La polio","Le paludisme","La rougeole"],"correct":0},
+            {"question":"Contre quelle maladie le vaccin BCG protège-t-il ?","answers":["La tuberculose","La rage","Le choléra","Le paludisme"],"correct":0},
+            {"question":"Quelle maladie provoque des boutons et de la fièvre chez l'enfant et se prévient par vaccin ?","answers":["Le diabète","L'asthme","La rougeole","L'anémie"],"correct":2},
+            {"question":"Quelle maladie paralyse parfois les enfants et se prévient par vaccin ?","answers":["La grippe","L'otite","Le rhume","La poliomyélite"],"correct":3},
+            {"question":"Quelle maladie le vaccin antitétanique prévient-il ?","answers":["La rage","La dengue","Le tétanos","La grippe"],"correct":2},
+            {"question":"Quel organe l'hépatite atteint-elle ?","answers":["Le cœur","Le rein","Le poumon","Le foie"],"correct":3},
+            {"question":"Quelle maladie touche surtout les poumons et est causée par un bacille ?","answers":["L'anémie","La gale","Le diabète","La tuberculose"],"correct":3},
+            {"question":"La gale est causée par :","answers":["Un champignon","Un virus","Un acarien","Une bactérie"],"correct":2},
+            {"question":"Les poux sont :","answers":["Des virus","Des champignons","Des bactéries","Des insectes parasites"],"correct":3},
+            {"question":"La teigne est causée par :","answers":["Un champignon","Un moustique","Un virus","Un ver"],"correct":0},
+            {"question":"Les vers intestinaux sont des :","answers":["Virus","Parasites","Hormones","Vitamines"],"correct":1},
+            {"question":"La bilharziose est causée par :","answers":["Une mouche","Un ver parasite présent dans l'eau douce","Un chien","Un moustique"],"correct":1},
+            {"question":"La dengue est transmise par :","answers":["Le pou","Le rat","La mouche tsé-tsé","Le moustique Aedes"],"correct":3},
+            {"question":"La fièvre jaune se prévient par :","answers":["Un massage","Une crème","Un vaccin","Un antibiotique"],"correct":2},
+            {"question":"Pourquoi doit-on se laver les mains ?","answers":["Pour dormir","Pour mieux voir","Pour éliminer les microbes","Pour grandir"],"correct":2},
+            {"question":"Que doit-on utiliser avec l'eau pour bien se laver les mains ?","answers":["Du sable","De l'huile","Du sel","Du savon"],"correct":3},
+            {"question":"De quoi protège la moustiquaire imprégnée ?","answers":["Du vent","De la pluie","Des piqûres de moustiques","Du soleil"],"correct":2},
+            {"question":"Pourquoi faut-il éviter l'eau stagnante autour de la maison ?","answers":["Elle brûle","Elle fait du bruit","Les moustiques s'y reproduisent","Elle est trop froide"],"correct":2},
+            {"question":"Que faut-il faire en cas de doute sur l'eau pour la rendre potable ?","answers":["La remuer","L'exposer à la lune","Y ajouter du sucre","La filtrer et la faire bouillir"],"correct":3},
+            {"question":"Que fait un antiseptique ?","answers":["Il donne de la force","Il guérit les os","Il tue ou limite les microbes sur la peau","Il augmente la tension"],"correct":2},
+            {"question":"Que fait un antalgique ?","answers":["Il remplace une opération","Il soulage la douleur","Il augmente le sucre","Il tue les virus"],"correct":1},
+            {"question":"Le paracétamol est un :","answers":["Antibiotique","Vaccin","Antalgique et antipyrétique","Hormone"],"correct":2},
+            {"question":"Que fait un antipyrétique ?","answers":["Il guérit les fractures","Il tue les bactéries","Il fait baisser la fièvre","Il augmente la tension"],"correct":2},
+            {"question":"Quel médicament peut détruire des bactéries ?","answers":["Un sirop contre la toux","Un vaccin","Un antibiotique","Un antalgique"],"correct":2},
+            {"question":"Que contient un vaccin ?","answers":["Un agent infectieux inactivé ou affaibli, ou des fragments de celui-ci","Du sucre seulement","Un poison puissant","De l'eau salée seulement"],"correct":0},
+            {"question":"Que produit le corps après un vaccin ?","answers":["De l'urine","De la bile","Des anticorps","Des cailloux"],"correct":2},
+            {"question":"Quelles cellules sanguines défendent le corps contre les microbes ?","answers":["Les plaquettes","Les globules rouges","Les globules blancs","Les os"],"correct":2},
+            {"question":"Quelles cellules sanguines aident à la coagulation ?","answers":["Les neurones","Les globules blancs","Les globules rouges","Les plaquettes"],"correct":3},
+            {"question":"Quelle protéine donne sa couleur rouge au sang ?","answers":["La kératine","La mélanine","L'hémoglobine","La chlorophylle"],"correct":2},
+            {"question":"Quel minéral est essentiel à l'hémoglobine ?","answers":["Le fer","Le sodium","Le cuivre","L'or"],"correct":0},
+            {"question":"Le manque de fer provoque :","answers":["Le rachitisme","Le scorbut","L'anémie","Le goitre"],"correct":2},
+            {"question":"Le manque de vitamine D peut provoquer :","answers":["Le scorbut","La cécité nocturne","Le béribéri","Le rachitisme"],"correct":3},
+            {"question":"Le manque de vitamine A peut provoquer :","answers":["Le goitre","Le rachitisme","Des troubles de la vue","Le scorbut"],"correct":2},
+            {"question":"Le manque d'iode provoque :","answers":["L'anémie","Le rachitisme","La gale","Le goitre"],"correct":3},
+            {"question":"Le sel iodé aide à prévenir :","answers":["La toux","La fièvre","Le goitre","Les fractures"],"correct":2},
+            {"question":"Quel nutriment construit et répare les muscles ?","answers":["L'eau seulement","Le sel","Les protéines","Les glucides"],"correct":2},
+            {"question":"Quel nutriment fournit surtout de l'énergie rapide ?","answers":["Les glucides","Les fibres","Les vitamines","Les minéraux"],"correct":0},
+            {"question":"Quel aliment est riche en protéines ?","answers":["Le sel","Le sucre","Le poisson","L'eau"],"correct":2},
+            {"question":"Que signifie \"IMC\" ?","answers":["Indice de masse corporelle","Indice médical central","Intervention médicale critique","Inflammation musculaire chronique"],"correct":0},
+            {"question":"Comment calcule-t-on l'IMC ?","answers":["Poids (kg) divisé par taille au carré (m²)","Poids multiplié par taille","Taille divisée par poids","Âge divisé par poids"],"correct":0},
+            {"question":"Quelle part du corps d'un adulte est constituée d'eau, environ ?","answers":["Environ 95 %","Environ 20 %","Environ 60 %","Environ 10 %"],"correct":2},
+            {"question":"Combien de litres d'eau un adulte doit-il boire environ par jour ?","answers":["Environ 20 L","Environ 10 L","Environ 0,1 L","Environ 1,5 L"],"correct":3},
+            {"question":"Combien d'heures de sommeil faut-il à un adulte en moyenne ?","answers":["2 à 3 heures","15 à 18 heures","12 à 14 heures","7 à 9 heures"],"correct":3},
+            {"question":"Comment s'appelle le médecin du cœur ?","answers":["Le pédiatre","Le cardiologue","Le dermatologue","L'ophtalmologue"],"correct":1},
+            {"question":"Comment s'appelle le médecin de la peau ?","answers":["Le neurologue","Le dermatologue","Le cardiologue","L'orthopédiste"],"correct":1},
+            {"question":"Comment s'appelle le médecin des yeux ?","answers":["Le pédiatre","L'ophtalmologue","L'ORL","Le dentiste"],"correct":1},
+            {"question":"Comment s'appelle le médecin des enfants ?","answers":["Le pédiatre","Le radiologue","Le cardiologue","Le gériatre"],"correct":0},
+            {"question":"Quel médecin soigne les oreilles, le nez et la gorge ?","answers":["Le chirurgien-dentiste","L'ophtalmologue","L'ORL","Le gynécologue"],"correct":2},
+            {"question":"Quel médecin s'occupe de la santé des femmes et de la grossesse ?","answers":["Le gynécologue-obstétricien","Le gériatre","Le dermatologue","Le cardiologue"],"correct":0},
+            {"question":"Quel spécialiste soigne les maladies du système nerveux ?","answers":["Le néphrologue","Le podologue","Le pneumologue","Le neurologue"],"correct":3},
+            {"question":"Quel spécialiste soigne les reins ?","answers":["Le neurologue","Le pneumologue","Le néphrologue","L'ORL"],"correct":2},
+            {"question":"Quel spécialiste soigne les poumons ?","answers":["Le dentiste","Le pneumologue","Le cardiologue","Le néphrologue"],"correct":1},
+            {"question":"Quel professionnel endort le patient avant une opération ?","answers":["Le pédiatre","Le biologiste","L'anesthésiste","Le radiologue"],"correct":2},
+            {"question":"Le suffixe \"-ite\" désigne souvent :","answers":["Un médicament","Une vitamine","Une opération","Une inflammation"],"correct":3},
+            {"question":"Que désigne l'appendicite ?","answers":["L'inflammation de l'appendice","Une carie","Une fracture","Une allergie"],"correct":0},
+            {"question":"Que désigne une bronchite ?","answers":["Une fracture","L'inflammation de l'estomac","L'inflammation des bronches","Un trouble du sang"],"correct":2},
+            {"question":"Que désigne une gastrite ?","answers":["Un trouble de la peau","L'inflammation de l'estomac","Une maladie des poumons","Un trouble du cœur"],"correct":1},
+            {"question":"Une fracture est :","answers":["Une brûlure","Une allergie","Une inflammation de la peau","Une cassure d'un os"],"correct":3},
+            {"question":"Une entorse est :","answers":["Un virus","Une plaie","Une cassure d'os","Une lésion des ligaments d'une articulation"],"correct":3},
+            {"question":"Que relient les tendons ?","answers":["La peau aux muscles","Les muscles aux os","Le cœur aux poumons","Les os entre eux"],"correct":1},
+            {"question":"Que relient les ligaments ?","answers":["Les os entre eux dans une articulation","Le sang aux reins","Les muscles aux os","Le cerveau aux nerfs"],"correct":0},
+            {"question":"Quel tissu protège l'extrémité des os dans une articulation ?","answers":["La peau","La graisse seule","Le sang","Le cartilage"],"correct":3},
+            {"question":"Quel est le rôle de la colonne vertébrale ?","answers":["Protéger la moelle épinière","Digérer les aliments","Filtrer le sang","Produire la bile"],"correct":0},
+            {"question":"Quel organe contrôle le corps et la pensée ?","answers":["Le foie","Le cerveau","Le rein","L'estomac"],"correct":1},
+            {"question":"Comment s'appelle la cellule du système nerveux ?","answers":["L'hépatocyte","Le neurone","L'ostéocyte","Le globule rouge"],"correct":1},
+            {"question":"Quelle partie du cerveau contrôle surtout l'équilibre ?","answers":["Le cervelet","Le thalamus","L'hippocampe","La moelle"],"correct":0},
+            {"question":"Quelle partie de l'œil est sensible à la lumière ?","answers":["La pupille","La cornée","Le cristallin","La rétine"],"correct":3},
+            {"question":"Quelle partie de l'œil règle la quantité de lumière qui entre ?","answers":["Le nerf optique","L'iris","La rétine","La cornée"],"correct":1},
+            {"question":"Quelle partie de l'œil permet la mise au point ?","answers":["La cornée","L'iris","La rétine","Le cristallin"],"correct":3},
+            {"question":"Quelle membrane de l'oreille vibre d'abord sous l'effet des sons ?","answers":["Le tympan","La cochlée","La trompe","Le pavillon"],"correct":0},
+            {"question":"Quelle partie de l'oreille contient les cellules sensorielles de l'audition ?","answers":["Le tympan","Le pavillon","La cochlée","La trompe d'Eustache"],"correct":2},
+            {"question":"Quelle hormone est libérée en cas de stress ou de peur ?","answers":["La mélatonine","La thyroxine","L'adrénaline","L'insuline"],"correct":2},
+            {"question":"Quelle hormone intervient dans la régulation du sommeil ?","answers":["La mélatonine","La thyroxine","L'adrénaline","L'insuline"],"correct":0},
+            {"question":"Quelle glande située à la base du cou régule le métabolisme ?","answers":["La thyroïde","La rate","L'hypophyse","Le pancréas"],"correct":0},
+            {"question":"Combien de chromosomes possède une cellule humaine non sexuelle ?","answers":["23","46","64","92"],"correct":1},
+            {"question":"Quel groupe sanguin est donneur universel pour les globules rouges ?","answers":["A positif","AB positif","O négatif","B positif"],"correct":2},
+            {"question":"Quel groupe sanguin est receveur universel pour les globules rouges ?","answers":["A négatif","O négatif","AB positif","B négatif"],"correct":2},
+            {"question":"Combien de mois dure une grossesse normale ?","answers":["Environ 12 mois","Environ 6 mois","Environ 9 mois","Environ 3 mois"],"correct":2},
+            {"question":"Comment s'appelle le premier lait du nouveau-né, riche en anticorps ?","answers":["Le colostrum","La crème","Le sérum","Le beurre"],"correct":0},
+            {"question":"Pourquoi l'allaitement maternel est-il recommandé ?","answers":["Il apporte des nutriments et des anticorps","Il donne de la fièvre","Il rend sourd","Il remplace les vaccins"],"correct":0},
+            {"question":"Que faut-il faire d'abord devant un blessé inconscient qui respire ?","answers":["Le mettre en position latérale de sécurité","Le faire marcher","Le secouer fort","Lui donner à boire"],"correct":0},
+            {"question":"Que signifie PLS en secourisme ?","answers":["Perfusion lente et sûre","Position latérale de sécurité","Protection locale sur soin","Pression légère sur sang"],"correct":1},
+            {"question":"Que faire face à un saignement abondant d'un membre ?","answers":["Verser seulement de l'alcool","Comprimer la plaie","Agiter le membre","Attendre sans rien faire"],"correct":1},
+            {"question":"Que faire en cas de brûlure légère ?","answers":["La refroidir à l'eau fraîche","Y mettre de la glace directement","La percer","Y mettre du beurre"],"correct":0},
+            {"question":"Que ne faut-il jamais appliquer sur une brûlure ?","answers":["De l'eau fraîche","Un linge propre","Un pansement stérile","Du beurre ou de l'huile"],"correct":3},
+            {"question":"Que faire en cas d'étouffement complet d'un adulte conscient ?","answers":["Des tapes dans le dos puis la manœuvre de Heimlich","Le laisser sans aide","Lui donner de l'eau","L'allonger sans rien faire"],"correct":0},
+            {"question":"Quel numéro d'urgence fonctionne dans toute l'Union européenne ?","answers":["Le 999","Le 555","Le 112","Le 000"],"correct":2},
+            {"question":"Combien de compressions thoraciques pour 2 insufflations lors d'un massage cardiaque chez l'adulte ?","answers":["60","5","10","30"],"correct":3},
+            {"question":"À quoi sert un défibrillateur ?","answers":["Rétablir un rythme cardiaque par choc électrique","Écouter les poumons","Prendre la température","Mesurer la tension"],"correct":0},
+            {"question":"Que faire en cas de saignement de nez ?","answers":["Pencher la tête en arrière","S'allonger","Boire froid","Se pencher en avant et pincer le nez"],"correct":3},
+            {"question":"Que faire en cas de fracture présumée d'un membre ?","answers":["Le faire bouger","Le masser","L'immobiliser et chercher de l'aide","Tirer dessus"],"correct":2},
+            {"question":"Comment nettoie-t-on une petite plaie ?","answers":["Avec de la terre","Avec du sable","À l'eau propre et au savon, puis antiseptique","Avec de l'huile de moteur"],"correct":2},
+            {"question":"Après une piqûre d'abeille, que doit-on retirer ?","answers":["Le dard","Le pollen","La cire","Le miel"],"correct":0},
+            {"question":"Qu'est-ce qu'une allergie ?","answers":["Une réaction excessive du système immunitaire","Une fracture","Une infection par bactérie","Une carence en fer"],"correct":0},
+            {"question":"L'asthme touche :","answers":["Le foie","La peau","Les reins","Les voies respiratoires"],"correct":3},
+            {"question":"L'hypertension est :","answers":["Une fièvre","Un manque de sucre","Une carence en fer","Une pression artérielle trop élevée"],"correct":3},
+            {"question":"L'hypoglycémie est :","answers":["Une tension trop haute","Une fièvre","Un manque de fer","Un taux de sucre dans le sang trop bas"],"correct":3},
+            {"question":"L'hyperglycémie est :","answers":["Un manque de calcium","Un taux de sucre dans le sang trop élevé","Un manque d'oxygène","Une fracture"],"correct":1},
+            {"question":"Quel organe la cirrhose atteint-elle ?","answers":["Le foie","Le poumon","Le cerveau","L'œil"],"correct":0},
+            {"question":"Quel risque principal le tabac fait-il courir ?","answers":["Le cancer du poumon","Le rachitisme","La malaria","La rougeole"],"correct":0},
+            {"question":"Quelle substance du tabac crée une dépendance ?","answers":["La caféine","La nicotine","Le fer","La vitamine C"],"correct":1},
+            {"question":"Quel organe l'alcool abîme-t-il notamment ?","answers":["Le foie","Le nez","Les cheveux","Les ongles"],"correct":0},
+            {"question":"Quel effet la caféine a-t-elle ?","answers":["Elle soigne les os","Elle stimule le système nerveux","Elle endort","Elle augmente la taille"],"correct":1},
+            {"question":"Pourquoi faut-il se protéger du soleil ?","answers":["Le soleil rend sourd","Le soleil fait tomber les dents","Le soleil donne du sucre","Les UV peuvent provoquer coups de soleil et cancers de la peau"],"correct":3},
+            {"question":"Quelle vitamine la peau fabrique-t-elle grâce au soleil ?","answers":["La vitamine D","La vitamine C","La vitamine B12","La vitamine A"],"correct":0},
+            {"question":"Quel pigment protège la peau des UV ?","answers":["La mélanine","La chlorophylle","L'hémoglobine","La kératine"],"correct":0},
+            {"question":"Quelle protéine forme les ongles et les cheveux ?","answers":["La mélanine","L'insuline","La kératine","La cellulose"],"correct":2},
+            {"question":"Combien de couches principales compte la peau ?","answers":["Cinq","Une","Deux","Trois"],"correct":3},
+            {"question":"Quel est le rôle de la sueur ?","answers":["Digérer","Réguler la température du corps","Fabriquer des os","Filtrer le sang"],"correct":1},
+            {"question":"Quel tissu fabrique les globules rouges chez l'adulte ?","answers":["Le cerveau","L'estomac","La moelle osseuse","Le foie"],"correct":2},
+            {"question":"Quel organe détruit les vieux globules rouges ?","answers":["Le cerveau","La rate","La vessie","La langue"],"correct":1},
+            {"question":"Quel est le plus grand muscle du corps ?","answers":["Le cœur","Le grand fessier","Le biceps","Le deltoïde"],"correct":1},
+            {"question":"Quel muscle se contracte sans que l'on décide de le faire ?","answers":["Le quadriceps","Le biceps","Le cœur","Le deltoïde"],"correct":2},
+            {"question":"Quel muscle fléchit le bras ?","answers":["Le triceps","Le mollet","Le biceps","Le quadriceps"],"correct":2},
+            {"question":"Comment s'appelle le muscle situé à l'arrière de la jambe, sous le genou ?","answers":["Le pectoral","Le biceps","Le mollet","Le deltoïde"],"correct":2},
+            {"question":"Combien de paires de côtes possède l'être humain ?","answers":["12","10","8","14"],"correct":0},
+            {"question":"Quel os protège le cerveau ?","answers":["Le fémur","Le sternum","Le bassin","Le crâne"],"correct":3},
+            {"question":"Quel os, avec les côtes, protège le cœur et les poumons ?","answers":["Le fémur","Le tibia","Le radius","Le sternum"],"correct":3},
+            {"question":"Quels os forment l'avant-bras ?","answers":["L'humérus et la clavicule","Le fémur et le tibia","Le radius et le cubitus","Le péroné et la rotule"],"correct":2},
+            {"question":"Quel os se trouve dans le haut du bras ?","answers":["Le tibia","Le radius","L'humérus","La clavicule"],"correct":2},
+            {"question":"Que protège la rotule ?","answers":["L'épaule","La hanche","Le coude","Le genou"],"correct":3},
+            {"question":"Quel os de la jambe est à côté du tibia ?","answers":["L'humérus","Le radius","Le péroné","Le cubitus"],"correct":2},
+            {"question":"Quel est un rôle des os ?","answers":["Soutenir et protéger le corps","Produire de l'insuline","Digérer","Filtrer le sang"],"correct":0},
+            {"question":"Quel minéral rend les os solides ?","answers":["Le sodium","Le chlore","Le calcium","L'iode"],"correct":2},
+            {"question":"Quel aliment est une bonne source de calcium ?","answers":["Le lait","L'huile","Le riz","Le sucre"],"correct":0},
+            {"question":"Qu'est-ce qu'une alimentation équilibrée ?","answers":["Uniquement sucrée","Uniquement grasse","Sans eau","Variée, avec fruits, légumes, protéines et céréales"],"correct":3},
+            {"question":"Que mesure-t-on en kilocalories ?","answers":["La taille","L'énergie des aliments","La température","Le poids"],"correct":1},
+            {"question":"Que risque-t-on avec trop de sucre ?","answers":["Scorbut","Cécité nocturne","Obésité et diabète de type 2","Rachitisme"],"correct":2},
+            {"question":"Qu'est-ce qui provoque les caries ?","answers":["Le calcium","Des bactéries qui transforment le sucre en acide","L'eau potable","Les protéines"],"correct":1},
+            {"question":"Combien de fois par jour faut-il se brosser les dents ?","answers":["Une fois par mois","Jamais","Une fois par an","Au moins deux fois"],"correct":3},
+            {"question":"À quoi sert le fil dentaire ?","answers":["Nettoyer entre les dents","Soigner l'otite","Couper les ongles","Mesurer le pouls"],"correct":0},
+            {"question":"Quel est le rôle du fluor ?","answers":["Fortifier les muscles","Produire de l'insuline","Renforcer l'émail des dents","Colorer le sang"],"correct":2},
+            {"question":"Quelle partie de la dent est la plus dure ?","answers":["La gencive","Le cément","L'émail","La pulpe"],"correct":2},
+            {"question":"Que sont les amygdales ?","answers":["Des muscles","Des organes de défense situés dans la gorge","Des os","Des artères"],"correct":1},
+            {"question":"Quel organe retire-t-on lors d'une appendicectomie ?","answers":["La rate","L'appendice","La vésicule","L'amygdale"],"correct":1},
+            {"question":"Qu'est-ce qu'une greffe d'organe ?","answers":["Remplacer un organe malade par un organe sain","Faire une prise de sang","Retirer une dent","Poser un plâtre"],"correct":0},
+            {"question":"Qui a réalisé la première greffe du cœur chez l'humain ?","answers":["Christiaan Barnard","Alexander Fleming","Louis Pasteur","Wilhelm Röntgen"],"correct":0},
+            {"question":"Dans quel pays a eu lieu la première greffe du cœur ?","answers":["Les États-Unis","La France","L'Afrique du Sud","Le Japon"],"correct":2},
+            {"question":"Quelle institution mondiale s'occupe de la santé ?","answers":["L'OMS","L'OMC","L'UNESCO","La FAO"],"correct":0},
+            {"question":"Que veut dire OMS ?","answers":["Organisation mondiale de la santé","Organisme de médecine sociale","Organisation des médecins du sud","Office médical des soins"],"correct":0},
+            {"question":"Quel est le symbole de la Croix-Rouge ?","answers":["Un triangle vert","Un cercle bleu","Une étoile jaune","Une croix rouge sur fond blanc"],"correct":3},
+            {"question":"Qui a fondé la Croix-Rouge ?","answers":["Florence Nightingale","Henri Dunant","Louis Pasteur","Marie Curie"],"correct":1},
+            {"question":"Qui est considérée comme la fondatrice des soins infirmiers modernes ?","answers":["Clara Barton","Florence Nightingale","Mère Teresa","Marie Curie"],"correct":1},
+            {"question":"Quelle scientifique a reçu deux prix Nobel, en physique et en chimie ?","answers":["Ada Lovelace","Florence Nightingale","Rosalind Franklin","Marie Curie"],"correct":3},
+            {"question":"Quelle technique de Pasteur permet de conserver le lait ?","answers":["La fermentation","La congélation","La pasteurisation","Le salage"],"correct":2},
+            {"question":"Quelle découverte doit-on à Banting et Best ?","answers":["La pénicilline","Le vaccin contre la polio","Les rayons X","L'insuline"],"correct":3},
+            {"question":"Qui a mis au point le premier vaccin injectable contre la polio ?","answers":["Jonas Salk","Louis Pasteur","Edward Jenner","Robert Koch"],"correct":0},
+            {"question":"Quelle maladie a été officiellement éradiquée en 1980 ?","answers":["La rougeole","La variole","La polio","Le paludisme"],"correct":1},
+            {"question":"Ebola est une maladie causée par :","answers":["Une bactérie","Un virus","Un champignon","Un parasite"],"correct":1},
+            {"question":"Le choléra est causé par :","answers":["Un ver","Un virus","Une bactérie","Un champignon"],"correct":2},
+            {"question":"Le tétanos est causé par :","answers":["Un parasite","Un virus","Une bactérie","Un champignon"],"correct":2},
+            {"question":"La grippe est causée par :","answers":["Un champignon","Une bactérie","Un virus","Un ver"],"correct":2},
+            {"question":"La typhoïde se transmet surtout par :","answers":["Les poux","Les aliments et l'eau contaminés","Les tiques","Les moustiques"],"correct":1},
+            {"question":"La lèpre touche surtout :","answers":["Le foie","Les reins","La peau et les nerfs","Les poumons"],"correct":2},
+            {"question":"Comment appelle-t-on aussi l'onchocercose ?","answers":["Le tétanos","La dengue","Le choléra","La cécité des rivières"],"correct":3},
+            {"question":"Que signifie \"épidémie\" ?","answers":["Un vaccin","Une maladie qui touche beaucoup de personnes en peu de temps dans un lieu","Un médicament","Une maladie individuelle"],"correct":1},
+            {"question":"Que signifie \"pandémie\" ?","answers":["Une maladie des plantes","Un médicament","Une épidémie à l'échelle mondiale","Un vaccin"],"correct":2},
+            {"question":"Que signifie \"contagieux\" ?","answers":["Qui se transmet d'une personne à l'autre","Qui se soigne tout seul","Qui est inventé","Qui touche seulement les os"],"correct":0},
+            {"question":"Que signifie \"chronique\" pour une maladie ?","answers":["Qui est toujours mortelle","Qui est inventée","Qui est très courte","Qui dure longtemps"],"correct":3},
+            {"question":"Que signifie \"diagnostic\" ?","answers":["Vacciner","Opérer","Ranger les dossiers","Identifier la maladie"],"correct":3},
+            {"question":"Qu'est-ce qu'une ordonnance ?","answers":["Un vaccin","Un document du médecin prescrivant des soins","Un examen","Une pilule"],"correct":1},
+            {"question":"Que permet une prise de sang ?","answers":["Voir les os","Analyser des éléments du sang","Mesurer la taille","Écouter le cœur"],"correct":1},
+            {"question":"Quel examen enregistre l'activité électrique du cœur ?","answers":["L'échographie","L'électrocardiogramme","La radiographie","L'IRM"],"correct":1},
+            {"question":"Que mesure un glucomètre ?","answers":["La tension","Le pouls","La température","Le taux de sucre dans le sang"],"correct":3},
+            {"question":"Que mesure un oxymètre de pouls ?","answers":["Le poids","Le taux de sucre","La taille","La saturation du sang en oxygène"],"correct":3},
+            {"question":"À quoi sert un scalpel ?","answers":["À prendre la température","À couper les tissus lors d'une opération","À écouter le cœur","À mesurer la tension"],"correct":1},
+            {"question":"À quoi sert une seringue ?","answers":["À injecter ou prélever un liquide","À écouter le cœur","À mesurer la taille","À couper les ongles"],"correct":0},
+            {"question":"Pourquoi une seringue doit-elle être à usage unique ?","answers":["Pour changer de couleur","Pour coûter plus cher","Pour éviter la transmission d'infections","Pour faire du bruit"],"correct":2},
+            {"question":"Que signifie \"stérile\" ?","answers":["Plein de sucre","Rempli de microbes","Exempt de microbes","Plein de vitamines"],"correct":2},
+            {"question":"Pourquoi les chirurgiens portent-ils gants et masque ?","answers":["Pour éviter la contamination","Pour avoir chaud","Pour se déguiser","Pour mieux entendre"],"correct":0},
+            {"question":"À quoi sert l'autoclave ?","answers":["À faire des radios","À écouter le cœur","À stériliser le matériel par la chaleur et la pression","À mesurer la tension"],"correct":2},
+            {"question":"Que contient l'urine en plus de l'eau ?","answers":["Des déchets comme l'urée","Des os","Du sang pur","Beaucoup de sucre"],"correct":0},
+            {"question":"Comment s'appelle l'organe qui stocke l'urine ?","answers":["Le rein","La rate","La vessie","Le foie"],"correct":2},
+            {"question":"Où sont produits les ovules ?","answers":["Dans les reins","Dans les ovaires","Dans la rate","Dans les testicules"],"correct":1},
+            {"question":"Où sont produits les spermatozoïdes ?","answers":["Dans la vessie","Dans le foie","Dans les ovaires","Dans les testicules"],"correct":3},
+            {"question":"Comment appelle-t-on la rencontre d'un ovule et d'un spermatozoïde ?","answers":["La respiration","La digestion","La germination","La fécondation"],"correct":3},
+            {"question":"Comment appelle-t-on le bébé dans le ventre de sa mère à partir de la 9e semaine ?","answers":["Le fœtus","La larve","Le zygote","Le têtard"],"correct":0},
+            {"question":"Par quoi le fœtus est-il relié à sa mère ?","answers":["Le cordon ombilical","La trachée","Le nerf sciatique","L'œsophage"],"correct":0}
         ]
     },
 
     sport: {
-      name: "Sport",
-      total: 25,
-      questions: [
-        {
-          question: "Combien de joueurs peut-il y avoir sur un terrain de football dans une equipe?",
-            answers: [
-              "9",
-              "10",
-              "11",
-              "12"
-            ],
-            correct: 3
-        },
-        {
-          question: "Dans quel sport utilise-t-on un panier ?",
-            answers: [
-              "Football",
-              "Basket",
-              "Handball",
-              "Tenis"
-            ],
-            correct: 1
-        },
-        {
-          question: "Le marathon fait combien de kilometre ?",
-            answers: [
-              "21",
-              "32",
-              "42,195",
-              "50"
-            ],
-            correct: 2
-        },
-        {
-          question: "Combien de sets pour gagner a Roland Garros ?",
-            answers: [
-              "2",
-              "3",
-              "4",
-              "5"
-            ],
-            correct: 1
-        },
-        {
-          question: "Quel est le sport national du japon ?",
-            answers: [
-              "Karate",
-              "Judo",
-              "Sumo",
-              "Kendo"
-            ],
-            correct: 2
-        },
-        {
-          question: "Combien d'anneaux y a-t-il sur le logo des jeux olympiques ?",
-            answers: [
-              "3",
-              "4",
-              "5",
-              "6"
-            ],
-            correct: 2
-        },
-        {
-          question: "Dans la natation, le papillon est : ?",
-            answers: [
-              "Une nage",
-              "Un equipement",
-              "Une faute",
-              "Un record"
-            ],
-            correct: 0
-        },
-        {
-          question: "Le ballon recompense le meilleur joueur ?",
-            answers: [
-              "Le meilleur coach",
-              "le meilleur joueur",
-              "le meilleur equipe",
-              "le meilleur but"
-            ],
-            correct: 1
-        },
-        {
-          question: "Combien de joueurs y a-t-il dans une equipe de volley ?",
-            answers: [
-              "4",
-              "5",
-              "6",
-              "7"
-            ],
-            correct: 2
-        },
-        {
-          question: "Le 100m est une epreuve de :  ?",
-            answers: [
-              "Fond",
-              "Demi-fond",
-              "Sprint",
-              "Haies"
-            ],
-            correct: 2
-        },
-        {
-          question: "Au tennis, 40-4- s'appelle : ?",
-            answers: [
-              "Avantage",
-              "Egalite",
-              "Jeu",
-              "Set"
-            ],
-            correct: 1
-        },
-        {
-          question: "Quel est le pays avec le plus de coupe du monde ?",
-            answers: [
-              "Allemagne",
-              "Bresil",
-              "France",
-              "Italie"
-            ],
-            correct: 1
-        },
-        {
-          question: "La NBA est une ligue de :  ?",
-            answers: [
-              "Football",
-              "Baseball",
-              "Basket",
-              "Hockey"
-            ],
-            correct: 2
-        },
-        {
-          question: "Combien de tours fait un F1 a Monaco ?",
-            answers: [
-              "50",
-              "68",
-              "78",
-              "90"
-            ],
-            correct: "78"
-        },
-        {
-          question: "Le criquet se joue en :  ?",
-            answers: [
-              "USA",
-              "Inde",
-              "Bresil",
-              "Russie"
-            ],
-            correct: "Inde"
-        },
-        {
-          question: "Le KO vient de :  ?",
-            answers: [
-              "Boxe",
-              "Ruby",
-              "Foot",
-              "Golf"
-            ],
-            correct: "Boxe"
-        },
-        {
-          question: "Combien de joueurs en ruby au XV ?",
-            answers: [
-              "11",
-              "13",
-              "15",
-              "18"
-            ],
-            correct: "15"
-        },
-        {
-          question: "Le tour de France est : ?",
-            answers: [
-              "Course a pied",
-              "Course cycliste",
-              "Course en bateau",
-              "Course auto"
-            ],
-            correct: "Course cycliste"
-        },
-        {
-          question: "Dans quel sport crie-t-on Strike ?",
-            answers: [
-              "Golf",
-              "Billard",
-              "Flechettes",
-              "Tenis"
-            ],
-            correct: "Bowling"
-        },
-        {
-          question: "Les JO d'hiver 2026 auront lieu au : ?",
-            answers: [
-              "Paris",
-              "Milan Cortina",
-              "Tokyo",
-              "Los Angeles"
-            ],
-            correct: "Mila Cortina"
-        },
-        {
-          question: "Le but au handball mesure: ?",
-            answers: [
-              "2m x 2m",
-              "3m x 2m",
-              "3m x 2,5m",
-              "4m x 4m"
-            ],
-            correct: "3m x 2m"
-        },
-        {
-          question: "Michael Jordan a joue en  ?",
-            answers: [
-              "NBA",
-              "NHL",
-              "MLB",
-              "NFL"
-            ],
-            correct: "NBA"
-        },
-        {
-          question: "Le plus rapide sur 110m : Usain ?",
-            answers: [
-              "Parker",
-              "Smith",
-              "Bolt",
-              "James"
-            ],
-            correct: "Bolt"
-        },
-        {
-          question: "Au fait, un carton rouge = ?",
-            answers: [
-              "Avertissement",
-              "Expulsion",
-              "But",
-              "Corner"
-            ],
-            correct: "Expulsion"
-        },
-        {
-          question: "Le sport avec le plus de medailles olympiques : ?",
-            answers: [
-              "Athletisme",
-              "Natation",
-              "Cyclisme",
-              "Gymnastique"
-            ],
-            correct: "Natation"
-        }
-      ]
+        name: "Sport",
+        total: 25,
+        questions: [
+            {"question":"Combien de joueurs peut-il y avoir sur un terrain de football dans une equipe?","answers":["9","10","11","12"],"correct":3},
+            {"question":"Dans quel sport utilise-t-on un panier ?","answers":["Football","Basket","Handball","Tenis"],"correct":1},
+            {"question":"Le marathon fait combien de kilometre ?","answers":["21","32","42,195","50"],"correct":2},
+            {"question":"Combien de sets pour gagner a Roland Garros ?","answers":["2","3","4","5"],"correct":1},
+            {"question":"Quel est le sport national du japon ?","answers":["Karate","Judo","Sumo","Kendo"],"correct":2},
+            {"question":"Combien d'anneaux y a-t-il sur le logo des jeux olympiques ?","answers":["3","4","5","6"],"correct":2},
+            {"question":"Dans la natation, le papillon est : ?","answers":["Une nage","Un equipement","Une faute","Un record"],"correct":0},
+            {"question":"Le ballon recompense le meilleur joueur ?","answers":["Le meilleur coach","le meilleur joueur","le meilleur equipe","le meilleur but"],"correct":1},
+            {"question":"Combien de joueurs y a-t-il dans une equipe de volley ?","answers":["4","5","6","7"],"correct":2},
+            {"question":"Le 100m est une epreuve de :  ?","answers":["Fond","Demi-fond","Sprint","Haies"],"correct":2},
+            {"question":"Au tennis, 40-4- s'appelle : ?","answers":["Avantage","Egalite","Jeu","Set"],"correct":1},
+            {"question":"Quel est le pays avec le plus de coupe du monde ?","answers":["Allemagne","Bresil","France","Italie"],"correct":1},
+            {"question":"La NBA est une ligue de :  ?","answers":["Football","Baseball","Basket","Hockey"],"correct":2},
+            {"question":"Combien de tours fait un F1 à Monaco ?","answers":["50","68","78","90"],"correct":2},
+            {"question":"Dans quel pays le cricket est-il le sport le plus populaire ?","answers":["USA","Inde","Brésil","Russie"],"correct":1},
+            {"question":"Le KO (knock-out) est un terme de quel sport ?","answers":["Boxe","Rugby","Football","Golf"],"correct":0},
+            {"question":"Combien de joueurs sont sur le terrain en rugby à XV ?","answers":["11","13","15","18"],"correct":2},
+            {"question":"Le Tour de France est une course :","answers":["À pied","Cycliste","En bateau","Automobile"],"correct":1},
+            {"question":"Dans quel sport entend-on crier « strike » ?","answers":["Golf","Billard","Fléchettes","Bowling"],"correct":3},
+            {"question":"Où ont eu lieu les JO d'hiver 2026 ?","answers":["Paris","Milan-Cortina","Tokyo","Los Angeles"],"correct":1},
+            {"question":"Quelles sont les dimensions du but de handball ?","answers":["2 m sur 2 m","3 m sur 2 m","3 m sur 2,5 m","4 m sur 4 m"],"correct":1},
+            {"question":"Michael Jordan a joué dans quelle ligue ?","answers":["NBA","NHL","MLB","NFL"],"correct":0},
+            {"question":"Quel sprinteur jamaïcain est le plus rapide du monde sur 100 m ?","answers":["Parker","Smith","Bolt","James"],"correct":2},
+            {"question":"Un carton rouge signifie :","answers":["Avertissement","Expulsion","But","Corner"],"correct":1},
+            {"question":"Quelle discipline distribue le plus de médailles aux JO d'été ?","answers":["Athlétisme","Natation","Cyclisme","Gymnastique"],"correct":0},
+            {"question":"Combien de joueurs une équipe de football aligne-t-elle sur le terrain ?","answers":["11","12","10","9"],"correct":0},
+            {"question":"Combien de temps dure un match de football (hors prolongations) ?","answers":["120 minutes","60 minutes","90 minutes","80 minutes"],"correct":2},
+            {"question":"À quelle distance du but se tire un penalty ?","answers":["9 mètres","11 mètres","20 mètres","16 mètres"],"correct":1},
+            {"question":"Quelle est la largeur d'un but de football réglementaire ?","answers":["9 mètres","7,32 mètres","10 mètres","5 mètres"],"correct":1},
+            {"question":"Quelle est la hauteur d'un but de football réglementaire ?","answers":["3 mètres","2 mètres","1,80 mètre","2,44 mètres"],"correct":3},
+            {"question":"Quelle couleur de carton exclut un joueur directement ?","answers":["Rouge","Vert","Jaune","Bleu"],"correct":0},
+            {"question":"Combien de cartons jaunes dans un même match entraînent une exclusion ?","answers":["Un","Quatre","Trois","Deux"],"correct":3},
+            {"question":"Quel pays a organisé la première Coupe du monde de football en 1930 ?","answers":["L'Uruguay","Le Brésil","La France","L'Italie"],"correct":0},
+            {"question":"Qui a remporté la première Coupe du monde de football en 1930 ?","answers":["L'Italie","L'Argentine","Le Brésil","L'Uruguay"],"correct":3},
+            {"question":"Quel pays a remporté le plus de Coupes du monde masculines ?","answers":["Le Brésil","L'Argentine","L'Allemagne","L'Italie"],"correct":0},
+            {"question":"Combien de Coupes du monde le Brésil a-t-il gagnées ?","answers":["3","4","5","6"],"correct":2},
+            {"question":"Quel pays a gagné la Coupe du monde 2018 ?","answers":["La Belgique","L'Allemagne","La Croatie","La France"],"correct":3},
+            {"question":"Quel pays a gagné la Coupe du monde 2014 ?","answers":["Le Brésil","L'Allemagne","L'Argentine","Les Pays-Bas"],"correct":1},
+            {"question":"Quel pays a gagné la Coupe du monde 2010 ?","answers":["Les Pays-Bas","L'Allemagne","L'Espagne","L'Italie"],"correct":2},
+            {"question":"Quel pays a gagné la Coupe du monde 2006 ?","answers":["Le Portugal","Le Brésil","La France","L'Italie"],"correct":3},
+            {"question":"Quel pays a gagné la Coupe du monde 2002 ?","answers":["La Turquie","L'Espagne","Le Brésil","L'Allemagne"],"correct":2},
+            {"question":"Quel pays a gagné la Coupe du monde 1998 ?","answers":["Le Brésil","La France","La Croatie","L'Italie"],"correct":1},
+            {"question":"Qui a marqué deux buts de la tête en finale de la Coupe du monde 1998 ?","answers":["Zinédine Zidane","Thierry Henry","Didier Deschamps","Youri Djorkaeff"],"correct":0},
+            {"question":"Quel score la France a-t-elle obtenu en finale contre le Brésil en 1998 ?","answers":["4-2","2-1","1-0","3-0"],"correct":3},
+            {"question":"Quel pays a organisé la Coupe du monde 2022 ?","answers":["Le Brésil","La Russie","Le Qatar","L'Afrique du Sud"],"correct":2},
+            {"question":"Quel pays a organisé la Coupe du monde 2010 ?","answers":["L'Allemagne","Le Japon","L'Afrique du Sud","Le Brésil"],"correct":2},
+            {"question":"Quel joueur a remporté trois Coupes du monde avec le Brésil ?","answers":["Neymar","Ronaldo","Pelé","Romário"],"correct":2},
+            {"question":"Quel joueur argentin est célèbre pour la \"main de Dieu\" en 1986 ?","answers":["Gabriel Batistuta","Lionel Messi","Diego Maradona","Mario Kempes"],"correct":2},
+            {"question":"Quel joueur argentin a soulevé la Coupe du monde 2022 en tant que capitaine ?","answers":["Sergio Agüero","Ángel Di María","Lionel Messi","Paulo Dybala"],"correct":2},
+            {"question":"Combien de Ballons d'or Lionel Messi a-t-il remportés ?","answers":["6","5","8","7"],"correct":2},
+            {"question":"Combien de Ballons d'or Cristiano Ronaldo a-t-il remportés ?","answers":["3","5","6","4"],"correct":1},
+            {"question":"Quel Camerounais a été quatre fois Joueur africain de l'année ?","answers":["Samuel Eto'o","Roger Milla","Vincent Aboubakar","Rigobert Song"],"correct":0},
+            {"question":"Quel est le surnom de l'équipe nationale de football du Cameroun ?","answers":["Les Super Eagles","Les Lions Indomptables","Les Éléphants","Les Aigles"],"correct":1},
+            {"question":"Quel est le surnom de l'équipe de football de Côte d'Ivoire ?","answers":["Les Éléphants","Les Aigles de Carthage","Les Lions de la Teranga","Les Pharaons"],"correct":0},
+            {"question":"Quel est le surnom de l'équipe de football du Sénégal ?","answers":["Les Panthères","Les Éléphants","Les Lions de la Teranga","Les Guépards"],"correct":2},
+            {"question":"Quel est le surnom de l'équipe de football du Nigeria ?","answers":["Les Lions","Les Chevaliers","Les Super Eagles","Les Black Stars"],"correct":2},
+            {"question":"Quel est le surnom de l'équipe de football du Ghana ?","answers":["Les Black Stars","Les Super Eagles","Les Pharaons","Les Aigles"],"correct":0},
+            {"question":"Quel Camerounais a marqué à 42 ans en Coupe du monde 1994 ?","answers":["Roger Milla","Samuel Eto'o","Patrick Mboma","François Omam-Biyik"],"correct":0},
+            {"question":"Quelle célébration est associée à Roger Milla ?","answers":["Le saut de l'ange","Le salto arrière","La course en rond","La danse au poteau de corner"],"correct":3},
+            {"question":"En quelle année le Cameroun a-t-il atteint les quarts de finale de la Coupe du monde ?","answers":["1990","1994","1982","2002"],"correct":0},
+            {"question":"Quel Camerounais a marqué contre l'Argentine lors du match d'ouverture du Mondial 1990 ?","answers":["Thomas N'Kono","Roger Milla","François Omam-Biyik","Rigobert Song"],"correct":2},
+            {"question":"Quel joueur camerounais est mort sur le terrain lors de la Coupe des confédérations 2003 ?","answers":["Patrick Mboma","Pierre Womé","Marc-Vivien Foé","Roger Milla"],"correct":2},
+            {"question":"Quelle médaille le Cameroun a-t-il remportée en football aux JO de 2000 ?","answers":["L'argent","L'or","Le bronze","Aucune"],"correct":1},
+            {"question":"Contre quel pays le Cameroun a-t-il gagné la finale olympique de 2000 ?","answers":["L'Espagne","L'Italie","Le Nigeria","Le Brésil"],"correct":0},
+            {"question":"Combien de fois le Cameroun a-t-il remporté la CAN ?","answers":["3","4","5","7"],"correct":2},
+            {"question":"En quelle année le Cameroun a-t-il remporté sa dernière CAN ?","answers":["2015","2021","2019","2017"],"correct":3},
+            {"question":"Quel pays a organisé la CAN 2017 ?","answers":["Le Gabon","Le Cameroun","Le Ghana","L'Égypte"],"correct":0},
+            {"question":"Quel pays a remporté la CAN 2017 ?","answers":["Le Maroc","L'Égypte","Le Cameroun","Le Nigeria"],"correct":2},
+            {"question":"Quel pays a remporté le plus de CAN masculines ?","answers":["La Tunisie","Le Ghana","L'Égypte","Le Cameroun"],"correct":2},
+            {"question":"Qui a gagné la CAN 2019 ?","answers":["Le Sénégal","L'Algérie","Madagascar","Le Nigeria"],"correct":1},
+            {"question":"Qui a gagné la CAN 2021, jouée début 2022 ?","answers":["L'Égypte","Le Burkina Faso","Le Cameroun","Le Sénégal"],"correct":3},
+            {"question":"Quel pays a organisé la CAN 2021 ?","answers":["La Tunisie","Le Gabon","Le Cameroun","Le Maroc"],"correct":2},
+            {"question":"Quel stade de Douala a accueilli des matchs de la CAN 2021 ?","answers":["Le stade de Japoma","Le stade d'Olembé","Le stade Ahmadou Ahidjo","Le stade Roumdé Adjia"],"correct":0},
+            {"question":"Quel stade de Yaoundé a été construit pour la CAN 2021 ?","answers":["Le stade de Limbé","Le stade de Japoma","Le stade d'Olembé","Le stade de Bafoussam"],"correct":2},
+            {"question":"Quel club camerounais est basé à Garoua ?","answers":["Racing de Bafoussam","Canon de Yaoundé","Coton Sport","Tonnerre de Yaoundé"],"correct":2},
+            {"question":"Quel Camerounais a été champion des poids lourds de l'UFC ?","answers":["Pascal Siakam","Francis Ngannou","Samuel Eto'o","Joel Embiid"],"correct":1},
+            {"question":"Quel Camerounais joue en NBA et a été élu MVP en 2023 ?","answers":["Francis Ngannou","Joel Embiid","Pascal Siakam","Luc Mbah a Moute"],"correct":1},
+            {"question":"Quel Camerounais a remporté la NBA en 2019 avec Toronto ?","answers":["Luc Mbah a Moute","Joel Embiid","Pascal Siakam","Ruben Boumtje-Boumtje"],"correct":2},
+            {"question":"Quelle athlète camerounaise a gagné l'or au triple saut en 2004 et 2008 ?","answers":["Marie-Josée Ta Lou","Françoise Mbango Etone","Léonie Mekongo","Blessing Okagbare"],"correct":1},
+            {"question":"Qui a été meilleur buteur de la CAN 2021 ?","answers":["Karl Toko Ekambi","Vincent Aboubakar","Eric Choupo-Moting","Samuel Eto'o"],"correct":1},
+            {"question":"Quel défenseur camerounais a été expulsé lors de deux Coupes du monde ?","answers":["Lauren","Pierre Womé","Rigobert Song","Geremi"],"correct":2},
+            {"question":"Quel athlète détient le record du monde du 100 m ?","answers":["Justin Gatlin","Usain Bolt","Carl Lewis","Yohan Blake"],"correct":1},
+            {"question":"Quel est le record du monde du 100 m masculin ?","answers":["9,10 s","9,58 s","10,05 s","9,78 s"],"correct":1},
+            {"question":"Quelle est la nationalité d'Usain Bolt ?","answers":["Américaine","Nigériane","Britannique","Jamaïcaine"],"correct":3},
+            {"question":"Combien de médailles d'or olympiques Usain Bolt a-t-il conservées ?","answers":["10","8","5","3"],"correct":1},
+            {"question":"Combien de relayeurs compte une équipe au relais 4 × 100 m ?","answers":["8","2","4","6"],"correct":2},
+            {"question":"Quel objet se transmet dans un relais ?","answers":["La perche","Le disque","Le témoin","Le ballon"],"correct":2},
+            {"question":"Quelle épreuve consiste à lancer une sphère métallique ?","answers":["Le 800 m","Le lancer du poids","Le javelot","Le saut en longueur"],"correct":1},
+            {"question":"Quel est le nom de l'engin en forme de lance lancé en athlétisme ?","answers":["La perche","Le marteau","Le disque","Le javelot"],"correct":3},
+            {"question":"Quel athlète a gagné pieds nus le marathon olympique de 1960 ?","answers":["Eliud Kipchoge","Paul Tergat","Abebe Bikila","Haile Gebrselassie"],"correct":2},
+            {"question":"Quel pays est célèbre pour ses coureurs de fond comme Eliud Kipchoge ?","answers":["Le Kenya","La Suisse","Le Canada","Le Chili"],"correct":0},
+            {"question":"Qui a couru un marathon en moins de 2 heures en 2019, hors compétition officielle ?","answers":["Eliud Kipchoge","Usain Bolt","Mo Farah","Kenenisa Bekele"],"correct":0},
+            {"question":"Combien d'anneaux compte le drapeau olympique ?","answers":["7","5","6","4"],"correct":1},
+            {"question":"Que symbolisent les cinq anneaux olympiques ?","answers":["Les cinq sens","Les cinq langues","Les cinq océans","Les cinq continents"],"correct":3},
+            {"question":"Où ont eu lieu les premiers Jeux olympiques modernes en 1896 ?","answers":["Paris","Athènes","Londres","Rome"],"correct":1},
+            {"question":"Qui est considéré comme le père des Jeux olympiques modernes ?","answers":["Juan Antonio Samaranch","Jules Rimet","Pierre de Coubertin","Avery Brundage"],"correct":2},
+            {"question":"Tous les combien d'années ont lieu les Jeux olympiques d'été ?","answers":["4 ans","2 ans","3 ans","5 ans"],"correct":0},
+            {"question":"Quelle ville a accueilli les JO d'été 2024 ?","answers":["Rio de Janeiro","Paris","Londres","Tokyo"],"correct":1},
+            {"question":"Quelle ville accueillera les JO d'été 2028 ?","answers":["Los Angeles","Brisbane","Paris","Rome"],"correct":0},
+            {"question":"Quelle ville a accueilli les JO d'été 2016 ?","answers":["Tokyo","Londres","Rio de Janeiro","Pékin"],"correct":2},
+            {"question":"Quelle ville a accueilli les JO d'été 2012 ?","answers":["Londres","Athènes","Pékin","Rio de Janeiro"],"correct":0},
+            {"question":"Quelle ville a accueilli les JO d'été 2008 ?","answers":["Londres","Sydney","Pékin","Tokyo"],"correct":2},
+            {"question":"Quelle ville a accueilli les JO d'été 2004 ?","answers":["Sydney","Athènes","Atlanta","Barcelone"],"correct":1},
+            {"question":"Quel continent n'a jamais accueilli les JO d'été ?","answers":["L'Asie","L'Afrique","L'Europe","L'Amérique du Nord"],"correct":1},
+            {"question":"Quelle ville africaine accueille les Jeux olympiques de la jeunesse en 2026 ?","answers":["Johannesburg","Douala","Nairobi","Dakar"],"correct":3},
+            {"question":"Quel nageur américain a remporté 23 médailles d'or olympiques ?","answers":["Michael Phelps","Ian Thorpe","Mark Spitz","Ryan Lochte"],"correct":0},
+            {"question":"Quelles sont les quatre nages du quatre nages ?","answers":["Brasse, galop, dos, crawl","Papillon, plongeon, saut, dos","Crawl, plongeon, dos, saut","Crawl, brasse, dos, papillon"],"correct":3},
+            {"question":"Quelle est la longueur d'une piscine olympique ?","answers":["75 mètres","50 mètres","25 mètres","100 mètres"],"correct":1},
+            {"question":"Quelle gymnaste a obtenu la première note parfaite de 10 aux JO en 1976 ?","answers":["Olga Korbut","Simone Biles","Larisa Latynina","Nadia Comăneci"],"correct":3},
+            {"question":"Quelle gymnaste américaine a remporté de très nombreuses médailles olympiques et mondiales ?","answers":["Simone Biles","Venus Williams","Allyson Felix","Serena Williams"],"correct":0},
+            {"question":"Quelle joueuse de tennis américaine a gagné 23 titres du Grand Chelem en simple ?","answers":["Steffi Graf","Martina Navratilova","Venus Williams","Serena Williams"],"correct":3},
+            {"question":"Combien de tournois composent le Grand Chelem au tennis ?","answers":["4","5","3","6"],"correct":0},
+            {"question":"Sur quelle surface se joue Roland-Garros ?","answers":["Le gazon","Le parquet","Le béton","La terre battue"],"correct":3},
+            {"question":"Sur quelle surface se joue Wimbledon ?","answers":["La terre battue","Le gazon","Le sable","Le béton"],"correct":1},
+            {"question":"Dans quelle ville se joue l'US Open de tennis ?","answers":["New York","Miami","Chicago","Boston"],"correct":0},
+            {"question":"Dans quel pays se joue l'Open d'Australie ?","answers":["L'Australie","L'Afrique du Sud","La Nouvelle-Zélande","Le Canada"],"correct":0},
+            {"question":"Combien de titres à Roland-Garros Rafael Nadal a-t-il remportés ?","answers":["14","12","16","10"],"correct":0},
+            {"question":"Combien de titres à Wimbledon Roger Federer a-t-il remportés ?","answers":["10","12","5","8"],"correct":3},
+            {"question":"Quelle est la nationalité de Novak Djokovic ?","answers":["Suisse","Croate","Serbe","Espagnole"],"correct":2},
+            {"question":"Ahmadou Ahidjo est le nom d'un stade de quelle ville ?","answers":["Yaoundé","Garoua","Douala","Bafoussam"],"correct":0},
+            {"question":"Dans quelle ville se trouve le stade de la Réunification ?","answers":["Yaoundé","Bamenda","Limbé","Douala"],"correct":3},
+            {"question":"Quelles sont les couleurs du drapeau du Cameroun ?","answers":["Bleu, blanc, rouge","Vert, rouge, jaune","Vert, blanc, rouge","Noir, jaune, rouge"],"correct":1},
+            {"question":"Que représente l'étoile du drapeau camerounais ?","answers":["La liberté","La victoire","La paix","L'unité"],"correct":3},
+            {"question":"Combien de joueurs par équipe sont sur le terrain au basket-ball ?","answers":["7","5","11","6"],"correct":1},
+            {"question":"À quelle hauteur se trouve le panier de basket ?","answers":["3,05 m","2,50 m","2,80 m","3,50 m"],"correct":0},
+            {"question":"Combien de points vaut un panier à trois points ?","answers":["1","3","2","4"],"correct":1},
+            {"question":"Combien de points vaut un lancer franc ?","answers":["0","1","3","2"],"correct":1},
+            {"question":"Quel joueur a gagné six titres NBA avec les Bulls de Chicago ?","answers":["Kobe Bryant","LeBron James","Magic Johnson","Michael Jordan"],"correct":3},
+            {"question":"Dans quelle équipe NBA Kobe Bryant a-t-il joué toute sa carrière ?","answers":["Les Bulls de Chicago","Les Celtics de Boston","Les Lakers de Los Angeles","Le Heat de Miami"],"correct":2},
+            {"question":"Combien de temps dure un match de NBA (temps réglementaire) ?","answers":["40 minutes","90 minutes","48 minutes","60 minutes"],"correct":2},
+            {"question":"Combien de temps dure un match de basket selon les règles FIBA ?","answers":["40 minutes","48 minutes","90 minutes","60 minutes"],"correct":0},
+            {"question":"Combien de joueurs une équipe de volley-ball compte-t-elle sur le terrain ?","answers":["7","6","9","5"],"correct":1},
+            {"question":"Combien de touches de balle maximum par équipe au volley-ball avant de renvoyer ?","answers":["4","3","5","2"],"correct":1},
+            {"question":"Combien de joueurs un handball compte-t-il sur le terrain (gardien compris) ?","answers":["7","11","6","9"],"correct":0},
+            {"question":"Combien de joueurs compte une équipe de rugby à XV ?","answers":["11","15","7","13"],"correct":1},
+            {"question":"Combien de joueurs compte une équipe de rugby à sept ?","answers":["7","9","15","5"],"correct":0},
+            {"question":"Combien de points vaut un essai au rugby à XV ?","answers":["5","2","3","7"],"correct":0},
+            {"question":"Combien de points vaut une transformation au rugby ?","answers":["1","3","5","2"],"correct":3},
+            {"question":"Combien de joueurs défendent sur le terrain au baseball ?","answers":["9","7","11","10"],"correct":0},
+            {"question":"Combien de joueurs par équipe sont sur la glace au hockey (gardien compris) ?","answers":["9","7","6","5"],"correct":2},
+            {"question":"Quelle forme a le ballon de rugby ?","answers":["Ovale","Triangulaire","Ronde","Carrée"],"correct":0},
+            {"question":"Quelle est la hauteur du filet de volley-ball masculin ?","answers":["3,05 m","2,00 m","2,80 m","2,43 m"],"correct":3},
+            {"question":"Quelle est la longueur d'une table de tennis de table ?","answers":["2,74 m","3,5 m","2 m","1,5 m"],"correct":0},
+            {"question":"Quel pays est le berceau du judo ?","answers":["Le Brésil","Le Japon","La Corée","La Chine"],"correct":1},
+            {"question":"Quel pays est le berceau du taekwondo ?","answers":["La Corée","La Chine","Le Vietnam","Le Japon"],"correct":0},
+            {"question":"Comment s'appelle la tenue du judoka ?","answers":["Le sari","Le judogi","Le boubou","Le kilt"],"correct":1},
+            {"question":"Quel sport utilise un volant ?","answers":["Le squash","Le tennis de table","Le badminton","Le tennis"],"correct":2},
+            {"question":"Quel sport utilise une crosse et un palet ?","answers":["Le volley-ball","Le golf","Le rugby","Le hockey sur glace"],"correct":3},
+            {"question":"Au golf, que signifie un \"birdie\" ?","answers":["Un oiseau sur le parcours","Un coup perdu","Un coup de moins que le par du trou","Une faute"],"correct":2},
+            {"question":"Combien de trous compte un parcours de golf standard ?","answers":["24","18","12","9"],"correct":1},
+            {"question":"Quel golfeur américain, surnommé \"Tigre\", a remporté de nombreux tournois majeurs ?","answers":["Tiger Woods","Rory McIlroy","Jack Nicklaus","Phil Mickelson"],"correct":0},
+            {"question":"Muhammad Ali était un champion de :","answers":["Cyclisme","Natation","Boxe","Judo"],"correct":2},
+            {"question":"Combien de rounds maximum dans un combat de boxe pour un titre mondial masculin ?","answers":["12","10","15","8"],"correct":0},
+            {"question":"Quel sport est le plus populaire au Cameroun ?","answers":["Le rugby","Le football","Le cricket","Le baseball"],"correct":1},
+            {"question":"Quelle couleur porte le leader du Tour de France ?","answers":["Rouge","Bleu","Vert","Jaune"],"correct":3},
+            {"question":"Quel maillot du Tour de France récompense le meilleur grimpeur ?","answers":["À pois","Noir","Vert","Blanc"],"correct":0},
+            {"question":"Quel pilote a remporté sept titres de champion du monde de F1 en 2020 ?","answers":["Max Verstappen","Sebastian Vettel","Lewis Hamilton","Fernando Alonso"],"correct":2},
+            {"question":"Quel pilote allemand a gagné sept titres de F1 avant Hamilton ?","answers":["Nico Hülkenberg","Michael Schumacher","Sebastian Vettel","Nico Rosberg"],"correct":1},
+            {"question":"Quelle écurie italienne est célèbre en F1 ?","answers":["McLaren","Ferrari","Red Bull","Mercedes"],"correct":1},
+            {"question":"Quel drapeau signale la fin d'une course automobile ?","answers":["Le rouge","Le damier noir et blanc","Le jaune","Le bleu"],"correct":1},
+            {"question":"Quelle course automobile dure 24 heures en France ?","answers":["Le Paris-Dakar","Roland-Garros","Le Grand Prix de Monaco","Les 24 Heures du Mans"],"correct":3},
+            {"question":"Quel Grand Prix de F1 se déroule dans une principauté ?","answers":["Monaco","Singapour","Italie","Bahreïn"],"correct":0},
+            {"question":"Quel sport traditionnel est emblématique du Japon ?","answers":["Le football américain","Le sumo","Le cricket","Le rugby"],"correct":1},
+            {"question":"Quel pays a codifié le football moderne ?","answers":["Le Brésil","La France","L'Angleterre","L'Italie"],"correct":2},
+            {"question":"Quel pays est le berceau du rugby ?","answers":["L'Afrique du Sud","L'Angleterre","La France","La Nouvelle-Zélande"],"correct":1},
+            {"question":"Quelle équipe de rugby est surnommée les All Blacks ?","answers":["L'Australie","L'Angleterre","L'Afrique du Sud","La Nouvelle-Zélande"],"correct":3},
+            {"question":"Quel est le surnom de l'équipe de rugby d'Afrique du Sud ?","answers":["Les Lions","Les Wallabies","Les Pumas","Les Springboks"],"correct":3},
+            {"question":"Quel pays a gagné la Coupe du monde de rugby 2019 ?","answers":["L'Angleterre","Le Pays de Galles","L'Afrique du Sud","La Nouvelle-Zélande"],"correct":2},
+            {"question":"Quel pays a gagné la Coupe du monde de rugby 2023 ?","answers":["La Nouvelle-Zélande","L'Irlande","La France","L'Afrique du Sud"],"correct":3},
+            {"question":"Quelle personnalité sud-africaine a remis la Coupe du monde de rugby en 1995 ?","answers":["Nelson Mandela","Jacob Zuma","Desmond Tutu","Thabo Mbeki"],"correct":0},
+            {"question":"Quel sport se pratique avec un cheval ?","answers":["L'équitation","Le rugby","La voile","L'aviron"],"correct":0},
+            {"question":"Avec quel équipement pratique-t-on l'aviron ?","answers":["Des rames","Un bâton","Des palmes","Un volant"],"correct":0},
+            {"question":"Quel sport associe course à pied, vélo et natation ?","answers":["Le triathlon","Le décathlon","Le pentathlon","L'heptathlon"],"correct":0},
+            {"question":"Combien d'épreuves compte le décathlon ?","answers":["5","7","10","12"],"correct":2},
+            {"question":"Combien d'épreuves compte l'heptathlon ?","answers":["10","8","7","5"],"correct":2},
+            {"question":"Quel sport de glisse se pratique avec une planche sur la neige ?","answers":["Le curling","Le snowboard","Le patinage","Le ski de fond"],"correct":1},
+            {"question":"Quelle discipline se pratique sur la glace avec des pierres ?","answers":["Le curling","La luge","Le bobsleigh","Le hockey"],"correct":0},
+            {"question":"Quel footballeur mozambicain-portugais était surnommé la Panthère noire ?","answers":["Roger Milla","Eusébio","Pelé","Didier Drogba"],"correct":1},
+            {"question":"Quel footballeur ivoirien a marqué en finale de la Ligue des champions 2012 avec Chelsea ?","answers":["Yaya Touré","Gervinho","Salomon Kalou","Didier Drogba"],"correct":3},
+            {"question":"Quel footballeur sénégalais a joué à Liverpool ?","answers":["Sadio Mané","Michael Essien","Samuel Eto'o","Didier Drogba"],"correct":0},
+            {"question":"Quel footballeur égyptien est célèbre à Liverpool ?","answers":["Achraf Hakimi","Riyad Mahrez","Mohamed Salah","Ahmed Hassan"],"correct":2},
+            {"question":"Quel pays africain a atteint les demi-finales de la Coupe du monde 2022 ?","answers":["Le Cameroun","Le Maroc","Le Sénégal","Le Ghana"],"correct":1},
+            {"question":"Quelle équipe africaine a battu le Brésil en phase de groupes au Mondial 2022 ?","answers":["Le Ghana","Le Cameroun","Le Maroc","La Tunisie"],"correct":1},
+            {"question":"Qui a marqué le but du Cameroun contre le Brésil en 2022 ?","answers":["Eric Choupo-Moting","Bryan Mbeumo","Vincent Aboubakar","Karl Toko Ekambi"],"correct":2},
+            {"question":"Quel pays africain a gagné le tournoi olympique de football en 1996 ?","answers":["Le Ghana","Le Nigeria","Le Cameroun","Le Maroc"],"correct":1},
+            {"question":"Quel est le pays hôte de la Coupe du monde 2026 avec les États-Unis et le Canada ?","answers":["L'Argentine","Le Brésil","Le Mexique","Le Japon"],"correct":2},
+            {"question":"Combien d'équipes participent à la Coupe du monde 2026 ?","answers":["32","24","48","64"],"correct":2},
+            {"question":"Combien d'équipes participaient aux Coupes du monde de 1998 à 2022 ?","answers":["32","24","48","16"],"correct":0},
+            {"question":"Quel club a remporté le plus de Ligues des champions ?","answers":["Le Real Madrid","L'Atlético de Madrid","Le FC Séville","Le FC Barcelone"],"correct":0},
+            {"question":"Quel club anglais est surnommé les \"Red Devils\" ?","answers":["Manchester City","Liverpool","Manchester United","Chelsea"],"correct":2},
+            {"question":"Quel club français a gagné la Ligue des champions en 1993 ?","answers":["Lyon","Monaco","Le PSG","L'Olympique de Marseille"],"correct":3},
+            {"question":"Quel club français a remporté sa première Ligue des champions en 2025 ?","answers":["Monaco","Lyon","L'Olympique de Marseille","Le Paris Saint-Germain"],"correct":3},
+            {"question":"Quel pays a gagné l'Euro 2024 ?","answers":["L'Angleterre","L'Allemagne","La France","L'Espagne"],"correct":3},
+            {"question":"Quel pays a gagné l'Euro 2016 ?","answers":["L'Allemagne","La France","L'Italie","Le Portugal"],"correct":3},
+            {"question":"Quel pays a gagné la Copa América 2024 ?","answers":["L'Uruguay","Le Brésil","La Colombie","L'Argentine"],"correct":3},
+            {"question":"Qu'est-ce que le hors-jeu au football ?","answers":["Une sortie de balle","Une faute de main","Un but contre son camp","Une position irrégulière d'un attaquant au moment de la passe"],"correct":3},
+            {"question":"Que signifie \"VAR\" au football ?","answers":["Variation d'angle rapide","Arbitrage assisté par la vidéo","Validation arbitrale régionale","Vitesse athlétique rapide"],"correct":1},
+            {"question":"Combien de remplacements maximum sont autorisés dans un match de football récent ?","answers":["5","2","3","7"],"correct":0},
+            {"question":"Quelle coupe le Brésil a-t-il gagnée définitivement en 1970 ?","answers":["La Coupe Stanley","La coupe Henri-Delaunay","La Coupe Davis","La coupe Jules-Rimet"],"correct":3},
+            {"question":"Quel trophée récompense le vainqueur de l'Euro de football ?","answers":["La Coupe Davis","Le trophée Henri-Delaunay","La Coupe Stanley","La coupe Jules-Rimet"],"correct":1},
+            {"question":"Quel sport se dispute pour la Coupe Davis ?","answers":["Le golf","Le tennis","Le basket-ball","Le rugby"],"correct":1},
+            {"question":"Quel sport se dispute pour la Coupe Stanley ?","answers":["Le rugby","Le hockey sur glace","Le football","Le tennis"],"correct":1},
+            {"question":"Quel sport se dispute pour la Ryder Cup ?","answers":["Le cricket","Le polo","Le tennis","Le golf"],"correct":3},
+            {"question":"Au tennis, que signifie \"faire le break\" ?","answers":["Servir sans que l'adversaire touche la balle","Faire une double faute","Gagner le service de l'adversaire","Jouer une volée"],"correct":2},
+            {"question":"Qu'est-ce qu'un ace au tennis ?","answers":["Un smash raté","Un lob","Un service que l'adversaire ne touche pas","Une double faute"],"correct":2},
+            {"question":"Quel sport utilise le terme \"slam dunk\" ?","answers":["Le tennis","Le handball","Le volley-ball","Le basket-ball"],"correct":3},
+            {"question":"Quel sport utilise le terme \"essai\" ?","answers":["Le rugby","Le tennis","Le judo","Le golf"],"correct":0},
+            {"question":"Quel sport utilise le terme \"crawl\" ?","answers":["L'escrime","Le tennis","La natation","Le judo"],"correct":2},
+            {"question":"Quel sport utilise un fleuret ?","answers":["Le polo","Le golf","L'escrime","Le tir à l'arc"],"correct":2},
+            {"question":"Quel sport utilise un arc et des flèches ?","answers":["Le tir à l'arc","L'escrime","Le polo","Le curling"],"correct":0},
+            {"question":"Pourquoi s'échauffe-t-on avant le sport ?","answers":["Pour se fatiguer","Pour manger","Pour faire du bruit","Pour préparer les muscles et éviter les blessures"],"correct":3},
+            {"question":"Pourquoi faut-il s'hydrater pendant l'effort ?","answers":["Pour grossir","Pour refroidir le ballon","Pour compenser l'eau perdue par la sueur","Pour dormir"],"correct":2},
+            {"question":"Quel est un bénéfice du sport pratiqué régulièrement ?","answers":["Un sommeil plus mauvais","Des os plus fragiles","Plus de fièvre","Un cœur et des muscles plus forts"],"correct":3},
+            {"question":"Que signifie FIFA ?","answers":["Fédération des illustres footballeurs d'Afrique","Fonds international des fédérations africaines","Fédération internationale de football association","Fédération internationale de football amateur"],"correct":2},
+            {"question":"Que signifie CAF ?","answers":["Comité africain de football","Confédération africaine de football","Coupe d'Afrique de football","Club africain de football"],"correct":1},
+            {"question":"Que signifie CIO ?","answers":["Centre international olympique","Conseil international omnisports","Comité international olympique","Comité d'initiative omnisports"],"correct":2},
+            {"question":"Où se trouve le siège du CIO ?","answers":["Athènes","Paris","Genève","Lausanne"],"correct":3},
+            {"question":"Où se trouve le siège de la FIFA ?","answers":["Londres","Madrid","Paris","Zurich"],"correct":3},
+            {"question":"Quel pays africain a atteint les quarts de finale de la Coupe du monde 2010 ?","answers":["Le Cameroun","Le Nigeria","L'Algérie","Le Ghana"],"correct":3},
+            {"question":"Quelle discipline olympique se joue dans l'eau avec un ballon et des buts ?","answers":["Le beach-volley","Le rugby","Le water-polo","Le hockey"],"correct":2},
+            {"question":"Quelle discipline combine ski de fond et tir à la carabine ?","answers":["Le slalom","Le pentathlon","Le biathlon","Le triathlon"],"correct":2},
+            {"question":"Quelle danse sportive a été présentée aux JO de Paris 2024 ?","answers":["La valse","Le breaking","Le tango","Le flamenco"],"correct":1},
+            {"question":"Avec quel club Samuel Eto'o a-t-il gagné la Ligue des champions en 2006 et 2009 ?","answers":["Chelsea","Le FC Barcelone","Le Real Madrid","La Juventus"],"correct":1},
+            {"question":"Avec quel club italien Samuel Eto'o a-t-il fait le triplé en 2010 ?","answers":["L'AS Rome","La Juventus","L'Inter Milan","L'AC Milan"],"correct":2},
+            {"question":"Quelle est la couleur principale du maillot des Lions Indomptables ?","answers":["Le bleu","Le noir","Le vert","Le blanc"],"correct":2},
+            {"question":"Quelle épreuve olympique est la plus longue sur piste ou route (hors marche) ?","answers":["Le 3 000 m steeple","Le 5 000 m","Le marathon","Le 10 000 m"],"correct":2},
+            {"question":"Combien de tours de piste de 400 m font 10 000 m ?","answers":["50","25","10","40"],"correct":1},
+            {"question":"Combien de tours de piste de 400 m font 5 000 m ?","answers":["8","12,5","10","25"],"correct":1},
+            {"question":"Combien mesure un tour de piste d'athlétisme olympique ?","answers":["200 m","400 m","500 m","800 m"],"correct":1},
+            {"question":"Au football américain, combien de points vaut un touchdown ?","answers":["3","7","5","6"],"correct":3},
+            {"question":"Un match de baseball compte en principe :","answers":["9 manches","5 manches","3 manches","12 manches"],"correct":0},
+            {"question":"Au cricket, que lance le bowler ?","answers":["Le casque","La balle","Le bâton","Le filet"],"correct":1},
+            {"question":"Qu'est-ce qu'un hat-trick au football ?","answers":["Trois cartons","Trois buts d'un même joueur dans un match","Trois arrêts du gardien","Trois passes décisives"],"correct":1},
+            {"question":"Qu'est-ce qu'un corner au football ?","answers":["Un carton","Une touche","Un but contre son camp","Un coup de pied de coin"],"correct":3},
+            {"question":"Quelle est la longueur d'un terrain de football, environ ?","answers":["300 m","Entre 100 et 110 m","20 m","50 m"],"correct":1},
+            {"question":"Comment reprend-on le jeu quand le ballon sort sur le côté au football ?","answers":["Par un corner","Par un penalty","Par une mi-temps","Par une touche"],"correct":3},
+            {"question":"Comment s'appelle la zone où le gardien peut prendre le ballon à la main ?","answers":["La zone technique","La ligne de touche","Le rond central","La surface de réparation"],"correct":3},
+            {"question":"Que signifie \"dribbler\" ?","answers":["Éviter un adversaire en gardant le ballon","Sortir du terrain","Arrêter le ballon à la main","Tirer au but"],"correct":0},
+            {"question":"Qui a gagné la Coupe du monde féminine de football 2023 ?","answers":["Le Japon","L'Angleterre","L'Espagne","Les États-Unis"],"correct":2},
+            {"question":"Qui a gagné la Coupe du monde féminine de football 2019 ?","answers":["Les États-Unis","Les Pays-Bas","La France","Le Japon"],"correct":0},
+            {"question":"Quel pays africain a remporté le plus de CAN féminines ?","answers":["Le Ghana","Le Cameroun","L'Afrique du Sud","Le Nigeria"],"correct":3},
+            {"question":"À quoi sert un dossard lors d'un marathon ?","answers":["À mesurer la distance","À identifier le coureur","À courir plus vite","À se protéger du soleil"],"correct":1},
+            {"question":"Qu'est-ce qu'un sprint ?","answers":["Un lancer","Une course à vitesse maximale sur courte distance","Un saut","Une course très longue"],"correct":1},
+            {"question":"Quel sport pratique-t-on avec une raquette et une balle sur une table ?","answers":["Le squash","Le golf","Le tennis de table","Le badminton"],"correct":2},
+            {"question":"Quel sport pratique-t-on avec un casque, des épaulettes et un ballon ovale aux États-Unis ?","answers":["Le tennis","Le basket-ball","Le football américain","Le volley-ball"],"correct":2},
+            {"question":"Quelle distance parcourt-on dans un marathon ?","answers":["42,195 km","21,097 km","10 km","100 km"],"correct":0},
+            {"question":"Combien de temps dure une mi-temps au football ?","answers":["15 minutes","30 minutes","45 minutes","60 minutes"],"correct":2},
+            {"question":"Quel arbitre contrôle la ligne de touche au football ?","answers":["L'arbitre assistant","L'entraîneur","Le capitaine","Le gardien"],"correct":0},
+            {"question":"Quel sport se joue avec un ballon, des paniers et se pratique à cinq contre cinq ?","answers":["Le volley-ball","Le handball","Le rugby","Le basket-ball"],"correct":3},
+            {"question":"Quelle épreuve de saut utilise une longue tige souple ?","answers":["Le triple saut","Le saut en hauteur","Le saut à la perche","Le saut en longueur"],"correct":2}
+        ]
     },
 
     marathon: {
         name: "GRAND MARATHON",
         total: 101,
         questions: [
-  {
-    "question": "Quelle est la capitale du Cameroun ?",
-    "answers": ["Douala", "Yaounde", "Garoua", "Bafoussam"],
-    "correct": 1
-  },
-  {
-    "question": "Combien de joueurs sur un terrain de football ?",
-    "answers": ["9", "10", "11", "12"],
-    "correct": 2
-  },
-  {
-    "question": "Quel organe pompe le sang ?",
-    "answers": ["Poumon", "Cerveau", "Coeur", "Foie"],
-    "correct": 2
-  },
-  {
-    "question": "Qui a ecrit Les Miserables ?",
-    "answers": ["Voltaire", "Victor Hugo", "Moliere", "Camus"],
-    "correct": 1
-  },
-  {
-    "question": "En quelle annee l'homme a marche sur la Lune ?",
-    "answers": ["1965", "1969", "1972", "1980"],
-    "correct": 1
-  },
-  {
-    "question": "Que signifie HTML ?",
-    "answers": ["HyperText Markup Language", "High Tech Modern Language", "Home Tool Markup Language", "Hyper Tool Multi Language"],
-    "correct": 0
-  },
-  {
-    "question": "Combien font 12 x 15 ?",
-    "answers": ["160", "170", "180", "190"],
-    "correct": 2
-  },
-  {
-    "question": "La photosynthese se fait dans :",
-    "answers": ["Mitochondrie", "Chloroplaste", "Noyau", "Vacuole"],
-    "correct": 1
-  },
-  {
-    "question": "Le marathon fait combien de km ?",
-    "answers": ["21 km", "32 km", "42.195 km", "50 km"],
-    "correct": 2
-  },
-  {
-    "question": "Quel est le plus grand ocean du monde ?",
-    "answers": ["Atlantique", "Indien", "Arctique", "Pacifique"],
-    "correct": 3
-  },
-  {
-    "question": "How do you say 'Bonjour' in English ?",
-    "answers": ["Goodbye", "Good morning", "Good night", "Hello"],
-    "correct": 3
-  },
-  {
-    "question": "Qui a peint la Joconde ?",
-    "answers": ["Van Gogh", "Picasso", "Leonard de Vinci", "Michel-Ange"],
-    "correct": 2
-  },
-  {
-    "question": "Combien de litres de sang a un adulte ?",
-    "answers": ["3L", "4L", "5L", "7L"],
-    "correct": 2
-  },
-  {
-    "question": "Quelle est la racine carree de 144 ?",
-    "answers": ["10", "11", "12", "14"],
-    "correct": 2
-  },
-  {
-    "question": "Dans quel sport utilise-t-on un panier ?",
-    "answers": ["Tennis", "Basket", "Volley", "Handball"],
-    "correct": 1
-  },
-  {
-    "question": "Quel gaz les plantes absorbent-elles ?",
-    "answers": ["Oxygene", "Dioxyde de carbone", "Azote", "Hydrogene"],
-    "correct": 1
-  },
-  {
-    "question": "Qui est l'auteur de Le Petit Prince ?",
-    "answers": ["Albert Camus", "Antoine de Saint-Exupery", "Jean de La Fontaine", "Charles Perrault"],
-    "correct": 1
-  },
-  {
-    "question": "La vitamine C previent :",
-    "answers": ["Rachitisme", "Scorbut", "Anemie", "Cecite"],
-    "correct": 1
-  },
-  {
-    "question": "Quel pays a gagne la Coupe du Monde 2022 ?",
-    "answers": ["France", "Argentine", "Bresil", "Maroc"],
-    "correct": 1
-  },
-  {
-    "question": "Translate 'Livre' in English :",
-    "answers": ["Book", "Pen", "Paper", "Read"],
-    "correct": 0
-  },
-  {
-    "question": "En quelle annee a eu lieu la Revolution francaise ?",
-    "answers": ["1789", "1799", "1804", "1815"],
-    "correct": 0
-  },
-  {
-    "question": "Le plus grand organe du corps :",
-    "answers": ["Foie", "Cerveau", "Peau", "Intestin"],
-    "correct": 2
-  },
-  {
-    "question": "Combien d'anneaux olympiques ?",
-    "answers": ["3", "4", "5", "6"],
-    "correct": 2
-  },
-  {
-    "question": "Quelle est la monnaie du Cameroun ?",
-    "answers": ["Dollar", "Euro", "Franc CFA", "Naira"],
-    "correct": 2
-  },
-  {
-    "question": "Qui a ecrit Candide ?",
-    "answers": ["Voltaire", "Rousseau", "Diderot", "Zola"],
-    "correct": 0
-  },
-  {
-    "question": "Combien font 25% de 200 ?",
-    "answers": ["25", "40", "50", "75"],
-    "correct": 2
-  },
-  {
-    "question": "La capitale de l'Australie est :",
-    "answers": ["Sydney", "Melbourne", "Canberra", "Perth"],
-    "correct": 2
-  },
-  {
-    "question": "Les globules rouges transportent :",
-    "answers": ["Anticorps", "Oxygene", "Graisse", "Sucre"],
-    "correct": 1
-  },
-  {
-    "question": "Quel animal terrestre est le plus rapide ?",
-    "answers": ["Lion", "Guepard", "Cheval", "Autruche"],
-    "correct": 1
-  },
-  {
-    "question": "Who wrote Romeo and Juliet ?",
-    "answers": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
-    "correct": 1
-  },
-  {
-    "question": "Combien d'os a un adulte ?",
-    "answers": ["186", "206", "226", "256"],
-    "correct": 1
-  },
-  {
-    "question": "Le Nil est le plus long fleuve de :",
-    "answers": ["Asie", "Amerique", "Afrique", "Europe"],
-    "correct": 2
-  },
-  {
-    "question": "Resoudre : 2x + 6 = 14. x = ?",
-    "answers": ["3", "4", "5", "6"],
-    "correct": 1
-  },
-  {
-    "question": "L'insuline est produite par :",
-    "answers": ["Foie", "Pancreas", "Rein", "Rate"],
-    "correct": 1
-  },
-  {
-    "question": "Qui a ecrit Madame Bovary ?",
-    "answers": ["Gustave Flaubert", "Emile Zola", "Balzac", "Stendhal"],
-    "correct": 0
-  },
-  {
-    "question": "Le papillon est une nage en :",
-    "answers": ["Athletisme", "Natation", "Cyclisme", "Boxe"],
-    "correct": 1
-  },
-  {
-    "question": "Translate 'Merci' in English :",
-    "answers": ["Please", "Sorry", "Thank you", "Hello"],
-    "correct": 2
-  },
-  {
-    "question": "La tension normale est environ :",
-    "answers": ["8/5", "12/8", "16/10", "20/12"],
-    "correct": 1
-  },
-  {
-    "question": "Quel pigment donne la couleur verte aux feuilles ?",
-    "answers": ["Carotene", "Chlorophylle", "Anthocyane", "Xanthophylle"],
-    "correct": 1
-  },
-  {
-    "question": "En quelle annee a commence la 2eme Guerre Mondiale ?",
-    "answers": ["1914", "1939", "1945", "1950"],
-    "correct": 1
-  },
-  {
-    "question": "Combien de degres dans un triangle ?",
-    "answers": ["90 degres", "180 degres", "270 degres", "360 degres"],
-    "correct": 1
-  },
-  {
-    "question": "Le Ballon d'Or recompense :",
-    "answers": ["Meilleur coach", "Meilleur joueur", "Meilleure equipe", "Meilleur but"],
-    "correct": 1
-  },
-  {
-    "question": "Quel est le desert le plus grand du monde ?",
-    "answers": ["Sahara", "Gobi", "Kalahari", "Arctique"],
-    "correct": 3
-  },
-  {
-    "question": "Who is the author of Harry Potter ?",
-    "answers": ["J.K. Rowling", "Stephen King", "George R.R. Martin", "Suzanne Collins"],
-    "correct": 0
-  },
-  {
-    "question": "Les poumons servent a :",
-    "answers": ["Digerer", "Respirer", "Filtrer", "Penser"],
-    "correct": 1
-  },
-  {
-    "question": "Quelle est l'aire d'un carre de cote 7 ?",
-    "answers": ["14", "28", "49", "56"],
-    "correct": 2
-  },
-  {
-    "question": "Le sport national du Japon :",
-    "answers": ["Karate", "Judo", "Sumo", "Kendo"],
-    "correct": 2
-  },
-  {
-    "question": "La graine contient :",
-    "answers": ["L'embryon", "La seve", "La chlorophylle", "Le pollen"],
-    "correct": 0
-  },
-  {
-    "question": "Qui est considere comme le pere de la psychanalyse ?",
-    "answers": ["Carl Jung", "Sigmund Freud", "Ivan Pavlov", "B.F. Skinner"],
-    "correct": 1
-  },
-  {
-    "question": "Translate 'Chat' in English :",
-    "answers": ["Dog", "Cat", "Bird", "Fish"],
-    "correct": 1
-  },
-  {
-    "question": "Le groupe sanguin donneur universel :",
-    "answers": ["A+", "B-", "AB+", "O-"],
-    "correct": 3
-  },
-  {
-    "question": "Combien font 3^4 ?",
-    "answers": ["12", "27", "64", "81"],
-    "correct": 3
-  },
-  {
-    "question": "La capitale du Bresil est :",
-    "answers": ["Rio de Janeiro", "Sao Paulo", "Brasilia", "Salvador"],
-    "correct": 2
-  },
-  {
-    "question": "Qui a ecrit Les Fleurs du Mal ?",
-    "answers": ["Baudelaire", "Rimbaud", "Verlaine", "Hugo"],
-    "correct": 0
-  },
-  {
-    "question": "Le cerveau a besoin de :",
-    "answers": ["Glucose", "Proteines", "Lipides", "Eau salee"],
-    "correct": 0
-  },
-  {
-    "question": "Combien de joueurs au volley ?",
-    "answers": ["4", "5", "6", "7"],
-    "correct": 2
-  },
-  {
-    "question": "Le PGCD de 12 et 18 est :",
-    "answers": ["2", "3", "6", "9"],
-    "correct": 2
-  },
-  {
-    "question": "Quel pays a la forme d'une botte ?",
-    "answers": ["Espagne", "Italie", "Grece", "Portugal"],
-    "correct": 1
-  },
-  {
-    "question": "Le vaccin sert a :",
-    "answers": ["Guerir", "Prevenir", "Operer", "Soulager"],
-    "correct": 1
-  },
-  {
-    "question": "Translate 'Ecole' in English :",
-    "answers": ["College", "School", "University", "Class"],
-    "correct": 1
-  },
-  {
-    "question": "Qui a ecrit Le Rouge et le Noir ?",
-    "answers": ["Stendhal", "Balzac", "Flaubert", "Maupassant"],
-    "correct": 0
-  },
-  {
-    "question": "Combien font 1/2 + 1/4 ?",
-    "answers": ["1/6", "2/6", "3/4", "1"],
-    "correct": 2
-  },
-  {
-    "question": "La fievre est un signe de :",
-    "answers": ["Bonne sante", "Infection", "Faim", "Sommeil"],
-    "correct": 1
-  },
-  {
-    "question": "Le 100m est une epreuve de :",
-    "answers": ["Fond", "Demi-fond", "Sprint", "Haies"],
-    "correct": 2
-  },
-  {
-    "question": "Combien de continents y a-t-il ?",
-    "answers": ["5", "6", "7", "8"],
-    "correct": 2
-  },
-  {
-    "question": "Qui a ecrit Germinal ?",
-    "answers": ["Zola", "Hugo", "Balzac", "Dumas"],
-    "correct": 0
-  },
-  {
-    "question": "Quelle est la valeur de Pi arrondie ?",
-    "answers": ["3.12", "3.14", "3.16", "3.18"],
-    "correct": 1
-  },
-  {
-    "question": "Combien de reins avons-nous ?",
-    "answers": ["1", "2", "3", "4"],
-    "correct": 1
-  },
-  {
-    "question": "Translate 'Maison' in English :",
-    "answers": ["House", "Home", "Building", "Room"],
-    "correct": 0
-  },
-  {
-    "question": "40-40 au tennis s'appelle :",
-    "answers": ["Avantage", "Egalite", "Jeu", "Set"],
-    "correct": 1
-  },
-  {
-    "question": "Un nombre pair + un nombre pair = ?",
-    "answers": ["Impair", "Pair", "0", "1"],
-    "correct": 1
-  },
-  {
-    "question": "Le paludisme est transmis par :",
-    "answers": ["Mouche", "Moustique", "Puce", "Tique"],
-    "correct": 1
-  },
-  {
-    "question": "Qui a ecrit L'Etranger ?",
-    "answers": ["Camus", "Sartre", "Beauvoir", "Gide"],
-    "correct": 0
-  },
-  {
-    "question": "Combien de cotes a un hexagone ?",
-    "answers": ["5", "6", "7", "8"],
-    "correct": 1
-  },
-  {
-    "question": "La plus grande planete du systeme solaire :",
-    "answers": ["Terre", "Mars", "Jupiter", "Saturne"],
-    "correct": 2
-  },
-  {
-    "question": "10% de 90 = ?",
-    "answers": ["8", "9", "10", "18"],
-    "correct": 1
-  },
-  {
-    "question": "La deshydratation cause :",
-    "answers": ["Sommeil", "Fatigue et soif", "Faim", "Joie"],
-    "correct": 1
-  },
-  {
-    "question": "Translate 'Eau' in English :",
-    "answers": ["Fire", "Air", "Water", "Earth"],
-    "correct": 2
-  },
-  {
-    "question": "Qui a decouvert la penicilline ?",
-    "answers": ["Marie Curie", "Louis Pasteur", "Alexander Fleming", "Albert Einstein"],
-    "correct": 2
-  },
-  {
-    "question": "Volume d'un cube de cote 3 ?",
-    "answers": ["9", "18", "27", "36"],
-    "correct": 2
-  },
-  {
-    "question": "Le pays avec le plus de Coupes du Monde :",
-    "answers": ["Allemagne", "Bresil", "France", "Italie"],
-    "correct": 1
-  },
-  {
-    "question": "Les stomates se trouvent sur :",
-    "answers": ["La racine", "La tige", "La feuille", "La fleur"],
-    "correct": 2
-  },
-  {
-    "question": "Qui a ecrit Notre-Dame de Paris ?",
-    "answers": ["Moliere", "Racine", "Victor Hugo", "Corneille"],
-    "correct": 2
-  },
-  {
-    "question": "Combien font 100 - 37 ?",
-    "answers": ["63", "67", "73", "77"],
-    "correct": 0
-  },
-  {
-    "question": "Le SIDA est cause par :",
-    "answers": ["Bacterie", "Virus VIH", "Champignon", "Parasite"],
-    "correct": 1
-  },
-  {
-    "question": "Translate 'Pain' in English :",
-    "answers": ["Cake", "Bread", "Milk", "Butter"],
-    "correct": 1
-  },
-  {
-    "question": "La NBA est une ligue de :",
-    "answers": ["Football", "Baseball", "Basket", "Hockey"],
-    "correct": 2
-  },
-  {
-    "question": "Le symbole π represente :",
-    "answers": ["Rayon", "Diametre", "Circonference / Diametre", "Aire"],
-    "correct": 2
-  },
-  {
-    "question": "On mesure la temperature avec :",
-    "answers": ["Barometre", "Thermometre", "Tensiometre", "Stethoscope"],
-    "correct": 1
-  },
-  {
-    "question": "Qui est l'auteur de Cyrano de Bergerac ?",
-    "answers": ["Edmond Rostand", "Moliere", "Beaumarchais", "Voltaire"],
-    "correct": 0
-  },
-  {
-    "question": "5! = ?",
-    "answers": ["20", "60", "120", "240"],
-    "correct": 2
-  },
-  {
-    "question": "Les proteines servent a :",
-    "answers": ["Energie rapide", "Construire les muscles", "Hydrater", "Dormir"],
-    "correct": 1
-  },
-  {
-    "question": "Combien de minutes dans 2.5 heures ?",
-    "answers": ["120", "140", "150", "180"],
-    "correct": 2
-  },
-  {
-    "question": "Translate 'Noir' in English :",
-    "answers": ["White", "Red", "Black", "Blue"],
-    "correct": 2
-  },
-  {
-    "question": "Le diabete concerne :",
-    "answers": ["Le sel", "Le sucre dans le sang", "La graisse", "L'eau"],
-    "correct": 1
-  },
-  {
-    "question": "L'equation d'une droite est :",
-    "answers": ["y = ax + b", "x² + y² = r²", "a² + b² = c²", "A = πr²"],
-    "correct": 0
-  },
-  {
-    "question": "Le coeur bat environ :",
-    "answers": ["40 fois/min", "70 fois/min", "120 fois/min", "200 fois/min"],
-    "correct": 1
-  },
-  {
-    "question": "Qui a ecrit Vingt mille lieues sous les mers ?",
-    "answers": ["Jules Verne", "Alexandre Dumas", "Emile Zola", "Victor Hugo"],
-    "correct": 0
-  },
-  {
-    "question": "Combien font 9 x 9 ?",
-    "answers": ["72", "81", "90", "99"],
-    "correct": 1
-  },
-  {
-    "question": "La radiographie sert a voir :",
-    "answers": ["Le sang", "Les os", "La peau", "Le cerveau"],
-    "correct": 1
-  },
-  {
-    "question": "Le Tour de France est une course :",
-    "answers": ["A pied", "Cycliste", "Auto", "Bateau"],
-    "correct": 1
-  }
-]
+            {"question":"Quelle est la capitale du Cameroun ?","answers":["Douala","Yaounde","Garoua","Bafoussam"],"correct":1},
+            {"question":"Combien de joueurs sur un terrain de football ?","answers":["9","10","11","12"],"correct":2},
+            {"question":"Quel organe pompe le sang ?","answers":["Poumon","Cerveau","Coeur","Foie"],"correct":2},
+            {"question":"Qui a ecrit Les Miserables ?","answers":["Voltaire","Victor Hugo","Moliere","Camus"],"correct":1},
+            {"question":"En quelle annee l'homme a marche sur la Lune ?","answers":["1965","1969","1972","1980"],"correct":1},
+            {"question":"Que signifie HTML ?","answers":["HyperText Markup Language","High Tech Modern Language","Home Tool Markup Language","Hyper Tool Multi Language"],"correct":0},
+            {"question":"Combien font 12 x 15 ?","answers":["160","170","180","190"],"correct":2},
+            {"question":"La photosynthese se fait dans :","answers":["Mitochondrie","Chloroplaste","Noyau","Vacuole"],"correct":1},
+            {"question":"Le marathon fait combien de km ?","answers":["21 km","32 km","42.195 km","50 km"],"correct":2},
+            {"question":"Quel est le plus grand ocean du monde ?","answers":["Atlantique","Indien","Arctique","Pacifique"],"correct":3},
+            {"question":"How do you say 'Bonjour' in English ?","answers":["Goodbye","Good morning","Good night","Hello"],"correct":3},
+            {"question":"Qui a peint la Joconde ?","answers":["Van Gogh","Picasso","Leonard de Vinci","Michel-Ange"],"correct":2},
+            {"question":"Combien de litres de sang a un adulte ?","answers":["3L","4L","5L","7L"],"correct":2},
+            {"question":"Quelle est la racine carree de 144 ?","answers":["10","11","12","14"],"correct":2},
+            {"question":"Dans quel sport utilise-t-on un panier ?","answers":["Tennis","Basket","Volley","Handball"],"correct":1},
+            {"question":"Quel gaz les plantes absorbent-elles ?","answers":["Oxygene","Dioxyde de carbone","Azote","Hydrogene"],"correct":1},
+            {"question":"Qui est l'auteur de Le Petit Prince ?","answers":["Albert Camus","Antoine de Saint-Exupery","Jean de La Fontaine","Charles Perrault"],"correct":1},
+            {"question":"La vitamine C previent :","answers":["Rachitisme","Scorbut","Anemie","Cecite"],"correct":1},
+            {"question":"Quel pays a gagne la Coupe du Monde 2022 ?","answers":["France","Argentine","Bresil","Maroc"],"correct":1},
+            {"question":"Translate 'Livre' in English :","answers":["Book","Pen","Paper","Read"],"correct":0},
+            {"question":"En quelle annee a eu lieu la Revolution francaise ?","answers":["1789","1799","1804","1815"],"correct":0},
+            {"question":"Le plus grand organe du corps :","answers":["Foie","Cerveau","Peau","Intestin"],"correct":2},
+            {"question":"Combien d'anneaux olympiques ?","answers":["3","4","5","6"],"correct":2},
+            {"question":"Quelle est la monnaie du Cameroun ?","answers":["Dollar","Euro","Franc CFA","Naira"],"correct":2},
+            {"question":"Qui a ecrit Candide ?","answers":["Voltaire","Rousseau","Diderot","Zola"],"correct":0},
+            {"question":"Combien font 25% de 200 ?","answers":["25","40","50","75"],"correct":2},
+            {"question":"La capitale de l'Australie est :","answers":["Sydney","Melbourne","Canberra","Perth"],"correct":2},
+            {"question":"Les globules rouges transportent :","answers":["Anticorps","Oxygene","Graisse","Sucre"],"correct":1},
+            {"question":"Quel animal terrestre est le plus rapide ?","answers":["Lion","Guepard","Cheval","Autruche"],"correct":1},
+            {"question":"Who wrote Romeo and Juliet ?","answers":["Charles Dickens","William Shakespeare","Jane Austen","Mark Twain"],"correct":1},
+            {"question":"Combien d'os a un adulte ?","answers":["186","206","226","256"],"correct":1},
+            {"question":"Le Nil est le plus long fleuve de :","answers":["Asie","Amerique","Afrique","Europe"],"correct":2},
+            {"question":"Resoudre : 2x + 6 = 14. x = ?","answers":["3","4","5","6"],"correct":1},
+            {"question":"L'insuline est produite par :","answers":["Foie","Pancreas","Rein","Rate"],"correct":1},
+            {"question":"Qui a ecrit Madame Bovary ?","answers":["Gustave Flaubert","Emile Zola","Balzac","Stendhal"],"correct":0},
+            {"question":"Le papillon est une nage en :","answers":["Athletisme","Natation","Cyclisme","Boxe"],"correct":1},
+            {"question":"Translate 'Merci' in English :","answers":["Please","Sorry","Thank you","Hello"],"correct":2},
+            {"question":"La tension normale est environ :","answers":["8/5","12/8","16/10","20/12"],"correct":1},
+            {"question":"Quel pigment donne la couleur verte aux feuilles ?","answers":["Carotene","Chlorophylle","Anthocyane","Xanthophylle"],"correct":1},
+            {"question":"En quelle annee a commence la 2eme Guerre Mondiale ?","answers":["1914","1939","1945","1950"],"correct":1},
+            {"question":"Combien de degres dans un triangle ?","answers":["90 degres","180 degres","270 degres","360 degres"],"correct":1},
+            {"question":"Le Ballon d'Or recompense :","answers":["Meilleur coach","Meilleur joueur","Meilleure equipe","Meilleur but"],"correct":1},
+            {"question":"Quel est le desert le plus grand du monde ?","answers":["Sahara","Gobi","Kalahari","Arctique"],"correct":3},
+            {"question":"Who is the author of Harry Potter ?","answers":["J.K. Rowling","Stephen King","George R.R. Martin","Suzanne Collins"],"correct":0},
+            {"question":"Les poumons servent a :","answers":["Digerer","Respirer","Filtrer","Penser"],"correct":1},
+            {"question":"Quelle est l'aire d'un carre de cote 7 ?","answers":["14","28","49","56"],"correct":2},
+            {"question":"Le sport national du Japon :","answers":["Karate","Judo","Sumo","Kendo"],"correct":2},
+            {"question":"La graine contient :","answers":["L'embryon","La seve","La chlorophylle","Le pollen"],"correct":0},
+            {"question":"Qui est considere comme le pere de la psychanalyse ?","answers":["Carl Jung","Sigmund Freud","Ivan Pavlov","B.F. Skinner"],"correct":1},
+            {"question":"Translate 'Chat' in English :","answers":["Dog","Cat","Bird","Fish"],"correct":1},
+            {"question":"Le groupe sanguin donneur universel :","answers":["A+","B-","AB+","O-"],"correct":3},
+            {"question":"Combien font 3^4 ?","answers":["12","27","64","81"],"correct":3},
+            {"question":"La capitale du Bresil est :","answers":["Rio de Janeiro","Sao Paulo","Brasilia","Salvador"],"correct":2},
+            {"question":"Qui a ecrit Les Fleurs du Mal ?","answers":["Baudelaire","Rimbaud","Verlaine","Hugo"],"correct":0},
+            {"question":"Le cerveau a besoin de :","answers":["Glucose","Proteines","Lipides","Eau salee"],"correct":0},
+            {"question":"Combien de joueurs au volley ?","answers":["4","5","6","7"],"correct":2},
+            {"question":"Le PGCD de 12 et 18 est :","answers":["2","3","6","9"],"correct":2},
+            {"question":"Quel pays a la forme d'une botte ?","answers":["Espagne","Italie","Grece","Portugal"],"correct":1},
+            {"question":"Le vaccin sert a :","answers":["Guerir","Prevenir","Operer","Soulager"],"correct":1},
+            {"question":"Translate 'Ecole' in English :","answers":["College","School","University","Class"],"correct":1},
+            {"question":"Qui a ecrit Le Rouge et le Noir ?","answers":["Stendhal","Balzac","Flaubert","Maupassant"],"correct":0},
+            {"question":"Combien font 1/2 + 1/4 ?","answers":["1/6","2/6","3/4","1"],"correct":2},
+            {"question":"La fievre est un signe de :","answers":["Bonne sante","Infection","Faim","Sommeil"],"correct":1},
+            {"question":"Le 100m est une epreuve de :","answers":["Fond","Demi-fond","Sprint","Haies"],"correct":2},
+            {"question":"Combien de continents y a-t-il ?","answers":["5","6","7","8"],"correct":2},
+            {"question":"Qui a ecrit Germinal ?","answers":["Zola","Hugo","Balzac","Dumas"],"correct":0},
+            {"question":"Quelle est la valeur de Pi arrondie ?","answers":["3.12","3.14","3.16","3.18"],"correct":1},
+            {"question":"Combien de reins avons-nous ?","answers":["1","2","3","4"],"correct":1},
+            {"question":"Translate 'Maison' in English :","answers":["House","Home","Building","Room"],"correct":0},
+            {"question":"40-40 au tennis s'appelle :","answers":["Avantage","Egalite","Jeu","Set"],"correct":1},
+            {"question":"Un nombre pair + un nombre pair = ?","answers":["Impair","Pair","0","1"],"correct":1},
+            {"question":"Le paludisme est transmis par :","answers":["Mouche","Moustique","Puce","Tique"],"correct":1},
+            {"question":"Qui a ecrit L'Etranger ?","answers":["Camus","Sartre","Beauvoir","Gide"],"correct":0},
+            {"question":"Combien de cotes a un hexagone ?","answers":["5","6","7","8"],"correct":1},
+            {"question":"La plus grande planete du systeme solaire :","answers":["Terre","Mars","Jupiter","Saturne"],"correct":2},
+            {"question":"10% de 90 = ?","answers":["8","9","10","18"],"correct":1},
+            {"question":"La deshydratation cause :","answers":["Sommeil","Fatigue et soif","Faim","Joie"],"correct":1},
+            {"question":"Translate 'Eau' in English :","answers":["Fire","Air","Water","Earth"],"correct":2},
+            {"question":"Qui a decouvert la penicilline ?","answers":["Marie Curie","Louis Pasteur","Alexander Fleming","Albert Einstein"],"correct":2},
+            {"question":"Volume d'un cube de cote 3 ?","answers":["9","18","27","36"],"correct":2},
+            {"question":"Le pays avec le plus de Coupes du Monde :","answers":["Allemagne","Bresil","France","Italie"],"correct":1},
+            {"question":"Les stomates se trouvent sur :","answers":["La racine","La tige","La feuille","La fleur"],"correct":2},
+            {"question":"Qui a ecrit Notre-Dame de Paris ?","answers":["Moliere","Racine","Victor Hugo","Corneille"],"correct":2},
+            {"question":"Combien font 100 - 37 ?","answers":["63","67","73","77"],"correct":0},
+            {"question":"Le SIDA est cause par :","answers":["Bacterie","Virus VIH","Champignon","Parasite"],"correct":1},
+            {"question":"Translate 'Pain' in English :","answers":["Cake","Bread","Milk","Butter"],"correct":1},
+            {"question":"La NBA est une ligue de :","answers":["Football","Baseball","Basket","Hockey"],"correct":2},
+            {"question":"Le symbole π represente :","answers":["Rayon","Diametre","Circonference / Diametre","Aire"],"correct":2},
+            {"question":"On mesure la temperature avec :","answers":["Barometre","Thermometre","Tensiometre","Stethoscope"],"correct":1},
+            {"question":"Qui est l'auteur de Cyrano de Bergerac ?","answers":["Edmond Rostand","Moliere","Beaumarchais","Voltaire"],"correct":0},
+            {"question":"5! = ?","answers":["20","60","120","240"],"correct":2},
+            {"question":"Les proteines servent a :","answers":["Energie rapide","Construire les muscles","Hydrater","Dormir"],"correct":1},
+            {"question":"Combien de minutes dans 2.5 heures ?","answers":["120","140","150","180"],"correct":2},
+            {"question":"Translate 'Noir' in English :","answers":["White","Red","Black","Blue"],"correct":2},
+            {"question":"Le diabete concerne :","answers":["Le sel","Le sucre dans le sang","La graisse","L'eau"],"correct":1},
+            {"question":"L'equation d'une droite est :","answers":["y = ax + b","x² + y² = r²","a² + b² = c²","A = πr²"],"correct":0},
+            {"question":"Le coeur bat environ :","answers":["40 fois/min","70 fois/min","120 fois/min","200 fois/min"],"correct":1},
+            {"question":"Qui a ecrit Vingt mille lieues sous les mers ?","answers":["Jules Verne","Alexandre Dumas","Emile Zola","Victor Hugo"],"correct":0},
+            {"question":"Combien font 9 x 9 ?","answers":["72","81","90","99"],"correct":1},
+            {"question":"La radiographie sert a voir :","answers":["Le sang","Les os","La peau","Le cerveau"],"correct":1},
+            {"question":"Le Tour de France est une course :","answers":["A pied","Cycliste","Auto","Bateau"],"correct":1}
+        ]
     }
 };
+
+/* ==================== GRAND MARATHON ====================
+   Réunit les questions des quatre thèmes et les questions propres au
+   marathon, sans doublon : le Marathon dispose ainsi d'une très grande
+   réserve et chaque partie de 101 questions est différente. */
+(function buildMarathonPool() {
+    const normalize = function(text) {
+        return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+    };
+    const known = {};
+    const pool = [];
+    ["maths", "biology", "medecine", "sport", "marathon"].forEach(function(key) {
+        quizData[key].questions.forEach(function(item) {
+            const id = normalize(item.question);
+            if (!known[id]) { known[id] = true; pool.push(item); }
+        });
+    });
+    quizData.marathon.questions = pool;
+})();

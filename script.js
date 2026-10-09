@@ -248,7 +248,15 @@ function canSpeak() {
 function speechText(text) {
 
     return String(text)
+        .replace(/cm²/g, " centimètres carrés")
+        .replace(/cm³/g, " centimètres cubes")
         .replace(/²/g, " au carré")
+        .replace(/³/g, " au cube")
+        .replace(/√/g, " racine carrée de ")
+        .replace(/÷/g, " divisé par ")
+        .replace(/°C/g, " degrés Celsius")
+        .replace(/°/g, " degrés")
+        .replace(/\^-(\d+)/g, " puissance moins $1")
         .replace(/\^(\d+)/g, " puissance $1")
         .replace(/(\d\s?(?:m|cm|km)?)\s*[x×]\s*(?=\d)/g, "$1 fois ")
         .replace(/\b([a-z])\s+[x×]\s+([a-z])\b/gi, "$1 fois $2")
@@ -259,7 +267,7 @@ function speechText(text) {
         .replace(/([a-z])\/([a-z])/gi, "$1 sur $2")
         .replace(/\s\/\s/g, " sur ")
         .replace(/(\d)\.(\d)/g, "$1,$2")
-        .replace(/(\d)\s-\s(?=\d)/g, "$1 moins ")
+        .replace(/(\d)\s-\s(?=[\d(])/g, "$1 moins ")
         .replace(/(\d)-(?=\d)/g, "$1 ")
         .replace(/\bAB\+/g, "A B plus")
         .replace(/\+/g, " plus ")
@@ -341,6 +349,114 @@ function speakSequence(texts, onDone) {
 
 
 /* =====================================================================
+   TIRAGE ALÉATOIRE DES QUESTIONS
+   ===================================================================== */
+
+/*
+ * Mélange de Fisher-Yates : on parcourt le tableau de la fin vers le début
+ * et on échange chaque case avec une case choisie au hasard parmi celles
+ * qui restent. Chaque ordre possible a exactement la même probabilité.
+ * La fonction travaille sur une COPIE : le tableau d'origine n'est pas modifié.
+ */
+function shuffle(array) {
+
+    const result = array.slice();
+
+    for (let i = result.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = result[i];
+        result[i] = result[j];
+        result[j] = temp;
+    }
+
+    return result;
+}
+
+/* Identifiant court et stable d'une question (sert à se souvenir de celles déjà vues) */
+function questionKey(item) {
+
+    /* Empreinte cyrb53 : très peu de risque que deux questions aient la même */
+    const text = item.question;
+    let h1 = 0xdeadbeef, h2 = 0x41c6ce57;
+
+    for (let i = 0; i < text.length; i++) {
+        const code = text.charCodeAt(i);
+        h1 = Math.imul(h1 ^ code, 2654435761);
+        h2 = Math.imul(h2 ^ code, 1597334677);
+    }
+
+    h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+    h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+
+    return (4294967296 * (2097151 & h2) + (h1 >>> 0)).toString(36);
+}
+
+/* Mélange les réponses d'une question et recalcule la position de la bonne */
+function shuffleAnswers(item) {
+
+    const options = item.answers.map(function(answer, index) {
+        return { text: answer, isCorrect: index === item.correct };
+    });
+
+    const mixed = shuffle(options);
+
+    return {
+        question: item.question,
+        answers: mixed.map(function(option) { return option.text; }),
+        correct: mixed.findIndex(function(option) { return option.isCorrect; })
+    };
+}
+
+/*
+ * Prépare une partie :
+ *  1. on prend d'abord des questions que CE joueur n'a pas encore vues
+ *     pour ce thème ;
+ *  2. si le stock de questions neuves ne suffit plus, on complète avec
+ *     des questions déjà vues et la mémoire du thème repart à zéro ;
+ *  3. on mélange l'ordre des questions, puis l'ordre des réponses.
+ */
+function buildGame(themeKey, player) {
+
+    const quiz = quizData[themeKey];
+    const pool = quiz.questions;
+    const size = Math.min(quiz.gameSize || quiz.total, pool.length);
+
+    let seenKeys = [];
+
+    if (player) {
+        player.seen = player.seen || {};
+        seenKeys = player.seen[themeKey] || [];
+    }
+
+    const fresh = shuffle(pool.filter(function(item) {
+        return seenKeys.indexOf(questionKey(item)) === -1;
+    }));
+
+    let chosen;
+
+    if (fresh.length >= size) {
+        chosen = fresh.slice(0, size);
+        seenKeys = seenKeys.concat(chosen.map(questionKey));
+    } else {
+        const freshKeys = fresh.map(questionKey);
+        const others = shuffle(pool.filter(function(item) {
+            return freshKeys.indexOf(questionKey(item)) === -1;
+        }));
+
+        chosen = fresh.concat(others.slice(0, size - fresh.length));
+        seenKeys = chosen.slice(fresh.length).map(questionKey);
+    }
+
+    if (player) {
+        player.seen[themeKey] = seenKeys;
+        saveDB();
+    }
+
+    return shuffle(chosen).map(shuffleAnswers);
+}
+
+
+/* =====================================================================
    ÉLÉMENTS HTML
    ===================================================================== */
 
@@ -410,6 +526,7 @@ const modalCancel = document.getElementById("modalCancel");
 let helloPrefix = "Bonjour";
 let currentTheme = "";
 let currentQuestion = 0;
+let gameQuestions = [];
 let score = 0;
 let pendingTheme = "";
 let rankFilter = "all";
@@ -833,6 +950,7 @@ function startQuiz(theme) {
     currentTheme = theme;
     currentQuestion = 0;
     score = 0;
+    gameQuestions = buildGame(theme, getCurrentPlayer());
 
     showScreen(quizScreen);
 
@@ -843,19 +961,19 @@ function loadQuestion() {
 
     const quiz = quizData[currentTheme];
 
-    if (currentQuestion >= quiz.questions.length) {
+    if (currentQuestion >= gameQuestions.length) {
         finishQuiz();
         return;
     }
 
-    const question = quiz.questions[currentQuestion];
+    const question = gameQuestions[currentQuestion];
 
     quizCategory.textContent = quiz.name;
 
     questionCounter.textContent =
-        "Question " + (currentQuestion + 1) + "/" + quiz.total;
+        "Question " + (currentQuestion + 1) + "/" + gameQuestions.length;
 
-    const progress = ((currentQuestion + 1) / quiz.total) * 100;
+    const progress = ((currentQuestion + 1) / gameQuestions.length) * 100;
     progressBar.style.width = Math.min(progress, 100) + "%";
 
     questionText.textContent = question.question;
@@ -946,7 +1064,7 @@ function finishQuiz() {
 
     const quiz = quizData[currentTheme];
     const player = getCurrentPlayer();
-    const total = quiz.questions.length;
+    const total = gameQuestions.length;
 
     finalScore.textContent = score + " / " + total;
 
